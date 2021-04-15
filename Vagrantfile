@@ -39,7 +39,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "win2k8r2_dev" do|win2k8r2_dev|
     win2k8r2_dev.vm.box = "redbull05689/2008r2"
-    win2k8r2_dev.vm.box_version = "0.1"
+    # win2k8r2_dev.vm.box_url = "https://vagrantcloud.com/redbull05689/2008r2"
+    # win2k8r2_dev.vm.box_version = "0.1"
     win2k8r2_dev.vm.guest = :windows
     
     win2k8r2_dev.vm.communicator = "winrm"
