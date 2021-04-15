@@ -56,8 +56,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     win2k8r2_dev.vm.provision :shell, path: "vagrant-scripts/setup-winrm.cmd"  
 
     # synced folder
-    win2k8r2_dev.vm.synced_folder "./shared", "/host_shared"
-    win2k8r2_dev.vm.synced_folder "./src", "/src"
+    # win2k8r2_dev.vm.synced_folder "./shared", "/host_shared"
+    # win2k8r2_dev.vm.synced_folder "./src", "/src"
     # .NET 4.5
     # win2k8r2_dev.vm.provision :shell, path: "vagrant-scripts/install-dot-net.ps1"  
     # win2k8r2_dev.vm.provision :shell, path: "vagrant-scripts/install-dot-net-45.cmd"
