@@ -78,8 +78,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     win2k8r2_dev.vm.provision :shell, path: "vagrant-scripts/copy-website.ps1"
     
     
-    win2k8r2_dev.vm.provision :shell, path: "vagrant-scripts/creating-website-in-iis.cmd"
-    win2k8r2_dev.vm.provision :shell, path: "vagrant-scripts/setup-permissions-for-website-folder.ps1"
+    # win2k8r2_dev.vm.provision :shell, path: "vagrant-scripts/creating-website-in-iis.cmd"
+    # win2k8r2_dev.vm.provision :shell, path: "vagrant-scripts/setup-permissions-for-website-folder.ps1"
               
   end
 end
