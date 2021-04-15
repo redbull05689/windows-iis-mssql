@@ -1,0 +1,979 @@
+* {
+    font-family: Lato, Helvetica!important;
+    box-sizing: border-box;
+}
+
+.label{
+    display: block;
+    height:auto;
+    line-height: 24px;
+}
+.fieldHolder{
+    position:relative;
+    margin-bottom: 15px;
+}
+
+.displayTable .field{
+    text-align:center;
+    padding:0px;
+}
+
+.displayTable .field .displayTable .field .displayTable .field{
+    text-align:center;
+    padding:0px;
+}
+
+.displayTable .field .field .field{
+    text-align:center;
+    padding:10px;
+}
+
+.displayTable .field .displayTable .field{
+    text-align:center;
+    padding:0px;
+}
+
+.displayTable .field .field .field .field .field .field{
+    text-align:center;
+    padding:10px;
+}
+
+.displayTable .field .field .field .field .field .field .field{
+    text-align:center;
+    padding:0px;
+}
+
+.displayTable .field .field .field .field .field .field .field .field .field{
+    text-align:center;
+    padding:10px;
+}
+
+
+
+.displayTable .fieldHolder .fieldHolder{
+    display:inline-block;
+    margin:-1px 0 0 -1px;
+    min-width:200px;
+    border:1px solid black;
+    padding:2px;
+}
+
+.displayTable .fieldHolder .fieldHolder .fieldHolder{
+    display:block;
+    border:none;
+    margin:0;
+    padding:0;
+}
+
+.displayTable .fieldHolder .fieldHolder .displayTable .fieldHolder .fieldHolder{
+    display:inline-block;
+    margin:-1px 0 0 -1px;
+    min-width:200px;
+    border:1px solid black;
+    padding:2px;
+}
+
+.displayTable .fieldHolder .fieldHolder .fieldHolder .fieldHolder .fieldHolder .fieldHolder{
+    display:block;
+    border:none;
+    margin:0;
+    padding:0;
+}
+
+.displayTable .fieldHolder .fieldHolder .displayTable .fieldHolder .fieldHolder .displayTable .fieldHolder .fieldHolder{
+    display:inline-block;
+    margin:-1px 0 0 -1px;
+    min-width:200px;
+    border:1px solid black;
+    padding:2px;
+}
+
+.displayTable .fieldHolder .fieldHolder .fieldHolder .fieldHolder .fieldHolder .fieldHolder .fieldHolder .fieldHolder .fieldHolder{
+    display:block;
+    border:none;
+    margin:0;
+    padding:0;
+}
+
+.tableHead{
+    text-align:left;
+}
+
+.tableHeader{
+    display:inline-block;
+    margin:-1px 0 0 -1px;
+    min-width:200px;
+    text-align:center;
+    border:1px solid black;
+    padding:2px;
+}
+
+
+.field{
+    /* background-color:#aaa; */
+    /* border:1px solid #aaa; */
+    /* display:inline-block; */
+    vertical-align:top;
+}
+.fieldValue{
+    position:relative;
+}
+.value{
+    /*background-color:white;*/
+}
+.removeParentLink{
+    width: auto;
+    height: auto;
+    margin-left: 5px;
+}
+input[type="text"] + .removeParentLink {
+    margin-top: 9px;
+    vertical-align: top;
+    display: inline-block;
+}
+body {
+    margin: 0;
+    background: #2AC57A;
+}
+/* The display: table; in the #test/2/3 helps to size the elements inside so that if there's something like a really wide <select>, it won't just go way past its containing element and break the look of things - the elements containing it will stretch to accommodate the ridiculously wide <select>... */
+div#test2 {
+    padding: 15px 15px;
+    border-bottom: 1px solid #000;
+    background-color: #85CADA;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    overflow-x: scroll;
+}
+
+div#test3 {
+    padding: 15px 15px;
+    border-bottom: 1px solid #000;
+    background-color: #F6F6F6;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    overflow-x: scroll;
+}
+
+div#test {
+    padding: 15px 15px;
+    border-bottom: 1px solid #000;
+    background-color: #F6F6F6;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    overflow-x: scroll;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 300;
+}
+
+div#buttonHolder input[type="button"] {
+    background: #FFFFFF;
+    border: 1px solid #B7B7B7;
+    padding: 5px 18px;
+    height: auto;
+    width: auto;
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 6px!important;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Lato;
+    line-height: 25px;
+    color: #000;
+}
+
+div#buttonHolder input[type="button"]:hover, div#buttonHolder input[type="button"]:focus {
+    background: #EFEFEF;
+}
+
+.fieldHolder div.label {
+    font-size: 14px;
+    color: #4E5252;
+    display: block;
+    margin-top: 0px;
+    line-height: 20px;
+    font-family: Lato, Arial, Helvetica!important;
+    font-weight: 700;
+}
+
+div.fieldValue input[type="text"] {
+    color: black;
+    margin-left: 14px;
+    display: inline-block;
+    word-break: break-word;
+    width: 400px;
+    max-width: calc(72%);
+    font-size: 16px;
+    line-height: 130%;
+    -webkit-appearance: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    border: 1px solid #D2D2D2;
+    padding: 3px 8px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.fieldHolder.fs_fields, .fieldHolder.fieldSetHolder,.fieldHolder.fieldSetHolder > div.field > div.fieldHolder {
+    background-color: rgba(93, 93, 93, 0.04);
+    padding: 26px 0px 20px 20px;
+    margin-top: 11px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    margin-bottom: 20px;
+    border-left: 2px solid #00B2BA;
+}
+
+input[type="checkbox"] {
+    font-size: 16px;
+}
+
+select {
+    font-size: 16px;
+    margin-left: 15px;
+}
+
+body > div#test3 > div.fieldHolder:not(.fn_name):not(.fn_fields) {
+    /* display: inline-block; */
+    /* width: 200px; */
+}
+
+.fieldHolder.fn_multi, .fieldHolder.fn_required, .fieldHolder.fn_inTable, .fieldHolder.fn_isTableLink {
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    position: relative;
+    padding-left: 0px;
+    padding-right: 10px;
+    border-right: 1px solid #FFF;
+    margin-bottom: 20px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.fieldHolder.fn_multi div.label, 
+.fieldHolder.fn_required div.label, 
+.fieldHolder.fn_inTable div.label, 
+.fieldHolder.fn_isTableLink div.label {
+    padding-left: 23px;
+    text-align: left;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.fieldHolder.fn_multi div.field, 
+.fieldHolder.fn_required div.field, 
+.fieldHolder.fn_inTable div.field, 
+.fieldHolder.fn_isTableLink div.field {
+    position: absolute;
+    left: 5px;
+    top: 12px;
+}
+
+.fieldHolder.fn_isTableLink {
+    border-right: none;
+}
+
+.fieldHolder.fn_afterChange > div.field > div.fieldValue > textarea,.fieldHolder.fn_afterShow > div.field > div.fieldValue > textarea {
+    width: 400px;
+    height: 80px;
+    font-weight: 400;
+    color: black;
+    margin-left: 14px;
+    display: block;
+    word-break: break-word;
+    max-width: 72%;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+.fieldHolder.fn_fields.fieldSetHolder > div.label:first-of-type {
+    font-size: 30px;
+    text-transform: capitalize;
+    line-height: 30px;
+    margin-top: 5px;
+}
+
+.removeButtonContainer {
+    display: inline-block;
+    background: #FF0000;
+    border-radius: 5px;
+    padding-right: 7px;
+}
+
+.removebuttoncontainer > div.removeButtonText {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    font-size: 11px;
+    margin-left: -2px;
+}
+
+a.sortLink {
+    background: rgb(8,116,224);
+    padding: 8px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    position: absolute;
+    top: 6px;
+    right: 125px;
+    z-index: 2;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.fixedTableHeader > div {
+    display: inline-block;
+    border-bottom: 2px solid #7D7D7D;
+    padding: 6px 7px;
+    white-space: nowrap;
+    background: rgb(255, 255, 255);
+    text-align: center;
+    font-weight: bold;
+}
+
+.fieldHolder > div.field > div.fieldValue > select {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.addButtonContainer {
+    display: inline-block;
+    background: #3DAA2F;
+    border-radius: 5px;
+    padding-right: 9px;
+    padding-left: 3px;
+}
+
+.addbuttoncontainer > div.addButtonText {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 32px;
+    margin-left: -2px;
+}
+
+.addButtonContainer > img {
+    vertical-align: top;
+    padding: 0px;
+    margin-top: 4px;
+    margin-right: 4px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+a.addLink {
+    margin-top: 7px;
+    display: inline-block;
+}
+
+.fieldHolder[fieldtype="checkbox"] .label,.fieldHolder[fieldtype="checkbox"] .field {
+    display: inline-block;
+    margin-top: 0;
+}
+
+.fieldHolder[fieldtype="checkbox"] .label {
+    margin-left: 4px;
+}
+
+.fieldHolder.fs_fields:last-of-type + a.addLink .addButtonContainer img {
+    display: none;
+}
+
+.fieldHolder.fs_fields:last-of-type + a.addLink .addButtonContainer .addButtonText {
+    font-size: 16px;
+    line-height: 25px;
+    color: #000;
+}
+
+.fieldHolder.fs_fields:last-of-type + a.addLink {
+    margin-bottom: 24px;
+}
+
+.fieldHolder.fs_fields:last-of-type + a.addLink .addButtonContainer {
+    background-color: transparent;
+}
+
+.fieldHolder.fs_fields:last-of-type + a.addLink .addButtonContainer .addButtonText:before {
+    content: "+";
+    padding-right: 4px;
+}
+
+.fieldHolder.fs_fields:last-of-type + a.addLink .addButtonContainer .addButtonText {
+    background: #FFFFFF;
+    border: 1px solid #B7B7B7;
+    padding: 5px 18px;
+    height: auto;
+    width: auto;
+    font-size: 17px;
+    font-weight: 300;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Lato;
+    line-height: 23px;
+    color: #000;
+}
+
+.fieldHolder.fs_fields:last-of-type + a.addLink .addButtonContainer .addButtonText:hover, .fieldHolder.fs_fields:last-of-type + a.addLink .addButtonContainer .addButtonText:focus {
+    background: #EFEFEF;
+}
+
+.fieldHolder[fieldtype="checkbox"] {
+    margin-bottom: 14px;
+}
+
+.fieldHolder[fieldtype="checkbox"] .field .fieldValue input[type="checkbox"]:after {
+    padding-right: 22px;    
+    content: "";
+    display: block;
+    width: 130px;
+    height: 14px;
+}
+
+.fieldHolder.fn_multi .field .fieldValue input[type="checkbox"]:after, .fieldHolder.fn_required .field .fieldValue input[type="checkbox"]:after, .fieldHolder.fn_inTable .field .fieldValue input[type="checkbox"]:after, .fieldHolder.fn_isTableLink .field .fieldValue input[type="checkbox"]:after {
+    width: 37px;
+}
+
+.fieldHolder.fs_fields:last-of-type + a.addLink .addButtonContainer .addButtonText:after {
+    content: " Field";
+}
+
+a.moveUpButton {
+    background: url('../images/moveUp.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    display: block;
+    height: 24px;
+    margin-left: -20px;
+    margin-bottom: -20px;
+    width: 40px;
+    background-color: #F9F9F9;
+    border: 1px solid #CACACA;
+    display: none;
+}
+a.moveDownButton {
+    background: url('../images/moveDown.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    display: block;
+    height: 24px;
+    margin-left: -20px;
+    margin-top: 20px;
+    margin-bottom: -20px;
+    width: 40px;
+    background-color: #F9F9F9;
+    border: 1px solid #CACACA;
+    border-top: none;
+    display: none;
+}
+
+.fieldHolder[fieldtype="select"] {
+    margin-top: 11px;
+    margin-bottom: 24px;
+}
+
+.fieldHolder.fs_fields > .removeParentLink:first-child, 
+.fieldHolder.fieldSetHolder > div.field > div.fieldHolder > a.removeParentLink {
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    width: auto;
+    height: auto;
+    z-index: 1;
+}
+
+.fieldHolder.fs_fields > .removeParentLink:first-child .removebuttoncontainer,
+.fieldHolder.fieldSetHolder > div.field > div.fieldHolder > a.removeParentLink .removebuttoncontainer {
+    background: transparent;
+    padding: 0;
+}
+
+.fieldHolder.fs_fields > .removeParentLink:first-child .removebuttoncontainer > img,
+.fieldHolder.fieldSetHolder > div.field > div.fieldHolder > a.removeParentLink .removebuttoncontainer > img {
+    display: none;
+}
+
+.fieldHolder.fs_fields > .removeParentLink:first-child .removebuttoncontainer > div.removeButtonText:after {
+    content: " Field";
+}
+
+.fieldHolder.fs_fields > .removeParentLink:first-child .removebuttoncontainer > div.removeButtonText,
+.fieldHolder.fieldSetHolder > div.field > div.fieldHolder > a.removeParentLink .removebuttoncontainer > div.removeButtonText {
+    background: #E00808;
+    padding: 8px;
+    font-size: 15px;
+}
+
+div[fieldtype="heading"] > h2 {
+    -webkit-font-smoothing: antialiased;
+    color: #4E5252;
+    font-weight: 700;
+    font-size: 30px;
+    text-transform: capitalize;
+    line-height: 30px;
+    margin-top: 34px;
+    margin-bottom: 10px;
+}
+
+table.tableViewTable {
+    background: #000000;
+    border-spacing: 0px;
+}
+
+table.tableViewTable table.tableViewTable {
+    background: transparent;
+    border: 1px solid #797979;
+    border-left: 3px solid #00B2BA;
+    /* border-radius: 10px; */
+}
+
+table.tableViewTable thead th {
+    border-bottom: 2px solid #7D7D7D;
+    padding: 6px 7px;
+    white-space: nowrap;
+    background: rgb(255, 255, 255);
+}
+
+table.tableViewTable tbody td {
+    padding: 3px 6px;
+    background: #F6F6F6;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+table.tableViewTable tbody td:last-of-type {
+    border-right: none;
+}
+
+div#tableView {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    overflow-x: scroll;
+}
+
+table.tableViewTable tbody td.innerTableContainerCell {
+    padding: 40px;
+    background: rgb(255, 255, 255);
+    box-shadow: inset 1px 0px 20px -3px black;
+    position: relative;
+}
+
+table.tableViewTable tbody td table.tableViewTable tbody td {
+    background: rgba(33, 33, 33, 0.07);
+}
+
+table.tableViewTable tbody td table.tableViewTable tbody td.fieldNotFound {
+    background: rgba(33, 33, 33, 0.16);
+    text-align: center;
+}
+
+table.tableViewTable tbody td.fieldNotFound {
+    background: rgb(220, 220, 220);
+    text-align: center;
+}
+
+.doNotWrap {
+    white-space: nowrap;
+    padding: 0;
+}
+
+.fieldHolder.fieldSetHolder::before {
+    content: "-";
+    position: absolute;
+    left: -16px;
+    top: 30px;
+    font-size: 38px;
+    line-height: 29px;
+    background: white;
+    width: 30px;
+    text-align: center;
+    padding-bottom: 2px;
+    cursor: pointer;
+    border: 2px solid #bbbbbb;
+    border-right: none;
+    border-left: none;
+}
+.fieldHolder.fieldSetHolder.collapsed::before {
+    content: "+";
+}
+.fieldHolder.fieldSetHolder.collapsed > .field {
+    display: none;
+}
+
+table.tableViewTable tbody td.innerTableContainerCell:before {
+    content: "- Collapse Table";
+    border: 2px solid #585858;
+    font-size: 17px;
+    padding: 4px 8px;
+    margin-top: -19px;
+    margin-bottom: 18px;
+    margin-left: -12px;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.74);
+    width: 140px;
+    box-sizing: border-box;
+}
+table.tableViewTable tbody td.innerTableContainerCell.collapsed:before {
+    content: "+ Expand Table";
+}
+table.tableViewTable tbody td.innerTableContainerCell.collapsed > table.tableViewTable {
+    display: none;
+}
+
+table.tableViewTable tbody td.innerTableContainerCell:after {
+    content: "Remove This Field";
+    position: absolute;
+    top: 21px;
+    left: 188px;
+    background: #E00808;
+    padding: 7px 10px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.fixedTableHeader {
+    position: relative;
+    display: block;
+    white-space: nowrap;
+    z-index: 5;
+    height: 0;
+}
+
+.dd {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 700px;
+    list-style: none;
+    font-size: 13px;
+    line-height: 20px;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.dd-list {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dd-list .dd-list {
+    padding-left: 30px;
+}
+
+.dd-collapsed .dd-list {
+    display: none;
+}
+
+.dd-item,
+.dd-empty,
+.dd-placeholder {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    min-height: 20px;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.dd-handle {
+    display: block;
+    height: 30px;
+    margin: 5px 0;
+    padding: 5px 10px 5px 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border-left: 3px solid #00B2BA;
+    background: rgba(93, 93, 93, 0.04);
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.dd-handle:hover:not(.dd-nodrag) {
+    background: rgba(0, 178, 186, 0.34);
+    box-shadow: 0px 2px 2px 0px #b9b9b9;
+}
+
+.dd-item > button {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    float: left;
+    width: 25px;
+    height: 20px;
+    margin: 5px 0;
+    padding: 0;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 0;
+    background: transparent;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    font-weight: bold;
+}
+
+.dd-item > button:before {
+    content: '+';
+    display: block;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    text-indent: 0;
+}
+
+.dd-item > button[data-action="collapse"]:before {
+    content: '-';
+}
+
+.dd-placeholder,
+.dd-empty {
+    margin: 5px 0;
+    padding: 0;
+    min-height: 30px;
+    background: #d6d6d6;
+    color: #b5b5b5;
+    border: 1px dashed #b6bcbf;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.dd-empty {
+    border: 1px dashed #bbb;
+    min-height: 100px;
+    background-color: #e5e5e5;
+    background-image: -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff), -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image: -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff), -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image: linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff), linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+}
+
+.dd-dragel {
+    position: absolute;
+    pointer-events: none;
+    z-index: 10002;
+}
+
+.dd-dragel > .dd-item .dd-handle {
+    margin-top: 0;
+}
+
+.dd-dragel .dd-handle {
+    -webkit-box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, .1);
+    box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, .1);
+}
+
+
+/**
+ * Nestable Extras
+ */
+
+.nestable-lists {
+    display: block;
+    clear: both;
+    padding: 30px 0;
+    width: 100%;
+    border: 0;
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+}
+
+#nestable-menu {
+    padding: 0;
+    margin: 20px 0;
+}
+
+#nestable-output,
+#nestable2-output {
+    width: 100%;
+    height: 7em;
+    font-size: 0.75em;
+    line-height: 1.333333em;
+    font-family: Consolas, monospace;
+    padding: 5px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+#nestable2 .dd-handle {
+    color: #fff;
+    border: 1px solid #999;
+    background: #bbb;
+    background: -webkit-linear-gradient(top, #bbb 0%, #999 100%);
+    background: -moz-linear-gradient(top, #bbb 0%, #999 100%);
+    background: linear-gradient(top, #bbb 0%, #999 100%);
+}
+
+#nestable2 .dd-handle:hover {
+    background: #bbb;
+}
+
+#nestable2 .dd-item > button:before {
+    color: #fff;
+}
+
+@media only screen and (min-width: 700px) {
+    .dd {
+        /* float: left; */
+        /* width: 48%; */
+    }
+    .dd + .dd {
+        margin-left: 2%;
+    }
+}
+
+.dd-hover > .dd-handle {
+    background: #2ea8e5 !important;
+}
+
+
+/**
+ * Nestable Draggable Handles
+ */
+
+.dd3-content {
+    display: block;
+    height: 30px;
+    margin: 5px 0;
+    padding: 5px 10px 5px 40px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    background: -webkit-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background: -moz-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background: linear-gradient(top, #fafafa 0%, #eee 100%);
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.dd3-content:hover {
+    color: #2ea8e5;
+    background: #fff;
+}
+
+.dd-dragel > .dd3-item > .dd3-content {
+    margin: 0;
+}
+
+.dd3-item > button {
+    margin-left: 30px;
+}
+
+.dd3-handle {
+    position: absolute;
+    margin: 0;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    width: 30px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 1px solid #aaa;
+    background: #ddd;
+    background: -webkit-linear-gradient(top, #ddd 0%, #bbb 100%);
+    background: -moz-linear-gradient(top, #ddd 0%, #bbb 100%);
+    background: linear-gradient(top, #ddd 0%, #bbb 100%);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.dd3-handle:before {
+    content: 'ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€šÃ‚Â¡';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 100%;
+    text-align: center;
+    text-indent: 0;
+    color: #fff;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.dd3-handle:hover {
+    background: #ddd;
+}
+
+.popupWindow {
+    display: none;
+}
+
+.popupWindow.popupWindowShow {
+    display: block;
+}
+
+.popupWindowBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(39, 39, 39, 0.75);
+    z-index: 10000;
+}
+
+.popupWindowContent {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    left: 50%;
+    top: 6%;
+    margin-left: -371px;
+    background: #F6F6F6;
+    z-index: 10001;
+    padding: 10px 21px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0px 0px 14px 2px #000;
+    margin-top: 0;
+    max-height: 88%;
+    overflow-y: scroll;
+}
+
+.popupWindowTitle {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 300;
+    margin-bottom: 11px;
+}
+
+.dd-handle:not(.dd-nodrag) {
+    background: rgba(0, 178, 186, 0.27);
+    color: #000;
+    cursor: pointer;
+}

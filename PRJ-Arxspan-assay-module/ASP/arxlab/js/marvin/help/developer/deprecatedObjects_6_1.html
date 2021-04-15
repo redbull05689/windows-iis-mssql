@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta NAME="description" CONTENT="deprecated methods in Marvin">
+<meta NAME="keywords" CONTENT="deprecated, removed, methods">
+<meta NAME="author" CONTENT="Mate Steiner, Zsuzsanna Szabo, Peter Szakacs">
+<link REL="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+<title>Deprecated methods in Marvin</title>
+</head>
+<body>
+<h1>Deprecated and removed methods</h1>
+<table border="0" cellspacing="0" cellpadding="5" class="grid">
+<tr>
+<td colspan="3">
+<h2>Deprecated methods</h2>
+</td>
+</tr>
+<tr style="text-align:left">
+<td align="center"><strong>Name of deprecated class, field or method</strong></td><td align="center"><strong>Deprecation version</strong></td><td align="center"><strong>Recommended class, field or method</strong></td>
+</tr>
+<tr>
+<td colspan="3">
+<h3>
+<strong><code>chemaxon.struc</code></strong>
+</h3>
+</td>
+</tr>
+<tr>
+<td><code>MDocument.setGUIProperyContainer(MPropertyContainer gpc)</code></td><td align="center">Marvin 6.1</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MDocument.html#setGUIPropertyContainer(chemaxon.struc.MPropertyContainer)" target="_blank">chemaxon.struc.MDocument.setGUIPropertyContainer(MPropertyContainer)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MObject.addNotify()</code></td><td align="center">Marvin 6.1</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MObject.html#addNotify(chemaxon.struc.MDocument)" target="_blank">chemaxon.struc.MObject.addNotify(MDocument)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MObject.removeNotify()</code></td><td align="center">Marvin 6.1</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MObject.html#removeNotify(chemaxon.struc.MDocument)" target="_blank">chemaxon.struc.MObject.removeNotify(MDocument)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>StereoConstants.CTUNKNOWN</code></td><td align="center">Marvin 6.1.</td><td>
+<p>
+<i>Usage:</i>
+</p>
+<pre>In the specified methods the CIS|TRANS or 
+CIS|TRANS|CTUNSPEC values are used instead.</pre>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<h3>
+<strong><code>chemaxon.struc.graphics</code></strong>
+</h3>
+</tr>
+</td>
+<tr>
+<td><code>MEFlow.getValidSinkAtomPairsForMolecule(Molecule m, MolAtom source)</code></td><td align="center">Marvin 6.1</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/graphics/util/EFlowPlacementValidators.html#getValidSinkAtomPairs(chemaxon.struc.Molecule, chemaxon.struc.MolAtom)" target="_blank">chemaxon.struc.graphics.util.EFlowPlacementValidators.getValidSinkAtomPairs(Molecule, MolAtom)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MEFlow.getValidSinkAtomPairsForMolecule(Molecule m, MolBond source)</code></td><td align="center">Marvin 6.1</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/graphics/util/EFlowPlacementValidators.html#getValidSinkAtomPairs(chemaxon.struc.Molecule, chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.graphics.util.EFlowPlacementValidators.getValidSinkAtomPairs(Molecule, MolBond)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MEFlow.getValidSinkAtomsForMolecule(Molecule m, MolAtom source)</code></td><td align="center">Marvin 6.1</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/graphics/util/EFlowPlacementValidators.html#getValidSinkAtoms(chemaxon.struc.Molecule, chemaxon.struc.MolAtom)" target="_blank">chemaxon.struc.graphics.util.EFlowPlacementValidators.getValidSinkAtoms(Molecule, MolAtom)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MEFlow.getValidSinkAtomsForMolecule(Molecule m, MolBond source)</code></td><td align="center">Marvin 6.1</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/graphics/util/EFlowPlacementValidators.html#getValidSinkAtoms(chemaxon.struc.Molecule, chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.graphics.util.EFlowPlacementValidators.getValidSinkAtoms(Molecule, MolBond)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MEFlow.getValidSinkBondsForMolecule(Molecule m, MolAtom source)</code></td><td align="center">Marvin 6.1</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/graphics/util/EFlowPlacementValidators.html#getValidSinkBonds(chemaxon.struc.Molecule, chemaxon.struc.MolAtom)" target="_blank">chemaxon.struc.graphics.util.EFlowPlacementValidators.getValidSinkBonds(Molecule, MolAtom)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MEFlow.getValidSinkBondsForMolecule(Molecule m, MolBond source)</code></td><td align="center">Marvin 6.1</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/graphics/util/EFlowPlacementValidators.html#getValidSinkBonds(chemaxon.struc.Molecule, chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.graphics.util.EFlowPlacementValidators.getValidSinkBonds(Molecule, MolBond)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MEFlow.getValidSourceAtomPairsForMolecule(Molecule m)</code></td><td align="center">Marvin 6.1</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/graphics/util/EFlowPlacementValidators.html#getValidSourceAtomPairs(chemaxon.struc.Molecule)" target="_blank">chemaxon.struc.graphics.util.EFlowPlacementValidators.getValidSourceAtomPairs(Molecule)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MEFlow.getValidSourceAtomsForMolecule(Molecule m)</code></td><td align="center">Marvin 6.1</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/graphics/util/EFlowPlacementValidators.html#getValidSourceAtoms(chemaxon.struc.Molecule)" target="_blank">chemaxon.struc.graphics.util.EFlowPlacementValidators.getValidSourceAtoms(Molecule)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MEFlow.getValidSourceBondsForMolecule(Molecule m)</code></td><td align="center">Marvin 6.1</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/graphics/util/EFlowPlacementValidators.html#getValidSourceBonds(chemaxon.struc.Molecule)" target="_blank">chemaxon.struc.graphics.util.EFlowPlacementValidators.getValidSourceBonds(Molecule)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MEFlow.isValidSourceAndSinkForMolecule(Object source, Object sink, Molecule m)</code></td><td align="center">Marvin 6.1</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/graphics/util/EFlowPlacementValidators.html#isValidFlow(chemaxon.struc.chemaxon.struc.MolAtom, chemaxon.struc.chemaxon.struc.MolAtom, chemaxon.struc.Molecule)" target="_blank">chemaxon.struc.graphics.util.EFlowPlacementValidators.isValidFlow(MolAtom, MolAtom, Molecule)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MEFlow.isValidSourceForMolecule(Object source, Molecule m)</code></td><td align="center">Marvin 6.1</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/graphics/util/EFlowPlacementValidators.html#isValidSource(chemaxon.struc.MolAtom, chemaxon.struc.Molecule)" target="_blank">chemaxon.struc.graphics.util.EFlowPlacementValidators.isValidSource(MolAtom, Molecule)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/graphics/util/EFlowPlacementValidators.html#isValidSource(chemaxon.struc.MolAtom[], chemaxon.struc.Molecule)" target="_blank">chemaxon.struc.graphics.util.EFlowPlacementValidators.isValidSource(MolAtom[], Molecule)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/graphics/util/EFlowPlacementValidators.html#isValidSource(chemaxon.struc.MolBond, chemaxon.struc.Molecule)" target="_blank">chemaxon.struc.graphics.util.EFlowPlacementValidators.isValidSource(MolBond, Molecule)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<h2>Removed methods</h2>
+</td>
+</tr>
+<tr style="text-align:left">
+<td align="center"><strong>Name of removed class, field or method</strong></td><td align="center"><strong>Removal version</strong></td><td align="center"><strong>Recommended class, field or method</strong></td>
+</tr>
+<tr>
+<td colspan="3">
+<h3>
+<strong><code>chemaxon.struc</code></strong>
+</h3>
+</td>
+</tr>
+<tr>
+<td><code>MProp.CONV_SELFREF</code></td><td align="center">Marvin 6.1</td><td>Option for converting self-referring properties is passed to 
+chemaxon.marvin.io.MPropHandle.convertToString(MProp,String)
+ in
+the format string as 'format' + ":-selfrefprops".</td>
+</tr>
+</table>
+</body>
+</html>

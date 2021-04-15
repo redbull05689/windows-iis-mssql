@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../marvinmanuals.css">
+<title>pKa calculation training</title>
+<meta name="description" content="Training of the correction library for pKa calculations. Usage via Chemaxon products such as cxcalc, Chemical Terms (Instant JChem), and MarvinSketch"/>
+</head>
+
+<body>
+    <h1><a name="pkatraining" type="anchor"></a>p<i>K</i><sub>a</sub> calculation training </h1>
+    <p>
+    If you think your experimental data improved the accuracy of the default p<i>K</i><sub>a</sub> calculator,
+    you can take advantage of the supervised p<i>K</i><sub>a</sub> learning method that is built
+    into the p<i>K</i><sub>a</sub> calculator. Special structural parts can have an effect on the p<i>K</i><sub>a</sub> 
+    values calculated by the built-in method, so your correction library based on your experimental data helps the p<i>K</i><sub>a</sub> calculator increase the prediction accuracy. </p>
+
+	<h2>Training set</h2>
+    <p>
+	Inaccurately predicted ionization centers need to be identified and experimental data for them have to be collected. Since the learning algorithm is based on linear regression analysis, therefore you need to collect as many experimental p<i>K</i><sub>a</sub> data as possible otherwise there won't be correlation. There is no strict rule on the number of the experimental datapoints, if your purpose is to create a local model, only for a certain type of chemical of the ionization centers, then it may be enough to collect a few representative structures. A robust model, however, requires as many  diverse structures and p<i>K</i><sub>a</sub> values as possible. </p>
+    <p>
+     The experimental data should be collected in an sdf file, then the training algorithm has to be run which creates a correction library. This will be stored on your local computer, in your user folder. Finally, this correction library via MarvinSketch, cxcalc, Chemical Terms can be applied. </p>
+        <b> Input file preparation</b> 
+		<br> It can be compiled by using either Instant JChem or JChem for Excel. The sdf file should contain the followings: 
+            <ul>
+                <li>Structure of the molecule</li>
+                <li>p<i>K</i><sub>a</sub> value 1 (field name: pKa1)</li>
+                <li>ID of the atom which has the pKa1 value (field name: ID1). It can be viewed by checking the Atom number option in MarvinView (menu: <B class="buttonName">View &gt; Misc)</B>.</li>
+				<li>Additional fields of p<i>K</i><sub>a</sub> values are optional (recommended for handling multiprotic compounds). For example p<i>K</i><sub>a</sub> value 2 (pKa2), ID2, etc.</li> 
+                <li>Definition of only one p<i>K</i><sub>a</sub> value is enough to apply the
+                training data, but more values in case of multiprotic compounds will enhance the
+                reliability of the p<i>K</i><sub>a</sub> training. </li></ul>
+            <p>
+			
+            <br>A sample of a typical training set is shown in the picture (<a href="training_files/pKa_trainingset.sdf">pKa_trainingset.sdf</a>). ID1 is the index
+            of the atom with the experimental p<i>K</i><sub>a</sub>1 value.</br>
+            
+            <br><img src="training_files/mydata_zoomedmol.PNG" width="665" height="465" alt="mypkadata"/>
+      
+<h2>Generate the correction library</h2>
+
+Correction library can be created by using the command line, cxtrain:
+
+<pre>cxtrain pka -i [library name] [training file] </pre> 
+<b>Example</b>: <pre>cxtrain pka -i mypka mydata.sdf</pre> 
+
+<h2>Application of the correction library</h2>
+<ol><h3>MarvinSketch</h3>
+    <li>Select MarvinSketch menu:<B class="buttonName">Tools &gt; Protonation &gt; pKa</B>.</li>
+	<li>Set the 'Use correction library' box to activate the training option (see figure below).</li>
+	<li>If you have created multiple training sets, choose the most accurate one from the dropdown list below the checkbox.</li><br>
+            <td width="200"><img src="training_files/pKa_options_panel.png" width="351" height="381" alt="pKa options panel in Marvin"/></td>
+<br> <br>The next figure shows the results with (I) and without (II) applying the correction library.
+<p>  <table border="0">
+                <tr><td>
+			<img src="training_files/trained.png" width="372" height="153" alt="MarvinSketch trained pKa calculation"/>
+            </td>
+            <td><img src="training_files/no_training.png" width="372" height="151" alt="MarvinSketch not trained pKa calculation"/>
+            </td>
+        </tr>
+		<tr><th>I. p<i>K</i><sub>a</sub> calculation with training data</th>
+            <th>II. p<i>K</i><sub>a</sub> calculation without training data</th>
+            
+        </tr>
+    </table>
+    <p>      
+<h3>Cxcalc</h3>
+To include your correction library in the p<i>K</i><sub>a</sub> calculation use the parameter <code>--correctionlibrary</code> or its short form: <code>-L</code>.
+		<pre>cxcalc pKa  <code>--correctionlibrary</code>  [library name] [input file/string]</pre>
+		<b>Example</b> 
+                      <pre>$ cxcalc pKa <code>--correctionlibrary</code> mypka "CSC1=NC2=C(N1)C=NC(O)=N2"</pre>
+         <I>Result</I>
+				<PRE style="margin-top: 0px; margin-bottom: 0px;"> id      apKa1   apKa2   bpKa1   bpKa2   atoms</PRE>
+				<PRE style="margin-top: 0px; margin-bottom: 0px;"> 1       11.19   16.01   2.34    -2.59   7,11,9,4</PRE><br>
+				If you use cxcalc pKa calculation without the correction library, the results will be calculated with the built-in dataset.<br>
+				
+	   <b>Example</b> <br>
+                      <pre>$ cxcalc pKa "CSC1=NC2=C(N1)C=NC(O)=N2"</pre>
+         <I>Result</I>
+				<PRE style="margin-top: 0px; margin-bottom: 0px;"> id      apKa1   apKa2   bpKa1   bpKa2   atoms</PRE>
+				<PRE style="margin-top: 0px; margin-bottom: 0px;"> 1       8.34   16.01   2.34    -2.59   7,11,9,4</PRE>
+        <p>For more options see <a href="../applications/cxcalc-calculations.html#pka">this page</a>.
+
+    
+    <h3>Chemical Terms</h3>
+  Chemical Terms are available either from command line, evaluator or from Instant JChem.
+ <h4>Command line, evaluator</h4>
+ Evaluator is designed to evaluate mathematical expressions on molecules. Your correction library can be applied as follows:<br>
+ <pre><code>evaluate -e "pKa('correctionlibrary:[library name]')" "[input file/string]"</code></pre>
+ <b>Example</b>
+ <pre><code>evaluate -e "pKa('correctionlibrary:mypka')" "CSC1=NC2=C(N1)C=NC(O)=N2"</code></pre> or 
+ <I>Result</I><br>
+ <pre><code>;;;-2,59;;;11,19;;2,34;;16,01;</code></pre>
+ <p>For more evaluator functions on pKa training see <a href="../chemicalterms/EvaluatorFunctions.html#notes">this page</a>.
+
+ <h4>Instant JChem</h4>
+ Choose the 'New Chemical Terms Field icon' and type the chemical term into the window, use the correctionlibrary:[library name] parameter. Do not forget to adjust the Name, the Type and the DB Column Name.
+	<br> 
+	<b>Example</b> <br>
+	The following figure demonstrates the usage of p<i>K</i><sub>a</sub> training in the 'New Chemical terms' window. 
+	The expression <code>pKa ('correctionlibrary:mypKa type:acidic','1')</code> defines that the plugin use the correction library named mypKa, and it will calculate the strongest acidic p<i>K</i><sub>a</sub> of the molecule(s).
+	<h2></h2><br>
+<img src="training_files/instantJChem_ChemicalTerms.png" width="608" height="549" alt="New Chemical Terms window in Instant JChem"/>
+<h2></h2>
+<br>The results of this calculation are shown in the figure below. You can see the difference between the untrained (column 5., Strongest acidic pKa) and trained (column 6., Trained strongest acidic pKa) p<i>K</i><sub>a</sub> values. 
+  	<h2></h2>
+<img src="training_files/InstantJchem_results.png" width="516" height="576" alt="New Chemical Terms window in Instant JChem"/>
+</ol>
+
+</body>
+</html>

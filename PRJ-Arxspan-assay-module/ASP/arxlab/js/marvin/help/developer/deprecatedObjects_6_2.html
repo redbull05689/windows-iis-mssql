@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta NAME="description" CONTENT="deprecated methods in Marvin">
+<meta NAME="keywords" CONTENT="deprecated, removed, methods">
+<meta NAME="author" CONTENT="Mate Steiner, Zsuzsanna Szabo, Peter Szakacs">
+<link REL="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+<title>Deprecated and removed elements in Marvin</title>
+</head>
+<body>
+<h1>Deprecated and removed elements in the API</h1>
+<table border="0" cellspacing="0" cellpadding="5" class="grid">
+<tr>
+<td colspan="3">
+<h2>Deprecated elements in the API</h2>
+</td>
+</tr>
+<tr style="text-align:left">
+<td align="center"><strong>Name of deprecated class, field or method</strong></td><td align="center"><strong>Deprecation version</strong></td><td align="center"><strong>Recommended class, field or method</strong></td>
+</tr>
+<tr>
+<td colspan="3">
+<h3>
+<strong><code>chemaxon.core.calculations.valencecheck</code></strong>
+</h3>
+</td>
+</tr>
+<tr>
+<td><code>ValenceCheckOptions.ValenceCheckOptions(boolean localAromatic, boolean traditionalNallowed)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon.core.calculations.valencecheck.ValenceCheckOptions.Builder.html" target="_blank">chemaxon.core.calculations.valencecheck.ValenceCheckOptions.Builder</a>
+<br>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<h3>
+<strong><code>chemaxon.struc</code></strong>
+</h3>
+</td>
+</tr>
+<tr>
+<td><code>MolAtom.getRadical()</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MolAtom.html#getRadicalValue()" target="_blank">chemaxon.struc.MolAtom.getRadicalValue()</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MolAtom.setRadical(int r)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MolAtom.html#setRadicalValue(Radical)" target="_blank">chemaxon.struc.MolAtom.setRadicalValue(Radical)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MolBond.isRemovable()</code></td><td align="center">Marvin 6.2</td><td>Not supported feature.</td>
+</tr>
+<tr>
+<td><code>Molecule.RM_KEEP_LEAVINGGROUPS</code></td><td align="center">Marvin 6.2</td><td>Not supported feature.</td>
+</tr>
+<tr>
+<td><code>Molecule.isGUIContracted()</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Molecule.html#hasContractedSgroup()" target="_blank">chemaxon.struc.Molecule.hasContractedSgroup()</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>Molecule.mergeAtoms(MolAtom that, MolAtom node)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/util/moleculeutil/MergeUtil.html#mergeAtoms(chemaxon.struc.chemaxon.struc.MolAtom, chemaxon.struc.chemaxon.struc.MolAtom, boolean)" target="_blank">chemaxon.struc.util.moleculeutil.MergeUtil.mergeAtoms(MolAtom, MolAtom, boolean)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>Molecule.setGUIContracted(boolean contract, int opts)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Molecule.html#expandSgroups(int)" target="_blank">chemaxon.struc.Molecule.expandSgroups(int)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Molecule.html#contractSgroups(int)" target="_blank">chemaxon.struc.Molecule.contractSgroups(int)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/sgroup/Expandable.html#LEAVE_COORDS_UNCHANGED" target="_blank">chemaxon.struc.sgroup.Expandable.LEAVE_COORDS_UNCHANGED</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>Molecule.setGUIContracted(boolean contract)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Molecule.html#expandSgroups(int)" target="_blank">chemaxon.struc.Molecule.expandSgroups(int)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Molecule.html#contractSgroups(int)" target="_blank">chemaxon.struc.Molecule.contractSgroups(int)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/sgroup/Expandable.html#LEAVE_COORDS_UNCHANGED" target="_blank">chemaxon.struc.sgroup.Expandable.LEAVE_COORDS_UNCHANGED</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MoleculeGraph.createBHtab()</code></td><td align="center">Marvin 6.2</td><td>No replacement.</td>
+</tr>
+<tr>
+<td><code>MoleculeGraph.insertAtom(int i, MolAtom atom)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html" target="_blank">chemaxon.struc.MoleculeGraph</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html#add(chemaxon.struc.MolAtom)" target="_blank">chemaxon.struc.MoleculeGraph.add(MolAtom)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MoleculeGraph.insertBond(int i, MolBond bond)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html" target="_blank">chemaxon.struc.MoleculeGraph</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html#add(chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.MoleculeGraph.add(MolBond)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MoleculeGraph.mergeAtoms(MolAtom replacementAtom, MolAtom origAtom)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/util/moleculeutil/MergeUtil.html#mergeAtoms(chemaxon.struc.chemaxon.struc.MolAtom, chemaxon.struc.chemaxon.struc.MolAtom, boolean)" target="_blank">chemaxon.struc.util.moleculeutil.MergeUtil.mergeAtoms(MolAtom, MolAtom, boolean)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MoleculeGraph.replaceBond(MolBond oldb, MolBond newb)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html" target="_blank">chemaxon.struc.MoleculeGraph</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html#removeBond(chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.MoleculeGraph.removeBond(MolBond)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html#add(chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.MoleculeGraph.add(MolBond)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MoleculeGraph.setAtom(int i, MolAtom atom)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html" target="_blank">chemaxon.struc.MoleculeGraph</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html#removeAtom(int)" target="_blank">chemaxon.struc.MoleculeGraph.removeAtom(int)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html#add(chemaxon.struc.MolAtom)" target="_blank">chemaxon.struc.MoleculeGraph.add(MolAtom)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MolAtom.html" target="_blank">chemaxon.struc.MolAtom</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>MoleculeGraph.setBond(int i, MolBond b)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html" target="_blank">chemaxon.struc.MoleculeGraph</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html#removeBond(chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.MoleculeGraph.removeBond(MolBond)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html#add(chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.MoleculeGraph.add(MolBond)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>RgMolecule.mergeAtoms(MolAtom that, MolAtom a)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/util/moleculeutil/MergeUtil.html#mergeAtoms(chemaxon.struc.chemaxon.struc.MolAtom, chemaxon.struc.chemaxon.struc.MolAtom, boolean)" target="_blank">chemaxon.struc.util.moleculeutil.MergeUtil.mergeAtoms(MolAtom, MolAtom, boolean)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>RgMolecule.replaceBond(MolBond olde, MolBond newe)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html" target="_blank">chemaxon.struc.MoleculeGraph</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/RgMolecule.html#removeBond(chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.RgMolecule.removeBond(MolBond)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/RgMolecule.html#add(chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.RgMolecule.add(MolBond)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>RgMolecule.setAtom(int iu, MolAtom node)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html" target="_blank">chemaxon.struc.MoleculeGraph</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/RgMolecule.html#removeAtom(chemaxon.struc.MolAtom)" target="_blank">chemaxon.struc.RgMolecule.removeAtom(MolAtom)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/RgMolecule.html#add(chemaxon.struc.MolAtom)" target="_blank">chemaxon.struc.RgMolecule.add(MolAtom)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>RgMolecule.setBond(int iu, MolBond edge)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html" target="_blank">chemaxon.struc.MoleculeGraph</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/RgMolecule.html#removeBond(chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.RgMolecule.removeBond(MolBond)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/RgMolecule.html#add(chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.RgMolecule.add(MolBond)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>RxnMolecule.mergeAtoms(MolAtom that, MolAtom node)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/util/moleculeutil/MergeUtil.html#mergeAtoms(chemaxon.struc.chemaxon.struc.MolAtom, chemaxon.struc.chemaxon.struc.MolAtom, boolean)" target="_blank">chemaxon.struc.util.moleculeutil.MergeUtil.mergeAtoms(MolAtom, MolAtom, boolean)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>RxnMolecule.replaceBond(MolBond olde, MolBond newe)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html" target="_blank">chemaxon.struc.MoleculeGraph</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/RxnMolecule.html#removeBond(chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.RxnMolecule.removeBond(MolBond)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/RxnMolecule.html#add(chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.RxnMolecule.add(MolBond)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>RxnMolecule.setAtom(int iu, MolAtom node)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html" target="_blank">chemaxon.struc.MoleculeGraph</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/RxnMolecule.html#removeAtom(chemaxon.struc.MolAtom)" target="_blank">chemaxon.struc.RxnMolecule.removeAtom(MolAtom)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/RxnMolecule.html#add(chemaxon.struc.MolAtom)" target="_blank">chemaxon.struc.RxnMolecule.add(MolAtom)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>RxnMolecule.setBond(int iu, MolBond edge)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/MoleculeGraph.html" target="_blank">chemaxon.struc.MoleculeGraph</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/RxnMolecule.html#removeBond(chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.RxnMolecule.removeBond(MolBond)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/RxnMolecule.html#add(chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.RxnMolecule.add(MolBond)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>SelectionMolecule.setBond(int i, MolBond bond)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/SelectionMolecule.html#removeBond(chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.SelectionMolecule.removeBond(MolBond)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/SelectionMolecule.html#add(chemaxon.struc.MolBond)" target="_blank">chemaxon.struc.SelectionMolecule.add(MolBond)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>Sgroup.setGUIStateRecursively(boolean contract, int opts)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Molecule.html#setGUIContracted(boolean)" target="_blank">chemaxon.struc.Molecule.setGUIContracted(boolean)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Molecule.html#setGUIContracted(boolean, int)" target="_blank">chemaxon.struc.Molecule.setGUIContracted(boolean, int)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>Sgroup.setGUIStateRecursively(boolean v)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Molecule.html#setGUIContracted(boolean)" target="_blank">chemaxon.struc.Molecule.setGUIContracted(boolean)</a>
+<br>
+<a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Molecule.html#setGUIContracted(boolean, int)" target="_blank">chemaxon.struc.Molecule.setGUIContracted(boolean, int)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>Sgroup.setXState(int state, int opts)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/Sgroup.html#setXState(int)" target="_blank">chemaxon.struc.Sgroup.setXState(int)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<h3>
+<strong><code>chemaxon.struc.sgroup</code></strong>
+</h3>
+</td>
+</tr>
+<tr>
+<td><code>Expandable.COORDS_UPDATE</code></td><td align="center">Marvin 6.2</td><td>Not supported feature.</td>
+</tr>
+<tr>
+<td><code>Expandable.REVERSIBLE_EXPAND</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/sgroup/Expandable.html#LEAVE_COORDS_UNCHANGED" target="_blank">chemaxon.struc.sgroup.Expandable.LEAVE_COORDS_UNCHANGED</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>SuperatomSgroup.cloneLeavingGroups(SuperatomSgroup sasg)</code></td><td align="center">Marvin 6.2</td><td>Not supported feature.</td>
+</tr>
+<tr>
+<td><code>SuperatomSgroup.expandOther(int opts, Molecule moltoexpand)</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/sgroup/SuperatomSgroup.html#expand(int)" target="_blank">chemaxon.struc.sgroup.SuperatomSgroup.expand(int)</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>SuperatomSgroup.getParentSgroupGraph()</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/sgroup/SuperatomSgroup.html#getSgroupGraph()" target="_blank">chemaxon.struc.sgroup.SuperatomSgroup.getSgroupGraph()</a>
+<br>
+</td>
+</tr>
+<tr>
+<td><code>SuperatomSgroup.removeLeavingGroup(int order)</code></td><td align="center">Marvin 6.2</td><td>Not supported feature.</td>
+</tr>
+<tr>
+<td><code>SuperatomSgroup.setCrossingBondType(int order, BondType newType)</code></td><td align="center">Marvin 6.2</td><td>Not supported feature.</td>
+</tr>
+<tr>
+<td><code>SuperatomSgroup.setLeavingGroup(int order, int atNo, String alternativeName, BondType crossingBondType)</code></td><td align="center">Marvin 6.2</td><td>Not supported feature.</td>
+</tr>
+<tr>
+<td><code>SuperatomSgroup.setLeavingGroup(int order, int atNo, String alternativeName)</code></td><td align="center">Marvin 6.2</td><td>Not supported feature.</td>
+</tr>
+<tr>
+<td><code>SuperatomSgroup.setLeavingGroup(int order, int atNo)</code></td><td align="center">Marvin 6.2</td><td>Not supported feature.</td>
+</tr>
+<tr>
+<td><code>SuperatomSgroup.setLeavingGroupAlternativeName(int order, String alternativeName)</code></td><td align="center">Marvin 6.2</td><td>Not supported feature.</td>
+</tr>
+<tr>
+<td><code>SuperatomSgroup.updateAttachmentPoints()</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/struc/sgroup/SuperatomSgroup.html#calculateAttachmentPoints()" target="_blank">chemaxon.struc.sgroup.SuperatomSgroup.calculateAttachmentPoints()</a>
+<br>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<h3>
+<strong><code>chemaxon.util.iterator</code></strong>
+</h3>
+</td>
+</tr>
+<tr>
+<td><code>IteratorFactory.INCLUDE_CHEMICAL_ATOMS</code></td><td align="center">Marvin 6.2</td><td><a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/util/iterator/IteratorFactory.html#INCLUDE_CHEMICAL_ATOMS_ONLY" target="_blank">chemaxon.util.iterator.IteratorFactory.INCLUDE_CHEMICAL_ATOMS_ONLY</a>
+<br>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<h2>Removed elements in the API</h2>
+</td>
+</tr>
+<tr style="text-align:left">
+<td align="center"><strong>Name of removed class, field or method</strong></td><td align="center"><strong>Removal version</strong></td><td align="center"><strong>Recommended class, field or method</strong></td>
+</tr>
+</table>
+</body>
+</html>

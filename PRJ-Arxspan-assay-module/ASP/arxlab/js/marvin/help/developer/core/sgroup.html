@@ -1,0 +1,362 @@
+<html>
+<head>
+	<meta NAME="description" CONTENT="Sgroups">
+	<meta NAME="author" CONTENT="Erika Biroi and Peter Szakacs">
+	<script type="text/javascript" src="../../../examples/sh_main.js"></script>
+	<script type="text/javascript" src="../../../examples/sh_java.js"></script>
+	<script type="text/javascript" src="../../../examples/sh_javascript.js">
+ 		</script>
+	<link REL ="stylesheet" TYPE="text/css" HREF="../../../examples/sh_nedit.css" TITLE="Style">
+	<link REL ="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+	<title>Sgroups</title>
+</head>
+
+<body onload="sh_highlightDocument();">
+
+<h1><a class="anchor" id="expandable-sgroups">S-groups</a></h1>
+<h2><a class="anchor" id="superatom-sgroup">Superatom S-group</a></h2>
+
+<h3> Building of  Superatom S-group </h3> 
+We show how to build Superatom S-groups in the example of the phenil group.<br> 
+<img src="images/sgroup1.png" width=15% alt="superatom sgroup"> 
+
+<h4> Creating of SuperatomSgroup object </h4>
+<p> 
+ First, the whole molecule should be built using the Core API methods, or 
+imported. In this example, we import it from SMILES format. 
+Then the SuperatomSgroup is constructed with the molecule in the argument of
+the constructor.
+</p>
+<pre class="sh_java">
+        Molecule mol = MolImporter.importMol("C1=CC=CC=C1C");
+        Cleaner.clean(mol, 2, null);
+
+        // Create the Sgroups.
+        SuperatomSgroup superSg = new SuperatomSgroup(mol);
+</pre>
+
+<h4> Set subscript of the S-group  </h4>
+<p> 
+ In order to set subscript of a Superatom S-group, use the 
+<code> SuperatomSgroup.setSubscript(String)</code> method:
+</p>
+<pre class="sh_java">
+       superSg.setSubscript("Ph"); 
+</pre>
+
+<h4> Setting an S-group as the parent of its atoms  </h4>
+<p>
+The atoms that are supposed to be a part of an S-group should be added to it 
+(that is, set the S-group as the parent of the MolAtom).
+In our example, we add the carbon atoms of the benzene ring to the S-group,
+they are the first six atoms of the molecule.
+</p>
+<pre class="sh_java">
+        for (int i = 0; i &lt; 6; i++) {
+            mol.setSgroupParent(mol.getAtom(i), superSg, true);
+        }
+        superSg.calculateAttachmentPoints();
+</pre>
+In the argument of the <code>Molecule.setSgroupParent()</code> method,
+<code>MolAtom</code> represents the atom to be added to the 
+Superatom S-group <code> superSg</code>. If the value of the boolean parameter 
+is true, the atom will be added to the S-group,
+otherwise it will be removed from there. The molecule now is inconsistent, because 
+an attachment point is missing from the Superatom S-group. Use the 
+<code> <a href="#calculate">SuperatomSgroup.calculateAttachmentPoints()</a> </code> 
+method to add automatically, or use the 
+<code> <a href="#attachmentPoint">SuperatomSgroup.addAttachmentPoint(MolAtom)</a> </code> 
+method to add manually the missing attachment points.
+
+<h4> <a id="attachmentPoint"> Adding attachment points </a> </h4>
+<p> Since Marvin 6.0, we support to add S-group attachment point only to atoms
+that are part of a Superatom S-group. 
+Attachment points are represented by an object which stores its attach atom, 
+crossing bond and order. 
+The attach atom is one of the <code>MolAtom</code>s of the superatom S-group 
+on which the attachment point is placed.
+The crossing bond is a bond where </p>
+<ul>
+ 	<li> one of the end atoms is inside the Superatom S-group (this atom is called
+ attach atom); </li>
+ 	<li> the other end atom is outside the Superatom S-group.</li>
+</ul>
+<p>
+When an attachment point is free, the crossing bond is null, further crossing
+bond addition is possible.
+The order is an integer greater than zero defining the priority of the 
+attachment point. When a bond is added to a contracted superatom S-group, 
+it occupies a free attachment point with the lowest order.
+</p>
+<p>  
+To add an attachment point, use one of the following methods:  
+</p>
+<ul>
+   <li> <code>SuperatomSgroup.addAttachmentPoint(MolAtom); </code>
+   <li> <code>SuperatomSgroup.addAttachmentPoint(MolAtom, int order); </code>
+</ul>
+<p> In the first case, the smallest unused number is set as order.</p>
+<p>Crossing bond can be added to an attachment point by invoking 
+<code>SuperatomSgroup.addCrossingBond(MolAtom attachAtom, MolBond crossingBond)</code> 
+method. However, the crossing bond information is updated automatically by 
+<code>Molecule.add(MolBond bond)</code> method. </p>
+
+<p> Note, that the method <code>MolAtom.setAttach(int)</code> is deprecated,
+and its usage is not recommended any more. 
+</p>
+
+<h4> <a id="calculate"> Calculate the attachment points </a> </h4> 
+<p>
+By invoking <code>SuperatomSgroup.calculateAttachmentPoints()</code>, 
+attachments points are put to atoms in the superatom S-group that have bond 
+which other end atom is outside the group (crossing bond). 
+It is useful when the superatom S-group is created using the 
+<code>SuperatomSgroup.setSgroupGraph()</code> method.
+</p>
+
+<h4> Getting the attachment point information</h4>
+<p> Attachment point information of a superatom S-group 
+can be received by calling method <code>SuperatomSgroup.getAttachmentPoints()</code>. 
+The result is an <code>java.util.ArrayList</code> of <code>AttachmentPoint</code>
+objects from the superatom S-group. The list is sorted by increasing attachment point orders. 
+</p>
+<p> Note, that the method <code>MolAtom.getAttach()</code> is deprecated,
+and its usage is not recommended any more. The orders of the attachment points
+located on a given atom can be obtained by invoking method
+<code>SuperatomSgroup.getAttachmentPointOrders(MolAtom)</code>.
+It returns the <code>ArrayList&lt;Integer&gt;</code> of attachment point orders
+located on the given <code>MolAtom</code>.
+</p>
+
+<!--
+<h4>Leaving group</h4>
+<p> 
+A leaving group atom can be defined to each attachment point. 
+That atom is in the molecule when the attachment point is free 
+and disappear when a crossing bond is bound to that attachment point 
+("leaves the molecule").
+</p>
+<img src="images/sgroup_lgrp.png" alt="Alanine with its leaving group">	
+<p> 
+In the example above the leaving groups on the N-terminal of Alanine, on the
+C-terminal of Cystein as well as on its Sufur atom is visible. 
+Due to the bond between the two amino acid, the leaving group on the Alanine
+C-terminal and on the Cystein N-terminal is outside the molecule.
+</p>
+<p>
+Leaving group information can be set to an attachment point using the 
+following methods:
+</p>
+<ul>
+	<li> <code>SuperatomSgroup.setLeavingGroup(int order, int atNo);</code>
+	<li> <code>SuperatomSgroup.setLeavingGroup(int order, int atNo, String alternativeName);</code>
+	<li> <code>SuperatomSgroup.setLeavingGroup(int order, int atNo, String alternativeName, 
+						BondType crossingBondType);</code>
+</ul>
+<p>
+In the argument of these methods, the 
+</p>
+<ul>
+	<li><code>order</code> 
+		is order of attachment point which the leaving group is set to; </li>
+	<li><code>atNo</code> 
+	   	is atomic number of the leaving group atom;</li>
+	<li><code>alternativeName</code> is an other name of the leaving group 
+		which is possible to be set. 
+		For example, the terminal leaving groups of a DNA chain may have
+		alternative name 3' and 5'. By default, this string is null.</li>
+	<li>The <code>crossingBondType</code> defined type of the bond connecting 
+		the leaving group with its Superatom S-group. 
+		This also determines the bond type of the crossing bond. 
+		By default, the <code>crossingBondType</code> it is a single bond.   
+		The type of this bond is allowed to be changed, 
+		using method <code>MolBond.setType(int)</code>
+		only when the leaving group is the molecule, that is, 
+		when no crossing bond is attached. </li>
+</ul>
+
+<p>
+We provide methods to obtain leaving group information in the 
+<code>AttachmentPoint</code> class.
+</p>
+<ul>
+	<li> <code>AttachmentPoint.getLeavingGroupAtom();</code> </li>
+	<li> <code>AttachmentPoint.getLeavingGroupAlternativeName();</code></li>
+	<li> <code>AttachmentPoint.getCrossingBondType();</code> </li>
+</ul> 
+<p>
+The method <code>SuperatomSgroup.removeLeavingGroup(order)</code> removes the
+leaving group <i>permanently</i> from the molecule.
+</p>
+<p>
+Methods <code>Molecule.add(MolBond)</code> and <code>Molecule.removeBond()</code>
+handles automatically the leaving group removal and addition to the molecule.
+</p>
+ -->
+
+<!--
+<h4> Embedded Superatom S-groups </h4>
+<p>
+In case of embedded SuperatomSgroups adding attachment point to a specific atom 
+is only possible in it's smallest Superatom S-group in the S-group hierarchy. 
+Assume two SuperatomSgroups: parent and child. If an atom is part of the parent and the child S-group 
+as well than we will only be able to add attachment points in the child S-group to this particular atom. 
+That also means that this attachment point information will only be reachable from the child SuperatomSgroup.
+</p>
+-->
+<p>
+Full example of building of polystyrene can be found at the 
+<a href="appendix.html#sgroup">Code examples</a>.
+</p>
+
+<h3> Expanded, contracted state </h3> 
+There are two states of the molecule:
+<ul>
+ <li>All represented atoms are present in the parent molecule in all expandable 
+  S-group independently from their expansion state.
+  Here we can see a special S-group state called 
+  <code>Sgroup.XSTATE_XC</code> where the 
+  S-group remembers its previous contracted 
+  state but the represented atoms were moved to the molecule graph 
+  and the abbreviation (SgroupAtom) was removed from the molecule
+  graph. Set this state on all Sgroups by calling 
+  <code>Molecule.setGUIContracted(false) </code>or by calling 
+  <code>Sgroup.setGUIStateRecursively(false)</code> individually on Sgroup-s. 
+  Example for a typical usage is a non-GUI related API
+  based calculation where we need the represented atoms in the 
+  molecule graph instead of the abbreviation.
+ </li>
+ <li>
+  Either the abbreviation (SuperAtom) or the represented atom set is 
+  exclusively present depending on the state of the S-group. 
+  In the case of expanded S-groups (called <code>Sgroup.XSTATE_X</code>) 
+  the represented atoms are present in the parent molecule. 
+  In the case of contracted S-groups (called  <code>Sgroup.XSTATE_C</code>)  
+  the abbreviation (SgroupAtom) is present in the parent 
+  molecule. Set this state on all Sgroups by calling 
+  <code>Molecule.setGUIContracted(true)</code> or by calling 
+  <code>Sgroup.setGUIStateRecursively(true)</code> individually on Sgroup-s.
+ </li>
+ </ul>
+<p>Note:<br>
+When <code>Molecule.isGUIContracted() </code>returns true and afterwards you call:
+</p>
+
+<blockquote>
+ <code>
+  Molecule.setGUIContracted(false); <br>
+  Molecule.setGUIContracted(true);
+ </code>
+</blockquote>
+<p>
+the second <code>setGUIContracted</code> call will restore the state before 
+the first <code>setGUIContracted</code> call!
+</p>
+
+<h2>Amino acid S-groups</h2>
+<p>
+AminoAcidSgroups are special SuperAtomSgroups to represent amino acids. The construction
+of these groups are exactly the same as the SuperatomSgroups. There are two additional 
+attributes - the one letter and the three letter name of the amino acid.
+</p>
+
+<h2>Repeating unit S-groups</h2>
+<p>
+Repeating unit S-groups are used to represent polymers and other repeating
+units. 
+</p> 
+<p>
+In order to construct a repeating unit S-group object, use its constructor as
+</p>
+
+<pre class="sh_java">
+	RepeatingUnitSgroup repeatingSg = new RepeatingUnitSgroup(Molecule mol,
+		String connectivity, int type); 
+</pre> 
+<p>The parameter <code>Molecule</code> object will be the parent of the S-group 
+<code>repeatingSg</code>.
+The String connectivity defines way the units connects to each other: "ht", for
+head-to-tail; "hh", for head-to-head, and "eu" for either/undefined polymers.
+The type of the S-group can be defined using the following constants:
+</p>
+<ul>
+  <li> <code>Sgroup.ST_ANY</code>,</li>
+  <li> <code>Sgroup.ST_SRU</code>,</li>
+  <li> <code>Sgroup.ST_COPOLYMER</code>,</li>
+  <li> <code>Sgroup.ST_CROSSLINK</code>,</li>
+  <li> <code>Sgroup.ST_GRAFT</code>,</li>
+  <li> <code>Sgroup.ST_MODIFICATION</code>.</li>
+</ul>
+<p>
+Atoms and bonds can be added to a repeating unit S-group in a same way as to a
+Superatom S-group.
+</p>
+The bracket of this type of S-groups defines the repeating fragment of the 
+polymer. Bonds that cross the brackets, called crossing bonds, define how
+the repeating units of the S-group connect. 
+<p>
+<p> The <code>generateBracketCoord</code> method of the 
+<code>CleanUtil</code> class generates brackets. As parameter the S-group
+and the bracket type, square or round, should be added:
+</p>
+<pre class="sh_java">
+	CleanUtil.generateBracketCoords(repeatingSg, MBracket.T_SQUARE);
+</pre>
+<p>
+The end groups of polymers are often unknown or unspecified which are 
+represented by star atoms (*). Star atoms are defined with the </p>
+<pre class="sh_java">
+	repeatingSg.addStarAtoms();	
+</pre>
+<p>
+method.
+</p>
+
+
+<p>
+Full example of building of polystyrene can be found at the 
+<a href="appendix.html#sgroup">Code examples</a>.
+</p>
+
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ 
+ <table summary="chapters">
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;">
+        <a href="rgroups.html">R-group structures</a>
+       </p>   
+     </td>
+     <td width="250" valign="middle">
+      <p style="text-align: center;">
+       <a href="core_index.html"> Table of contents</a> 
+      </p>
+     </td>
+     <td width="250"valign="middle" >
+      <p style="text-align: center;"> 
+       <a href="reactions.html">Representation of reactions</a>
+      </p>
+     </td>
+   </tr>
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;"> 
+        <i>Previous chapter</i> 
+       </p> 
+     </td>
+     <td width="250" valign="middle">
+         &nbsp;
+     </td>
+     <td width="250" valign="middle" >
+      <p style="text-align: center;">
+       <i>Next chapter</i>
+      </p>
+     </td>
+   </tr>
+ </table>
+ 
+</body>
+</html>

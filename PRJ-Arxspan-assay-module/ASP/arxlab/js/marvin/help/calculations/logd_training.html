@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel=stylesheet type="text/css" href="../marvinmanuals.css">
+<title>Instructions for logD plugin teaching</title>
+<meta name="description" content="Training of the logD calculations. Usage via Chemaxon products such as cxcalc, Chemical Terms (Instant JChem), and MarvinSketch"/>
+
+</head>
+<body>
+    
+ <h1><a name="logptraining" type="anchor"></a>Training of the Log<i>D</i> plugin</h1>
+ <p>If you think your experimental data could improve the performance of the default log<i>D</i> calculator,
+    you can take advantage of the supervised log<i>D</i> learning method that is built
+    into the calculator. 
+ </p>  
+ <h2><a name="logptraining" type="anchor"></a>Log<i>D</i> calculations based on trained p<i>K</i><SUB>a</SUB> and log<i>P</i>
+data </h2>
+<p>The log<i>D</i> method can be trained by applying existing p<i>K</i><SUB>a</SUB> and log<i>P</i> training sets. For detailed information on training the p<i>K</i><SUB>a</SUB> and log<i>P</i> plugins, see the corresponding <a href="http://www.chemaxon.com/marvin/help/calculations/pka_training.html">p<i>K</i><SUB>a</SUB></a> and <a href="http://www.chemaxon.com/marvin/help/calculations/logp_training.html"> log<i>P</i></a> training manuals. To demonstrate the training, tests have been run with the
+same datasets used for the p<i>K</i><SUB>a</SUB> and log<i>P</i> calculations. </p>
+
+<h2>Application</h2>  
+   <h3>Marvin</h3>
+<ol>
+<li>Choose MarvinSketch menu : <B class="buttonName">Calculations &gt; Partitioning &gt; logD</B>.</li>
+<li> Select the <i>User defined</i> or the <i>Weighted</i> method to activate the training option.</li>
+<li> If you have many log<i>P</i> training sets, you can select the one you want to use for training 
+from the log<i>P</i> training ID dropdown list.</li>
+<li> If you have many p<i>K</i><SUB>a</SUB> correction libraries, you can select the one that you want to use for training
+by selecting the 'Use the p<i>K</i><SUB>a</SUB> correction library' option, and choosing the library from the dropdown list.</li> <br>
+            <img src="training_files/Marvin_LogD_training_options.jpg" width="350" height="655" alt="usage in Marvin"/></br></td>
+
+<br></br>
+<I>Test results</I>
+<pre>Trained value :</pre>
+
+<code>
+<pre>pH	logD</pre>
+<pre>7.40	-0.34</pre>
+</code>
+
+<pre>Untrained value :</pre>
+
+<code>
+<pre>pH	logD</pre>
+<pre>7.40	-0.08</pre>
+</code>
+
+</ol>
+
+<h3>cxcalc</h3>
+<ol>
+
+To apply your p<i>K</i><SUB>a</SUB> correction library to train the Log<i>D</i> method, use the <code>--pkacorrectionlibrary</code> option :
+
+<pre>cxcalc logd <code>--method [method] --pkacorrectionlibrary</code> [library name] [input file/string]</pre>
+
+To apply your Log<i>P</i> dataset to train the Log<i>D</i> method, use the <code>--method</code> 
+main option, combined with the <code>--logptrainingid</code> secondary option :
+
+<pre>cxcalc logd <code>--method [method] --logptrainingid</code> [library name] [input file/string]</pre>
+
+<b>Example</b>
+
+<pre><code>1. $ cxcalc logd --method user --pkacorrectionlibrary mypka_1 --logptrainingid mylogp_1 --pH 7.4 "CC1=NC2=C(N1)C(O)=NC(N)=N2" (trained)</code></pre>
+
+<pre><code>2. $ cxcalc logd  --pH 7.4 "CC1=NC2=C(N1)C(O)=NC(N)=N2" (untrained)</code></pre>
+
+<I>Test results</I>
+<pre>Trained value :</pre>
+
+<code>
+<pre>id	logD[pH=7.4]</pre>
+<pre>1	-0.34</pre>
+</code>
+
+<pre>Untrained value :</pre>
+
+<code>
+</pre>id logD[pH=7.4]</pre>
+<pre>1	-0.08</pre>
+</code>
+</ol>
+
+<h3>Chemical Terms</h3> 
+<ol>
+
+<h4>Evaluator</h4>
+The parameters <code>pkacorrectionlibrary</code> and <code>logptrainingid</code> are utilized in 
+Chemical Terms Evaluator as well : 
+
+ <pre> evaluate -e "logd('method:[method] pkacorrectionlibrary:[library name] logptrainingid:[id]')" [input file/string]</pre>
+ <b>Example</b>
+ <pre>1. $ evaluate -e "logd('method:user pkacorrectionlibrary:mypkalib_1 logptrainingid:mylogp_1 pH:7.4')" "CC1=NC2=C(N1)C(O)=NC(N)=N2" (trained)</pre>
+ <pre>2. $ evaluate -e "logd('pH:7.4')" "CC1=NC2=C(N1)C(O)=NC(N)=N2" (untrained)</pre>
+
+<I>Test results</I>
+<pre>Trained value :</pre>
+
+<code>
+7.4;-0.34
+</code>
+
+<pre>Untrained value :</pre>
+
+<code>
+<pre>7.4;-0.08</pre>
+</code>
+
+ <h4>Instant JChem</h4>
+ You can also apply your p<i>K</i><SUB>a</SUB> and log<i>P</i> training libraries via Chemical Terms in <a href="https://www.chemaxon.com/instantjchem/ijc_latest/docs/user/help/htmlfiles/ijcTOC.html"> Instant JChem </a>.   
+ <li> Choose the 'New Chemical Terms Field' icon on the panel on the right side.</li>
+ <li> Type the chemical term into the window, use the <code>method</code>, <code>pkacorrectionlibrary</code> and
+      <code>logptrainingid</code> parameters. 
+      Do not forget to specify the <I>Name</I>, the <I>Type</I> and the <I>DB Column Name</I> parameters.</li>
+	<br> 
+	<b>Example</b> <br>
+	The following snapshot shows the usage of the Log<i>D</i> training in the 'New Chemical terms' window. 
+	The expression <pre><code>logd('method:user pkacorrectionlibrary:mypkalib logptrainingid:mylogp', '7.4')</code></pre> defines that the plugin use the <code>mypkalib</code> p<i>K</i><SUB>a</SUB> correction library, the <code>mylogp</code> log<i>P</i> training library and pH value 7.4.<h2></h2><br>
+<img src="training_files/IJC_LogD_ChemTerms_training_options.jpg" alt="Chemical Terms window in Instant JChem"/>
+<h2></h2>
+<br>Part of the result table is presented below. You can see the difference between the untrained and the trained log<i>D</i> values. 
+  	<h2></h2>
+<img src="training_files/IJC_LogD_ChemTerms_trained_results.jpg" alt="Table in Instant JChem"/>
+</ol>
+
+</ol>
+
+</body>
+</html>

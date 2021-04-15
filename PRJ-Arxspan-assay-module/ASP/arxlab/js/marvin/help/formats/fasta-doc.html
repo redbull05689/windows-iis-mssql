@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta name="description"
+ content="FASTA file format in Marvin">
+  <meta name="keywords" content="Fasta, Java, Marvin">
+  <meta name="author" content="Peter Cseh">
+  <link rel="stylesheet" type="text/css" href="../marvinmanuals.css"
+ title="Style">
+  <title>FASTA format in Marvin</title>
+</head>
+<body bgcolor="#ffffff" text="#333366">
+<h1>FASTA format</h1>
+<p>
+Codename: <strong>fasta, fasta:dna, fasta:rna, fasta:peptide</strong>
+</p>
+
+<h2>Contents</h2>
+<ul>
+  <li><a href="#import">Import</a></li>
+  <ul>
+  <li> <a href=#import_options> Import options</li>
+  <li> <a href="#dna">DNA, RNA</li>
+  <li> <a href="#peptide"> Peptide</li>
+  </ul>
+  <li><a href="#export">Export</a></li>
+</ul>
+<h2><a class="anchor" name="import">Import</a></h2>
+
+Marvin import the FASTA files if the comment line of it starts with a '&gt' character.
+If the sequence type is not specified, Marvin will try to guess it from the comment header and from the sequence.
+
+<h3><a class="anchor" name="import_options">Import options</a></h3>
+<blockquote>
+<table CELLSPACING=0 CELLPADDING=0 border="0">
+<tr VALIGN="TOP">
+    <td><a class="text" NAME="dna"><strong>dna</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>Import the file as a DNA sequence</td></tr>
+    <tr VALIGN="TOP">
+    <td><a class="text" NAME="rna"><strong>rna</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>Import the file as a RNA sequence</td></tr>
+    <tr VALIGN="TOP">
+    <td><a class="text" NAME="peptide"><strong>peptide</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>Import the file as a peptide sequence</td></tr>
+</table>
+</blockquote>
+
+<h3><a class="anchor" name="dna"> DNA, RNA </h3>
+
+We import the following codes.
+ <table border=1>
+   <tr><td><B> Nucleic Acid Code</td><td>	Meaning</td><td>	Mnemonic</td></tr> 
+   <tr><td><B> A</td><td>	A</td><td>	Adenine</td></tr> 
+   <tr><td><B> C</td><td>	C</td><td>	Cytosine</td></tr> 
+   <tr><td><B> G</td><td>	G</td><td>	Guanine</td></tr> 
+   <tr><td><B> U</td><td>	U</td><td>	Uracil (only in RNA)</td></tr>
+   <tr><td><B> T</td><td>	U</td><td>	Timin (only in DNA)</td></tr> 
+   <tr><td><B> R</td><td>	A or G	</td><td>puRine</td></tr> 
+   <tr><td><B> Y</td><td>	C, T or U</td><td>	pYrimidines</td></tr> 
+   <tr><td><B> K</td><td>	G, T or U</td><td>	bases which are Ketones</td></tr> 
+   <tr><td><B> M</td><td>	A or C</td><td>	bases with aMino groups</td></tr> 
+   <tr><td><B> S</td><td>	C or G</td><td>	Strong interaction</td></tr> 
+   <tr><td><B> W</td><td>	A, T or U</td><td>	Weak interaction</td></tr> 
+   <tr><td><B> B</td><td>	not A (i.e. C, G, T or U)</td><td>	B comes after A</td></tr> 
+   <tr><td><B> D</td><td>	not C (i.e. A, G, T or U)</td><td>	D comes after C</td></tr> 
+   <tr><td><B> H</td><td>	not G (i.e., A, C, T or U)</td><td>	H comes after G</td></tr> 
+   <tr><td><B> V</td><td>	neither T nor U (i.e. A, C or G)</td><td>	V comes after U</td></tr> 
+   <tr><td><B> N</td><td>	A C G T U</td><td>	aNy</td></tr> 
+   <tr><td><B> X</td><td>	masked	<td></td></tr>
+   <tr><td><B> -</td><td>	gap of indeterminate length<td></tr> 
+ </table>
+ Ambigous nucleozides are represented with a labeled pseudoatom. 
+ 
+<h3><a class="anchor" name="peptide"> Peptide </h3>
+
+ <table border=1>
+   <tr><td><B> Code</B></td><td><B> Aminoacid</B></td></tr> <br>
+  <tr><td> A</td><td> Alanine</td></tr> <br>
+  <tr><td>B </td><td> Aspartic acid or Asparagine <br>(represented with an atom list in side-chain)<br>
+  <tr><td>C </td><td> Cysteine<br>
+  <tr><td>D </td><td> Aspartic acid<br>
+  <tr><td>E </td><td> Glutamic acid<br>
+  <tr><td>F </td><td> Phenylalanine<br>
+  <tr><td>G </td><td> Glycine<br>
+  <tr><td>H </td><td> Histidine<br>
+  <tr><td>I </td><td> Isoleucine<br>
+  <tr><td>K </td><td> Lysine<br>
+  <tr><td>L </td><td> Leucine<br>
+  <tr><td>M </td><td> Methionine<br>
+  <tr><td>N </td><td> Asparagine<br>
+  <tr><td>O </td><td> Pyrrolysine<br>
+  <tr><td>P </td><td> Proline<br>
+  <tr><td>Q </td><td> Glutamine<br>
+  <tr><td>R </td><td> Arginine<br>
+  <tr><td>S </td><td> Serine<br>
+  <tr><td>T </td><td> Threonine<br>
+  <tr><td>U </td><td> Selenocysteine<br>
+  <tr><td>V</td><td>  Valine<br>
+  <tr><td>W</td><td>  Tryptophan<br>
+  <tr><td>Y </td><td> Tyrosine<br>
+  <tr><td>Z </td><td> Glutamic acid or Glutamine<br> (represented with an atom list in side-chain)<br>
+  <tr><td>X </td><td> any <br>(represented with an X pseudo atom at the &alpha;-Carbon atom side chain)<br>
+  <tr><td>* </td><td> translation stop <br> (ignored)
+ <tr><td> -</td><td>  gap of indeterminate length<br> (ignored)
+  </table>
+<h2><a class="anchor" name="export">Export</a></h2>
+Not supported yet.
+<br>
+<h2>Reference
+</h2>
+<ul>
+<li><a HREF="http://fasta.bioch.virginia.edu/">FASTA home</a></li>
+<li><a HREF="http://en.wikipedia.org/wiki/FASTA_format">http://en.wikipedia.org/wiki/FASTA_format</a></li>
+</ul>
+
+</body>
+</html>

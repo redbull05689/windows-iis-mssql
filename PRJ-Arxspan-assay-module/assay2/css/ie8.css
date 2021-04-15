@@ -1,0 +1,210 @@
+.resultsPaginationControl{
+	position:relative;
+	float:right;
+	background-color:#FFF;
+	padding:7px;
+	margin-right:8px;
+}
+
+.invPopupDivResults{
+	padding-left:0px;
+	padding-top:36px;
+	padding-bottom:0px;
+	padding-right:0px;
+}
+
+.invPopupDivResults > form{
+	padding-left:15px;
+	padding-bottom:15px;
+	padding-right:5px;
+	background-color:rgb(224,224,224);
+	width:730px;
+	margin-left:-235px;
+	border:1px solid #d1d1d1;
+}
+
+
+.invPopupDivResults > FORM > label{
+	padding-right:15px;
+	min-width:186px;
+	text-align:right;
+}
+
+.invPopupDivResults > FORM > div > div > div > label{
+	min-width:186px!important;
+	text-align:right;
+	padding-right:15px;
+}
+
+#contentDiv > #arxOneContainer > .invPopupDivResults > form{
+	background:transparent!important;
+	margin-left:0;
+	border:none;
+}
+
+input[type="button"]{
+	display:inline-block!important;
+	padding:4px 7px;
+	margin-right:3px;
+	margin-left:16px;
+	padding-top:4px;
+}
+
+#contentDiv > #arxOneContainer > .invPopupDivResults{
+	padding:10px 0 15px 30px;
+}
+
+.ax1-childLinks2{
+	position:initial!important;
+}
+
+#wellView > .invPopupDiv.invPopupDivResults{
+	padding:7px;
+	width:auto;
+}
+
+#wellView > .invPopupDiv.invPopupDivResults > form{
+	background-color:#FFF;
+	border:none;
+	width:auto;
+	margin-left:0px;
+}
+
+
+
+
+
+#arxOneContainer > #listTable .resultsPaginationControl{
+	position:relative;
+	float:right;
+	background-color:#FFF;
+	padding:7px;
+}
+
+#arxOneContainer > #listTable .invPopupDivResults{
+	padding-left:0px;
+	padding-top:36px;
+	padding-bottom:0px;
+	padding-right:0px;
+}
+
+#arxOneContainer > #listTable .invPopupDivResults > form{
+	padding-left:15px;
+	padding-bottom:15px;
+	padding-right:5px;
+	background-color:rgb(224,224,224);
+	width:730px;
+	margin-left:6px;
+	margin-top:17px;
+	border:1px solid #d1d1d1;
+}
+
+#arxOneContainer > #listTable .invPopupDivResults > form .invPopupDivResults > form{
+	margin-left:-8px;
+	padding-left:0px;
+	width:735px;
+	background-color:rgb(217,217,217);
+}
+
+/*
+#arxOneContainer > #listTable .invPopupDivResults > form label, #arxOneContainer > #listTable .invPopupDivResults > form span, #arxOneContainer > #listTable .invPopupDivResults > form div{
+	font-size:16px;
+	padding-top:7px;
+	padding-bottom:7px;
+}
+*/
+
+#arxOneContainer > #listTable .invPopupDivResults > form .invPopupDivResults{
+	padding-left:0px;
+}
+
+#arxOneContainer > #listTable .invPopupDivResults > FORM > label{
+	padding-right:15px;
+	min-width:186px;
+	text-align:right;
+}
+
+#arxOneContainer > #listTable .invPopupDivResults > FORM > div > div > div > label{
+	min-width:186px!important;
+	text-align:right;
+	padding-right:15px;
+}
+
+#arxOneContainer > #listTable #contentDiv > #arxOneContainer > .invPopupDivResults > form{
+	background:transparent!important;
+	margin-left:0;
+	border:none;
+}
+
+#arxOneContainer > #listTable input[type="button"]{
+	display:inline-block!important;
+	padding:4px 7px;
+	margin-right:3px;
+	margin-left:16px;
+	padding-top:4px;
+}
+
+#arxOneContainer > #listTable .invPopupDivResults{
+	padding:10px 0 15px 30px;
+}
+
+#arxOneContainer > #listTable .ax1-childLinks2{
+	position:initial!important;
+}
+
+#arxOneContainer > #listTable #wellView > .invPopupDiv.invPopupDivResults{
+	padding:7px;
+	width:auto;
+}
+
+#arxOneContainer > #listTable #wellView > .invPopupDiv.invPopupDivResults > form{
+	background-color:#FFF;
+	border:none;
+	width:auto;
+	margin-left:0px;
+}
+
+.itemErrorax1-addChildLink-error, .itemErrorax1-childLinks2-error, .itemErrorax1-file-error{
+	display:block!important;
+}
+
+.ax1-childLinks, .ax1-childLinks2, .ax1-childLinks3, .ax1-showChildLinks, .ax1-showChildLinks2, .ax1-showChildLinks3{
+	display:inline-block!important;
+}
+
+#arxOneContainer > #listTable .invPopupDivResults > form .ax1-childLinks2{
+width:auto;
+}
+
+#arxOneContainer > #listTable .invPopupDivResults > form .ax1-childLinks2 > div{
+width:auto;
+margin-left:-3px;
+}
+
+#arxOneContainer > #listTable .invPopupDivResults > form .ax1-childLinks2 > div > .invPopupDivResults{
+width:736px;
+}
+
+#arxOneContainer > #listTable .invPopupDivResults > form .ax1-childLinks2 > div.resultsPaginationControl{
+margin-top:-3px;
+margin-right:20px;
+}
+
+#arxOneContainer > #listTable .invPopupDivResults > form .ax1-childLinks2 > div > .invPopupDivResults > form > div > div{
+margin-left:0px!important;
+}
+
+.plateMap{
+	border-spacing:0px;
+}
+
+.plateMap .odd{
+	background-color:rgb(207, 207, 207)!important;
+}
+.plateMap span{
+	font-size:11px;
+}
+
+#arxOneContainer > .invPopupDiv > FORM > .ax1-userInfo, #arxOneContainer > .invPopupDiv > FORM > .ax1-date{
+	padding:7px 0px 7px 7px;
+}

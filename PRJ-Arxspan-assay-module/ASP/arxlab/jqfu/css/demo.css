@@ -1,0 +1,211 @@
+@charset "UTF-8";
+/*
+ * jQuery File Upload Demo CSS 1.1.0
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2013, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+
+
+
+/* RMEOVED because of implementation conflicts
+body {
+	max-width: 630px;
+	margin: 0 auto;
+	padding: 1em;
+	padding-top: 110px;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
+	font-size: 1em;
+	line-height: 1.4em;
+	background: #dfdfdf;
+	color: #222;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+a {
+  color: orange;
+  text-decoration: none;
+}
+img {
+  border: 0;
+  vertical-align: middle;
+}
+h1 {
+  line-height: 1em;
+}
+blockquote {
+  padding: 0 0 0 15px;
+  margin: 0 0 20px;
+  border-left: 5px solid #eee;
+}
+*/
+
+.fileupload-progress {
+	margin: 10px 0;
+}
+.fileupload-progress .progress-extended {
+	margin-top: 5px;
+}
+.error {
+  color: red;
+}
+
+@media (min-width: 481px) {
+  .navigation {
+    list-style: none;
+    padding: 0;
+  }
+  .navigation li {
+    display: inline-block;
+  }
+  .navigation li:not(:first-child):before {
+    content: "| ";
+  }
+}
+/*Added to wrap the text for long file names*/
+p.name {
+	word-break: break-all;
+	padding-left: 17px;
+	padding-right: 15px;
+}
+
+.size{
+	padding-bottom: 1px;
+	font-size: 14px;
+}
+
+.ui-button-text{
+background: rgba(255, 255, 255, 0.86);
+}
+
+.start, .cancel{
+	background: rgba(236, 236, 236, 0.78);
+	border: 1px solid #9E9E9E;
+	border: none;
+	box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.39);
+	box-sizing: border-box;
+	-webkit-appearance: push-button;
+	color: #000;
+	margin-top: 12px;
+	margin-left: 12px;
+	margin-bottom: 19px;
+	width: 160px;
+	height: 35px;
+	display:none;
+}
+.cancel .ui-button-text, .start .ui-button-text{
+	padding-top: 7px;
+	padding-bottom: 9px;
+}
+
+.filelisttable{
+	margin: 10px 0;
+	width:100%;
+	padding-left:10px;
+	padding-right:10px;
+	margin-top:0px;
+	padding:0px;
+	border-spacing:0px;
+}
+
+table.filelisttable td{
+	width: 80%;
+	word-break: break-all;
+}
+
+.fileupload-progress{
+	margin-left:12px;
+	margin-right:12px;
+}
+
+.mainprogress{
+	height: 15px!important;
+	background: #fff!important;
+}
+
+div.mainprogress > div:first-child{
+	width: 58%;
+	height: 26px;
+	margin-left: -5px;
+	background: #1eb242;
+	background: -moz-linear-gradient(top, #1eb242 0%, #3bba1f 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1eb242), color-stop(100%,#3bba1f));
+	background: -webkit-linear-gradient(top, #1eb242 0%,#3bba1f 100%);
+	background: -o-linear-gradient(top, #1eb242 0%,#3bba1f 100%);
+	background: -ms-linear-gradient(top, #1eb242 0%,#3bba1f 100%);
+	background: linear-gradient(to bottom, #1eb242 0%,#3bba1f 100%);
+	border-radius: 2px;
+	-webkit-box-shadow: 0px 0 7px 1px rgba(7, 7, 7, 0.43);
+	box-shadow: 0px 0 7px 1px rgba(7, 7, 7, 0.43);
+	border:none;
+}
+
+.mainprogress-container{
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+.droptouploadtext{
+	color: #A2A2A2;
+	font-size: 29px;
+	width: 100%;
+	height: 33px;
+	margin: 0;
+	padding-top: 10px;
+	text-align: center;
+	padding-bottom: 10px;
+	line-height: 1em;
+}
+
+.files>.template-upload:nth-child(odd) {
+    background: lightgrey;
+    margin-left: 40px;	
+}
+
+.files>.template-upload>:nth-child(2) {
+    padding-right:12px;
+}
+
+.files>:nth-last-child(1) {
+    padding-right:12px;
+}
+
+.files>:nth-last-child(1)>:nth-child(1) {
+    -webkit-border-radius: 0 0 0 15px;
+	border-radius: 0 0 0 15px;
+}
+
+.files>:nth-last-child(1)>:nth-child(2) {
+	-webkit-border-radius: 0 0 15px 0;
+border-radius: 0 0 15px 0;
+}
+
+.droptouploadtextIEonly{
+	display:none!important;
+}
+
+.addFilesButton{
+	display:none;
+}
+
+.overlay{
+	background-color: #dfdfdf;
+	-webkit-box-shadow: 0 1px 19px 0 rgba(0,0,0,.6);
+	box-shadow: 0 0px 25px 2px rgba(141, 141, 141, 0.65);
+	border-radius: 15px;
+}
+
+.filelisttable .start, .filelisttable .cancel{
+	display:none!important;
+}
+
+/**********************************************/
+/* Copied from main html page - Adjust the jQuery UI widget font-size: */
+.ui-widget {
+    font-size: 0.95em;
+}
+/**********************************************/

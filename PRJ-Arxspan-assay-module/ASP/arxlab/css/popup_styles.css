@@ -1,0 +1,2169 @@
+/* CHECKBOX STYLING */
+input[type=checkbox].css-checkbox {
+    position:absolute; z-index:-1000; top:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0; display: none;
+}
+
+input[type=checkbox].css-checkbox + label.css-label, input[type=checkbox].css-checkbox + label.css-label.clr {
+    padding-left:30px;
+    height:25px; 
+    display:inline-block;
+    line-height:25px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    font-size:25px;
+    vertical-align:middle;
+    cursor:pointer;
+
+}
+
+input[type=checkbox].css-checkbox + label.css-label.gray{
+	color:	#A9A9A9;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label, input[type=checkbox].css-checkbox + label.css-label.chk {
+    background-position: 0 -25px;
+}
+
+input[type=checkbox].css-checkbox.css-checkbox-textonleft + label.css-label, input[type=checkbox].css-checkbox.css-checkbox-textonleft + label.css-label.clr {
+    padding-left:30px;
+    height:25px; 
+    display:inline-block;
+    line-height:25px;
+    background-repeat:no-repeat;
+    background-position: 98% 0;
+    font-size:25px;
+    vertical-align:middle;
+    cursor:pointer;
+
+}
+
+input[type=checkbox].css-checkbox.css-checkbox-textonleft:checked + label.css-label, input[type=checkbox].css-checkbox.css-checkbox-textonleft + label.css-label.chk {
+    background-position: 98% -25px;
+}
+
+label.css-label {
+    background-image:url('../images/checkbox_checkedunchecked.png');
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/* END CHECKBOX STYLING */
+
+/* SELECT STYLING */
+/* From coderwall.com/p/w7npmq */
+.select-style {
+    border: 1px solid #ccc;
+    /* width: 335px; */
+    padding-right: 24px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fafafa url('../images/triangle_down_select.png') no-repeat 97% 50%;
+    background-size: 16px auto;
+    display: inline-block;
+}
+
+.select-style select {
+    padding: 4px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    font-family: Lato, Helvetica;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+
+.select-style-shortest {
+    display: block;
+    width: 40px;
+}
+
+.select-style-shorter {
+    display: block;
+    width: 80px;
+}
+
+.select-style-short {
+    display: block;
+    width: 100px;
+}
+
+.select-style-medium-short {
+    display: block;
+    width: 160px;
+}
+
+.select-style-medium {
+    display: block;
+    width: 250px;
+}
+
+.select-style-medium-long {
+    display: block;
+    width: 320px;
+}
+
+.select-style-long {
+    display: block;
+    width: 400px;
+}
+
+.select-style-longest {
+    display: block;
+    width: 550px;
+}
+
+/*
+.label_value .select-style select {
+    font-size: 16px;
+}
+*/
+
+/* END SELECT STYLING */
+
+
+/* POPUP BOXES */
+#lean_overlay {
+    position: fixed;
+    z-index:99999;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+
+.popupBox{
+    display: none;
+    background: whitesmoke;
+    padding: 10px;
+    border: 1px solid rgb(134, 134, 134);
+    top: 45px!important;
+}
+
+.popupBox.loadingPopupBox{
+    border-left: 4px solid #29C0C0;
+    border-right: 4px solid #29C0C0;
+    border-radius: 7px 7px 7px 7px / 20px 20px 20px 20px;
+    background: rgba(255,255,255,.91);
+}
+
+.popupFormHeader {
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 9px;
+    font-weight: 300;
+}
+.popupForm section label {
+    min-width: 150px;
+    display: inline-block;
+    font-size: 16px;
+    text-align: right;
+    padding-right: 8px;
+}
+
+.popupForm section input[type="text"], .popupForm section input[type="password"] {
+    display: inline-block;
+    font-size: 15px;
+    padding: 5px;
+    width: auto;
+    width: 234px;
+}
+
+.popupForm section span.clipboardData {
+    display: inline-block;
+    font-size: 15px;
+    padding: 5px;
+    width: auto;
+    width: 234px;
+    text-align: left;
+}
+
+.popupForm section select {
+    font-size: 16px;
+    text-align: left;
+}
+
+.popupForm section{
+    padding-top:1px;
+    padding-bottom:1px;
+    text-align: center;
+}
+
+.popupForm section.special {
+    border-top: 1px solid rgb(193, 193, 193);
+    border-bottom: 1px solid rgb(193, 193, 193);
+    margin-top: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.popupForm section.checkbox {
+    padding-left: 30px;
+    padding-top: 8px;
+}
+
+.popupForm section.bottomDisclaimer {
+    margin-top: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.popupForm section.smallDropdownSection{
+    margin-top:1px;
+}
+
+.popupForm section.bottomDisclaimer div{
+    font-size:13px;
+    width: 408px;
+}
+
+.popupForm label.checkboxLabel{
+    font-size:16px!important;
+    text-align: left;
+    margin-top:-4px;
+}
+
+.popupForm section label.select-style-label {
+    line-height: 31px;
+    vertical-align: top;
+}
+
+.popupForm section .select-style{
+    width:208px;
+    width:222px;
+}
+
+.popupForm section:nth-of-type(1) .select-style, .popupForm section:nth-of-type(1) label{
+    margin-top:2px;
+}
+
+.popupForm section.special .select-style{
+    width:auto;
+}
+
+.popupForm section.bottomButtons.needsPaddingAtTop {
+    padding-top: 8px;
+}
+
+.popupTextareaSection textarea {
+    font-size: 14px;
+    padding: 2px 5px;
+    outline: 0;
+    resize: none;     
+    width: 236px;               
+    height: 83px;     
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin: 0;
+}
+
+.popupForm section.popupTextareaSection label {
+    line-height: 89px;
+    vertical-align: top;
+}
+
+div#linkingPopup[linktotype="experiment"] .popupTextareaSection textarea#linkComment {
+    padding: 3px 8px;
+    width: 230px;
+}
+
+div#linkingPopup[linktotype="registration"] .popupTextareaSection textarea#bulkRegImport {
+    width: 400px;
+}
+
+/* POPUP BUTTONS */
+.popupForm section.bottomButtons button , table#displayResults button.bottomButtons{
+    font-size: 16px;
+    padding: 8px 23px;
+    margin-right: 12px;
+    border: none;
+    color: #343434;
+    -webkit-transition: background-color 80ms linear, border-color 80ms linear, color 80ms linear;     
+    -moz-transition: background-color 80ms linear, border-color 80ms linear, color 80ms linear;
+    -o-transition: background-color 80ms linear, border-color 80ms linear, color 80ms linear;
+    -ms-transition: background-color 80ms linear, border-color 80ms linear, color 80ms linear;
+    transition: background-color 80ms linear, border-color 80ms linear, color 80ms linear;
+    cursor: pointer;
+    background: transparent;
+    border: 2px solid rgb(164, 164, 164);
+    border-radius:17px;
+    -webkit-border-radius:17px;
+}
+.popupForm section.bottomButtons button.primaryActionButton {
+    background: rgb(169, 169, 169);
+    color: #FFF;
+}
+.popupForm section.bottomButtons button.enabled:hover, .popupForm section.bottomButtons button.primaryActionButton:hover {
+    background: #29C0C0;
+    border-color: #29C0C0;
+    color: white;
+}
+
+#bulkRegProgress {
+    width: 100%;
+    background-color: #ddd;
+}
+
+#bulkRegBar {
+    width: 1%;
+    height: 30px;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 30px;
+    color: white; 
+}
+/* END POPUP BUTTONS */
+
+
+.reactantReagentManualPopup .popupForm section label{
+    min-width:130px;
+}
+
+.popupForm section.bottomButtons.buttonAlignedRight{
+    text-align:right;
+}
+
+.popupForm section.popupCKeditorSection.buttonAlignedLeft
+{
+    text-align: left;
+}
+
+div#spinnerContainerTarget {
+    width: 105px;
+    height: 77px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.popupLoadingHeader{
+    font-size:30px;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 77px;
+}
+
+.popupForm section div.popupFileInputContainer {
+    display: inline-block;
+    width: 248px;
+}
+
+.popupForm section.popupFileUploadSection {
+    padding-top: 4px;
+}
+
+.popupFileUploadSection label {
+    line-height: 31px;
+}
+
+.popupForm section.popupCKeditorSection label {
+    margin-right: 252px;
+    line-height: 31px;
+}
+
+.popupForm section.minWidth50 label, .popupForm.minWidth50 section label {
+    min-width: 50px;
+}
+
+.popupForm section.minWidth60 label, .popupForm.minWidth60 section label {
+    min-width: 60px;
+}
+
+.popupForm section.minWidth70 label, .popupForm.minWidth70 section label {
+    min-width: 70px;
+}
+
+.popupForm section.minWidth80 label, .popupForm.minWidth80 section label {
+    min-width: 80px;
+}
+
+.popupForm section.minWidth90 label, .popupForm.minWidth90 section label {
+    min-width: 90px;
+}
+
+.popupForm section.minWidth100 label, .popupForm.minWidth100 section label {
+    min-width: 100px;
+}
+
+.popupForm section.minWidth110 label, .popupForm.minWidth110 section label {
+    min-width: 110px;
+}
+
+.popupForm section.minWidth120 label, .popupForm.minWidth120 section label {
+    min-width: 120px;
+}
+
+.popupForm section.minWidth130 label, .popupForm.minWidth130 section label {
+    min-width: 130px;
+}
+
+.popupForm section.minWidth140 label, .popupForm.minWidth140 section label {
+    min-width: 140px;
+}
+
+.popupForm section.minWidth150 label, .popupForm.minWidth150 section label {
+    min-width: 150px;
+}
+
+.popupForm section.minWidth160 label, .popupForm.minWidth160 section label {
+    min-width: 160px;
+}
+
+.popupForm section.minWidth170 label, .popupForm.minWidth170 section label {
+    min-width: 170px;
+}
+
+.popupForm section.minWidth180 label, .popupForm.minWidth180 section label {
+    min-width: 180px;
+}
+
+.popupForm section.minWidth190 label, .popupForm.minWidth190 section label {
+    min-width: 190px;
+}
+
+.popupForm section.minWidth200 label, .popupForm.minWidth200 section label {
+    min-width: 200px;
+}
+
+.marginRight10 {
+    margin-right: 10px!important;
+}
+
+.popupDiv{
+    border-right:2px solid black!important;
+    border-left:2px solid black!important;
+    border-bottom:2px solid black!important;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.progressBarDiv {    
+    width: 320px;
+    height: 80px;
+    z-index:1000000;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+}
+
+hr.popupHR {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.popupFormContent.popupFormContentCentered {
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* END POPUP BOXES */
+
+.commentsTagsTabsContainer {
+    display: table;
+    width: 100%;
+}
+
+.commentsTagsTabsContainer > .commentsTagsTab {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+    border-bottom: 3px solid #a9a9a9;
+    background: #fdfdfd;
+    line-height: 24px;
+    font-size: 14px;
+    cursor: pointer;
+    border-top: 1px solid #b1b1b1;
+}
+
+.commentsTagsTabsContainer > .commentsTagsTab.commentsTab {
+    border-right: 1px solid #b1b1b1;
+}
+
+.commentsTagsTabsContainer > .commentsTagsTab.activeTab {
+    border-bottom-color: #00b2ba;
+}
+
+.commentsTagsTabContent.activeTabContent {
+    display: block;
+}
+
+.commentsTagsTabContent {
+    display: none;
+}
+
+.individualAddedTagOuter {
+    display: block;
+    margin: 8px;
+}
+
+.individualAddedTag {
+    display: inline-block;
+    border: 1px solid #a0a0a0;
+    background: #ddd;
+    padding: 0px 0px;
+    font-size: 14px;
+}
+
+.tagText,.removeTag {
+    display: inline-block;
+}
+
+.removeTag {
+    color: #999999;
+    font-size: 16px;
+    padding: 0 7px;
+    cursor: pointer;
+}
+
+.tagText {
+    color: #797979;
+    padding-left: 6px;
+}
+
+.addTagBoxContainer > .addTagBox > input[type="text"] {
+    display: block;
+    width: 100%;
+    border: none;
+    line-height: 30px;
+    font-size: 16px;
+    padding-left: 31px;
+    box-sizing: border-box;
+}
+
+.addTagBoxContainer > .addTagBox::before {
+    content: "#";
+    position: absolute;
+    color: #aeaeae;
+    font-size: 22px;
+    margin-top: 7px;
+    margin-left: 12px;
+    z-index: 1;
+}
+
+.addTagBoxContainer {
+    border-top: 1px solid #cacaca;
+}
+
+#s2id_addTagBoxDropdown {
+    width: 100%;
+}
+
+#s2id_addTagBoxDropdown > ul.select2-choices {
+    border: none;
+}
+
+#s2id_addTagBoxDropdown > ul.select2-choices > li.select2-search-field > input.select2-input {
+    border: none;
+    line-height: 20px;
+    font-size: 16px;
+    padding-left: 31px;
+    box-sizing: border-box;
+}
+
+#s2id_addTagBoxDropdown > ul.select2-choices > li.select2-search-choice {
+    display: none;
+}
+
+.linkingPopupContent.popupForm label {
+    min-width: 185px;
+}
+
+div#linkingPopup[linktotype="experiment"] .searchForExperimentSection, div#linkingPopup[linktotype="project"] .searchForProjectSection, div#linkingPopup[linktotype="registration"] .searchRegistrationSection {
+    display: block;
+}
+
+div#linkingPopup .searchForExperimentSection, div#linkingPopup .searchForProjectSection, div#linkingPopup .searchRegistrationSection {
+    display: none;
+}
+
+div#select2-drop.elnSearchTypeaheadDropdown.experimentSearchTypeaheadDropdown {
+    z-index: 100000;
+}
+
+#s2id_linkProjectId{
+    width: 246px;
+}
+
+.linkingPopupContent .select2-container .select2-choice > .select2-chosen {
+    text-align: left;
+}
+
+.linkingPopupContent .select2-container {
+    width: 248px;
+    margin-bottom: 2px;
+}
+
+#linkingPopup[linkas="previousStep"] label[for="biDirectionalCheckbox"], 
+#linkingPopup[linkas="nextStep"] label[for="biDirectionalCheckbox"], 
+#linkingPopup[linktotype="project"] label[for="biDirectionalCheckbox"],
+#linkingPopup[linktotype="registration"] label[for="biDirectionalCheckbox"] {
+    display: none;
+}
+
+#linkingPopup[linktotype="project"] section.linkAsSection, #linkingPopup[linktotype="registration"] section.linkAsSection {
+    display: none;
+}
+
+#linkingPopup[linktotype="experiment"] label[for="regIdColCheckbox"],
+#linkingPopup[linktotype="project"] label[for="regIdColCheckbox"] {
+    display: none;
+}
+
+.swal2-container {
+    z-index: 100000;
+}
+
+#overlay_select2Compatible {
+    position: fixed;
+    z-index: 99997;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    display: none;
+}
+
+#overlay_select2Compatible.makeVisible {
+    display: block;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
+    -moz-opacity: .8;
+    -khtml-opacity: .8;
+    opacity: .8;
+}
+
+#linkingPopup.popupDiv.popupBox {
+    z-index: 99998!important;
+}
+
+#showCasResultsDiv {
+    overflow-y: scroll!important;
+    width: 80%!important;
+    margin-left: 10%!important;
+    left: 0!important;
+    height: 80%!important;
+}
+
+#showCasResultsDiv #chemAxonResultDiv {
+    height: auto!important;
+}
+
+/******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+                                
+                             START
+
+                    2016 Reskin - Inventory
+
+*******************************************************************
+*******************************************************************
+*******************************************************************
+******************************************************************/
+
+div.rightSide a {
+    margin: 0!important;
+}
+
+.invPopupDiv {
+    padding: 0;
+}
+
+h1[formname="objectType"] {
+    margin: 0;
+    border-bottom: 1px solid #838383;
+}
+
+h1[formname="objectType"] span[formname="objectType"] {
+    font-size: 21px;
+    padding: 8px;
+    display: inline-block;
+}
+
+h1[formname="versionDiv"] {
+    position: absolute;
+    top: 3px;
+    right: 19px;
+    font-size: 15px;
+}
+
+.templateImage[formname="Structure"] > img {
+    position: absolute;
+    right: 18px;
+    top: 79px;
+    border: 1px solid #B9B9B9;
+}
+
+.ax1-text, .ax1-date, .ax1-select, .ax1-textarea, .ax1-childLinks2, .ax1-productId, 
+.ax1-reactantIds, .ax1-multiText, .ax1-checkbox {
+    color: black;
+    margin-left: 14px;
+    display: block;
+    word-break: break-word;
+    max-width: calc(100% - 347px);
+	font-size:100%;
+    line-height: 130%;
+    font-family: Lato, Arial, Helvetica!important;
+}
+
+.ax1-textarea {
+    width: 400px;
+    height: 80px;
+    font-weight: 400;
+}
+
+.ax1-childLinks2 a, a.ax1-productId {
+    color: #00B2BA;
+    text-decoration: none;
+}
+
+label.ax1-text-label, label.ax1-textarea-label, label.ax1-date-label, label.ax1-select-label, label.ax1-file-label {
+	font-size:100%;
+    color: #4E5252;
+    display: block;
+    margin-top: 19px;
+    line-height: 20px;
+    font-family: Lato, Arial, Helvetica!important;
+}
+
+table#contentTable {
+    width: 100%;
+    background: #F6F6F6;
+    border-spacing: 0;
+}
+
+table#contentTable > tbody > tr > td:nth-of-type(1) {
+    width: 250px!important;
+    padding-right: 0px!important;
+    min-width: 250px;
+}
+
+table#contentTable > tbody > tr > td:nth-of-type(2) {
+    background: transparent!important;
+    width: auto!important;
+    padding-right: 15px!important;
+}
+
+.templateBottomInfoContainer {
+    border: 2px solid #00B2BA;
+    padding: 8px 23px;
+    display: inline-block;
+    margin-bottom: 22px;
+}
+/*
+.templateBottomInfoContainer::before {
+    background: #F6F6F6;
+    width: 40px;
+    height: 27px;
+    content: "";
+    margin-top: -16px;
+    margin-left: -42px;
+    position: absolute;
+}
+*/
+.templateText, .templateDate, .templateSelect, .templateTextarea, .templateInnerBreadcrumbsTable {
+    background: transparent!important
+}
+
+.templateDiv {
+    position: relative;
+}
+
+.templatePrinterDetailsContainer{
+	position: relative;
+	right: 0;
+}
+
+.templatePrinterDetailsContainer .ax1-text-label {
+	font-size: 12px;
+    line-height: 24px;
+}
+
+.templatePrinterDetailsContainer .ax1-select-label {
+	font-size: 12px;
+    line-height: 10px;
+}
+
+.templatePrinterDetailsContainer > div {
+	display: inline-block;
+    margin: 0 8px;
+}
+
+.templateBottomButtonsContainer {
+    margin: 24px 0;
+}
+.templateBottomButtonsContainer > div {
+    display: inline-block;
+    margin: 0 3px;
+}
+.templateBottomButtonsContainer > div input {
+    border: 1px solid #ABABAB;
+    padding: 6px 10px;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+}
+
+.templateBottomButtonsContainer > div input:hover {
+    background: #EFEFEF;
+}
+
+table#listTable.experimentsTable {
+    background-color: #fff;
+    border: 1px solid #C5C5C5;
+}
+
+table#listTable.experimentsTable tbody tr:first-of-type td {
+    background-color: transparent!important;
+    text-align: right!important;
+}
+
+table#listTable.experimentsTable tbody tr:first-of-type a {
+    text-decoration: none;
+    border: 1px solid #CACACA;
+    padding: 6px 10px;
+    display: inline-block;
+    margin-top: 7px;
+    margin-bottom: 2px;
+    margin-right: 13px;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+table#listTable.experimentsTable tbody tr:first-of-type a:hover {
+    border-color: #00B2BA;
+}
+
+table#listTable.experimentsTable tbody tr td:first-of-type img[src="images/minus.gif"], table#listTable.experimentsTable tbody tr td:first-of-type img[src="images/plus.gif"] {
+    margin-left: 8px;
+    margin-right: 6px;
+}
+
+table#listTable.experimentsTable tbody tr td {
+    text-align: left!important;
+}
+
+table#listTable.experimentsTable tbody tr td[colspan="7"] {
+    padding: 0;
+    background-color: #F6F6F6;
+}
+
+table#listTable.experimentsTable tbody tr td[colspan="7"] div.invPopupDivResults {
+    padding: 7px 8px;
+    border: 1px solid #E2E2E2;
+    box-shadow: inset 0px 4px 8px -5px #000;
+}
+
+table#listTable.experimentsTable tbody tr td[colspan="7"] div.invPopupDivResults .inventoryTemplate .inventoryTemplateOuterBox {
+    background: inherit;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    border: none;
+} 
+
+table#listTable.experimentsTable > tbody > tr:last-of-type td {
+    padding-right: 8px;
+    text-align: right!important;
+    background-color: #4D5158;
+    color: #fff;
+    border: 1px solid #E8E8E8;
+}
+
+table#listTable.experimentsTable > tbody > tr:last-of-type td span {
+    display: inline-block;
+    font-size: 15px;
+    line-height: 35px;
+    text-transform: capitalize;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+table#listTable.experimentsTable > tbody > tr:last-of-type td a {display: inline-block;}
+
+.templateBottomInfoContainer > div {
+    font-size: 16px;
+}
+
+.templateBottomInfoContainer > div > label {
+    line-height: 130%;
+}
+
+div.templateDiv h1[formname="Name"] span.ax1-text {
+        margin-top: 9px;
+        color: #7B7B7B;
+        line-height: 130%;
+        font-size: 22px;
+        border-bottom: 1px solid #DADADA;
+        display: inline;
+        padding: 3px 8px;
+        font-weight: 400;
+        display: inline-block;
+        font-family: Lato;
+        -webkit-font-smoothing: antialiased;
+}
+
+.plateMap {
+    width: 100%;
+    border: 5px solid #FFF;
+}
+
+.plateMapHolder > label {
+    font-size: 22px;
+    line-height: 27px;
+    padding-left: 8px;
+    border-left: 4px solid #00B2BA;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+
+.plateMap .odd {
+    background-color: #F5F5F5!important;
+}
+
+.plateMap tbody tr td:first-of-type {
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+}
+.plateMap tbody tr td:last-of-type {
+    border-right: 1px solid #CCCCCC;
+}
+.plateMap tbody tr:first-of-type td {
+    border-top: 1px solid #CCCCCC;
+}
+
+#tree:hover {
+    width: auto!important;
+}
+
+div#tree.inventoryTree {
+    border-right: none;
+    width: 250px!important;
+    min-width: 250px;
+    transition: height .5s cubic-bezier(0.39, 0.58, 0.57, 1);
+    z-index: 30;
+}
+
+ul.dynatree-container {
+    border: 1px solid #4D5158!important;
+}
+
+table#contentTable > tbody > tr > td:nth-of-type(1) > div {background-color: #4D5158!important;}
+
+table#contentTable > tbody > tr > td:nth-of-type(1) > div > div#aNav > a,table#contentTable > tbody > tr > td:nth-of-type(1) > div > div#aNav > nav > ul > li > a {
+    color: #fff;
+}
+
+table#contentTable > tbody > tr > td:nth-of-type(1) > div > div#aNav > nav > ul li ul {background: rgba(127, 150, 162, 0.87);left: 129px;margin-top: -42px;}
+
+table#contentTable > tbody > tr > td:nth-of-type(1) > div > div#aNav > nav > ul li ul li a {
+    color: #fff;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 4px 9px;
+    font-size: 16px;
+    line-height: 25px;
+    width: auto;
+    text-decoration: none;
+}
+
+.invPopupDiv table.experimentsTable > tbody > tr td a,.invPopupDiv table.experimentsTable > tbody > tr:last-of-type td a {
+    padding: 0;
+    margin: 0;
+    text-decoration: underline;
+    border: none;
+    font-size: 14px;
+}
+
+.invPopupDiv table.experimentsTable > tbody > tr td a:hover,.invPopupDiv table.experimentsTable > tbody > tr:last-of-type td a:hover {
+    background: transparent;
+    color: #000;
+}
+
+.auditTrail table {
+    width: 100%;
+    overflow-x: scroll;
+}
+
+table#contentTable > tbody > tr > td > div#arxOneContainer > table#listTable.experimentsTable {
+    width: 100%;
+}
+
+/***********   START - FLEXIBLE HEIGHT FOR INVENTORY SIDEBAR   ************/
+
+@media screen and (min-height: 800px){
+    div#tree {
+        height: 520px!important;
+    }
+}
+
+@media screen and (min-height: 850px){
+    div#tree {
+        height: 570px!important;
+    }
+}
+
+@media screen and (min-height: 900px){
+    div#tree {
+        height: 620px!important;
+    }
+}
+
+@media screen and (min-height: 950px){
+    div#tree {
+        height: 670px!important;
+    }
+}
+
+@media screen and (min-height: 1000px){
+    div#tree {
+        height: 720px!important;
+    }
+}
+
+@media screen and (min-height: 1050px){
+    div#tree {
+        height: 770px!important;
+    }
+}
+
+@media screen and (min-height: 1100px){
+    div#tree {
+        height: 820px!important;
+    }
+}
+
+@media screen and (min-height: 1150px){
+    div#tree {
+        height: 870px!important;
+    }
+}
+
+@media screen and (min-height: 1200px){
+    div#tree {
+        height: 920px!important;
+    }
+}
+
+@media screen and (min-height: 1250px){
+    div#tree {
+        height: 970px!important;
+    }
+}
+
+@media screen and (min-height: 1300px){
+    div#tree {
+        height: 1020px!important;
+    }
+}
+
+@media screen and (min-height: 1350px){
+    div#tree {
+        height: 1070px!important;
+    }
+}
+
+@media screen and (min-height: 1400px){
+    div#tree {
+        height: 1120px!important;
+    }
+}
+
+@media screen and (min-height: 1450px){
+    div#tree {
+        height: 1170px!important;
+    }
+}
+
+@media screen and (min-height: 1500px){
+    div#tree {
+        height: 1220px!important;
+    }
+}
+
+@media screen and (min-height: 1550px){
+    div#tree {
+        height: 1270px!important;
+    }
+}
+
+@media screen and (min-height: 1600px){
+    div#tree {
+        height: 1320px!important;
+    }
+}
+
+@media screen and (min-height: 1650px){
+    div#tree {
+        height: 1370px!important;
+    }
+}
+
+@media screen and (min-height: 1700px){
+    div#tree {
+        height: 1420px!important;
+    }
+}
+
+@media screen and (min-height: 1750px){
+    div#tree {
+        height: 1470px!important;
+    }
+}
+
+@media screen and (min-height: 1800px){
+    div#tree {
+        height: 1520px!important;
+    }
+}
+
+@media screen and (min-height: 1850px){
+    div#tree {
+        height: 1570px!important;
+    }
+}
+
+@media screen and (min-height: 1900px){
+    div#tree {
+        height: 1620px!important;
+    }
+}
+
+/************   END - FLEXIBLE HEIGHT FOR INVENTORY SIDEBAR   *************/
+
+div[formname="Location"].ax1-childLinks2 > div > div:nth-child(2) {
+    margin-left: 30px;
+}
+
+div[formname="Location"] > div > div:nth-child(3) {
+    margin-left: 60px;
+}
+
+div[formname="Location"] > div > div:nth-child(4) {
+    margin-left: 90px;
+}
+
+div[formname="Location"] > div > div:nth-child(5) {
+    margin-left: 120px;
+}
+
+div[formname="Location"] > div > div:nth-child(6) {
+    margin-left: 150px;
+}
+
+div[formname="Location"] > div > div:nth-child(7) {
+    margin-left: 180px;
+}
+
+div[formname="Location"] > div > div:nth-child(8) {
+    margin-left: 210px;
+}
+
+div[formname="Location"] > div > div:nth-child(9) {
+    margin-left: 240px;
+}
+
+div[formname="Location"].ax1-childLinks2 > div > div > a {
+    padding: 4px 10px;
+    line-height: 26px;
+    display: inline-block;
+    border: 1px solid #00B2BA;
+}
+
+.ax1-childLinks2[formname="Location"] {
+    max-width: 480px;
+    display: inline-block;
+}
+
+div[formname="Location"].ax1-childLinks2 > div > div {
+    width: auto;
+    display: block;
+    margin-bottom: 12px;
+    margin-top: 9px;
+}
+
+div[formname="Location"].ax1-childLinks2 > div > div > a:hover {
+    background: #fff;
+}
+
+table#contentTable > tbody > tr > td > div#arxOneContainer > table#listTable.experimentsTable > tbody > tr[id*="edit_tr"] > td[id*="edit_td"] {
+    background: #F6F6F6;
+    border: 1px solid #C1C1C1;
+    border-bottom: 1px solid #8E8E8E;
+    box-shadow: inset 0px 11px 12px -13px #000;
+    padding-bottom: 45px;
+}
+
+table#contentTable > tbody > tr > td > div#arxOneContainer > table#listTable.experimentsTable > tbody > tr[id*="edit_tr"] > td[id*="edit_td"] .invPopupDiv {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0;
+}
+
+div.templateText input[type="text"] {
+    padding: 3px 8px;
+    width: 400px;
+}
+
+#arxOneContainer > table#listTable.experimentsTable > tbody > tr[id*="show_tr"] td a {
+    font-size: 15px;
+    line-height: 19px;
+}
+
+#arxOneContainer > table#listTable.experimentsTable > tbody > tr[id*="show_tr"] td {
+    font-size: 15px;
+    line-height: 19px;
+    border-bottom: 1px solid #C5C5C5;
+}
+
+table#contentTable > tbody > tr > td > div#arxOneContainer > table#listTable.experimentsTable > tbody > tr[id*="edit_tr"] > td[id*="edit_td"] 
+.invPopupDiv div.templateDiv div.auditTrail .experimentsTable tr.auditTrailRow td {
+    font-size: 15px;
+    line-height: 19px;
+}
+
+div#samplePopup.popupDiv > div#treeSample {
+    width: 300px!important;
+    margin-bottom: 15px;
+    height: 275px;
+    margin-top: 40px;
+}
+
+div#samplePopup.popupDiv > div#treeSample ~ label {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: Lato, Arial, Helvetica;
+}
+
+div#samplePopup.popupDiv > div#treeSample + label + select, div#samplePopup.popupDiv > div#treeSample ~ label + input[type="text"],div#samplePopup.popupDiv > div#treeSample ~ label + textarea {
+    margin-left: 18px;
+}
+
+div#samplePopup.popupDiv > div#treeSample ~ label + textarea {
+    margin: 3px 3px 3px 18px;
+    width: 256px;
+    border-color: #ADADAD;
+}
+
+div#samplePopup.popupDiv > div#treeSample ~ label + textarea + input[type="button"] {
+    border: 1px solid #ABABAB;
+    padding: 6px 10px;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+    margin-top: 11px;
+}
+
+div#samplePopup.popupDiv > div#treeSample ~ label + input[type="text"] {
+    font-size: 16px;
+    line-height: 130%;
+    border: 1px solid #D2D2D2;
+    padding: 3px 8px;
+}
+
+div#samplePopup.popupDiv > div#treeSample ~ label + textarea + input[type="button"]:hover {
+    background: #EFEFEF;
+}
+
+div.popupDiv#samplePopup {
+    padding: 5px 20px 20px 20px;
+    height: 92%;
+    border-top: none;
+    top: 37px;
+    left: 50%;
+    margin-left: -420px;
+    width: 840px!important;
+    box-sizing: border-box;
+    position: fixed;
+}
+
+#saveAsMappingTemplatePopup.popupDiv {
+    padding: 15px 20px 15px 20px;
+    height: auto!important;
+    border-top: none;
+    top: 37px;
+    left: 50%;
+    margin-left: -248px;
+    width: 496px!important;
+    box-sizing: border-box;
+    position: fixed;
+}
+
+div.popupDiv#samplePopup a.popupCloseLink img.popupCloseImg {
+    display: none;
+}
+
+div.popupDiv#samplePopup a.popupCloseLink::before {content: "x";font-size: 22px;display: inline-block;color: #FFF!important;padding: 4px 13px 7px;background: #DA3434;border-bottom: 1px solid #000;border-left: 1px solid #000;}
+
+div.popupDiv#samplePopup a.popupCloseLink:hover::before {
+    box-shadow: inset 2px -3px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+div.popupDiv#samplePopup .popupCloseLink {
+    margin-top: 0;
+}
+
+div.popupDiv#addPopup {
+    padding: 40px 20px 0px 20px;
+    border-top: none;
+}
+
+div.popupDiv#addPopup label {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: Lato, Arial, Helvetica;
+    display: inline-block;
+}
+
+div.popupDiv#addPopup select {
+    margin-left: 7px;
+    display: inline-block;
+}
+
+div.popupDiv#addPopup input[type="button"] {
+    border: 1px solid #ABABAB;
+    padding: 6px 10px;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+    margin-top: 11px;
+}
+
+div.popupDiv#addPopup a.popupCloseLink img.popupCloseImg {
+    display: none;
+}
+
+div.popupDiv#addPopup .popupCloseLink {
+    margin-top: 0;
+}
+
+div.popupDiv#addPopup a.popupCloseLink::before {
+    content: "x";
+    font-size: 22px;
+    display: inline-block;
+    color: #FFF!important;
+    padding: 4px 13px 7px;
+    background: #DA3434;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+}
+
+div.popupDiv#addPopup a.popupCloseLink:hover::before {
+    box-shadow: inset 2px -3px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+div#addPopup.popupDiv > input[type="button"]:hover {
+    background: #EFEFEF;
+}
+
+div.popupDiv#addPopup label::after {
+    content: ":";
+}
+
+table.experimentsTable tr td, table.experimentsTable tr td a, table.experimentsTable tr td.experimentCell a, table.experimentsTable tr td.statusCell, table.experimentsTable tr td.submittedCell, table.experimentsTable tr td.updatedCell {
+    padding-top: 11px;
+    padding-bottom: 11px;
+}
+
+div.popupDiv#casPopup {
+    padding: 40px 20px 0px 20px;
+    border-top: none;
+    height: 93px!important;
+}
+
+div.popupDiv#casPopup label {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: Lato, Arial, Helvetica;
+    display: inline-block;
+}
+
+div.popupDiv#casPopup input[type="text"] {
+    margin-left: 7px;
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 16px;
+    width: 175px;
+}
+
+div.popupDiv#casPopup input[type="button"] {
+    border: 1px solid #ABABAB;
+    padding: 6px 10px;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+    margin-top: 11px;
+}
+
+div.popupDiv#casPopup a.popupCloseLink img.popupCloseImg {
+    display: none;
+}
+
+div.popupDiv#casPopup .popupCloseLink {
+    margin-top: 0;
+}
+
+div.popupDiv#casPopup a.popupCloseLink::before {
+    content: "x";
+    font-size: 22px;
+    display: inline-block;
+    color: #FFF!important;
+    padding: 4px 13px 7px;
+    background: #DA3434;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+}
+
+div.popupDiv#casPopup a.popupCloseLink:hover::before {
+    box-shadow: inset 2px -3px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+div#casPopup.popupDiv > input[type="button"]:hover {
+    background: #EFEFEF;
+}
+
+div.popupDiv#casPopup label::after {
+    content: ":";
+}
+
+#contentTable #showCasResultsDiv {
+    min-height: 350px;
+}
+
+div.templateFile {
+    background: transparent!important;
+}
+
+div.popupDiv#usePopup {
+    padding: 2px 20px 0px 20px;
+    border-top: none;
+    height: 127px!important;
+}
+
+div.popupDiv#usePopup label {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: Lato, Arial, Helvetica;
+    display: inline-block;
+    visibility: hidden;
+}
+
+div.popupDiv#usePopup input[type="text"] {
+    margin-left: 0px;
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 16px;
+    position: absolute;
+    top: 44px;
+}
+
+div.popupDiv#usePopup input[type="button"] {
+    border: 1px solid #ABABAB;
+    padding: 6px 10px;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+    margin-top: 60px;
+}
+
+div.popupDiv#usePopup a.popupCloseLink img.popupCloseImg {
+    display: none;
+}
+
+div.popupDiv#usePopup a.popupCloseLink {
+    margin-top: 0;
+}
+
+div.popupDiv#usePopup a.popupCloseLink::before {
+    content: "x";
+    font-size: 22px;
+    display: inline-block;
+    color: #FFF!important;
+    padding: 4px 13px 7px;
+    background: #DA3434;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+}
+
+div.popupDiv#usePopup a.popupCloseLink:hover::before {
+    box-shadow: inset 2px -3px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+div#usePopup.popupDiv > input[type="button"]:hover {
+    background: #EFEFEF;
+}
+
+div.popupDiv#usePopup > span {
+    padding: 2px 10px;
+    display: inline-block;
+    line-height: 22px;
+    position: absolute;
+    bottom: 8px;
+    right: 11px;
+}
+
+div.popupDiv#usePopup label::after {
+    content: "Amount to Use:";
+    display: inline-block;
+    position: absolute;
+    left: 18px;
+    top: 25px;
+    visibility: visible;
+}
+
+div.popupDiv#usePopup > span > em {
+    font-style: normal;
+}
+
+div.popupDiv#movePopup {
+    height: auto!important;
+    border-top: none;
+    top: -70px;
+}
+div#movePopup.popupDiv > div#treeMove {
+    width: 300px!important;
+    margin-bottom: 15px;
+    height: 400px;
+}
+
+div#movePopup.popupDiv > label {
+    font-weight: 400;
+    color: #7B7B7B;
+    line-height: 130%;
+    font-size: 18px;
+    border-bottom: 1px solid #DADADA;
+    display: inline;
+    padding: 3px 8px;
+    text-transform: uppercase;
+    font-weight: 400;
+    display: inline-block;
+    font-family: Lato;
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: 9px;
+    margin-left: 0px;
+}
+
+div#movePopup.popupDiv > label:first-of-type::before {
+    content: "Choose a ";
+}
+
+div.popupDiv#movePopup a.popupCloseLink img.popupCloseImg {
+    display: none;
+}
+
+div.popupDiv#movePopup a.popupCloseLink {
+    margin-top: 0;
+}
+
+div.popupDiv#movePopup a.popupCloseLink::before {
+    content: "x";
+    font-size: 22px;
+    display: inline-block;
+    color: #FFF!important;
+    padding: 4px 13px 7px;
+    background: #DA3434;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+}
+
+div.popupDiv#movePopup a.popupCloseLink:hover::before {
+    box-shadow: inset 2px -3px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+div.popupDiv#movePopup input[type="button"] {
+    border: 1px solid #ABABAB;
+    padding: 6px 10px;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+    margin-top: 25px;
+}
+div#movePopup.popupDiv > input[type="button"]:hover {
+    background: #EFEFEF;
+}
+
+div#copyPopup.popupDiv {
+    padding: 2px 20px 10px 20px;
+    border-top: none;
+    height: auto!important;
+    top: -65px;
+}
+
+div#copyPopup.popupDiv > br {
+    display: none;
+}
+
+div#copyPopup.popupDiv > div#treeAdd {
+    width: 300px!important;
+    margin-bottom: 15px;
+    margin-top: 6px;
+    height: 206px!important;
+}
+
+div#copyPopup.popupDiv > label {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: Lato, Arial, Helvetica;
+    display: block;
+}
+
+div#copyPopup.popupDiv > input[type="text"] {
+    font-size: 16px;
+    line-height: 130%;
+    border: 1px solid #D2D2D2;
+    padding: 3px 8px;
+}
+
+div#copyPopup.popupDiv > input[type="text"] {
+    margin-left: 18px;
+    margin-right: 18px;
+    width: calc(100% - 52px)!important;
+}
+
+div#copyPopup.popupDiv > textarea {
+    margin-left: 18px;
+    margin-right: 18px;
+    margin-bottom: 6px;
+    margin-top: 6px;
+    width: calc(100% - 44px)!important;
+    height: 100px!important;
+}
+
+div#copyPopup.popupDiv > label:first-of-type::before {
+    content: "Make a Copy";
+    margin-top: 0;
+    color: #7B7B7B;
+    line-height: 130%;
+    font-size: 18px;
+    border-bottom: 1px solid #DADADA;
+    padding: 3px 8px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: Lato;
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: 9px;
+    display: block;
+    width: 121px;
+    text-align: center;
+}
+
+div#copyPopup.popupDiv > label::after {
+    content: ":";
+}
+
+div#copyPopup.popupDiv > label:last-of-type::after {
+    content: "?";
+}
+
+div.popupDiv#copyPopup a.popupCloseLink img.popupCloseImg {
+    display: none;
+}
+
+div.popupDiv#copyPopup a.popupCloseLink {
+    margin-top: 0;
+}
+
+div.popupDiv#copyPopup a.popupCloseLink::before {
+    content: "x";
+    font-size: 22px;
+    display: inline-block;
+    color: #FFF!important;
+    padding: 4px 13px 7px;
+    background: #DA3434;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+}
+
+div.popupDiv#copyPopup a.popupCloseLink:hover::before {
+    box-shadow: inset 2px -3px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+div.popupDiv#copyPopup input[type="button"] {
+    border: 1px solid #ABABAB;
+    padding: 6px 10px;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+    margin-top: 12px;
+}
+div#copyPopup.popupDiv > input[type="button"]:hover {
+    background: #EFEFEF;
+}
+
+div#copyPopup.popupDiv > label:last-of-type {
+    display: inline-block;
+}
+
+div#copyPopup.popupDiv > input[type="checkbox"] {
+    display: inline-block;
+    margin-left: 9px;
+    font-size: 16px;
+}
+
+div#movePopup.popupDiv > #treeBulkMove {
+    width: auto!important;
+}
+
+div#movePopup.popupDiv > textarea {
+    width: 266px;
+    margin-top: 0px;
+    height: 150px;
+    margin-bottom: 4px;
+}
+
+div.popupDiv#movePopup textarea#barcodeBox + input[type="button"] {
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+
+div.popupDiv#samplePopup textarea#barcodeBox {
+    height: 290px;
+}
+
+div.popupDiv#labelPopup {
+    padding: 40px 20px 0px 20px;
+    border-top: none;
+    height: 93px!important;
+}
+
+div.popupDiv#labelPopup label {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: Lato, Arial, Helvetica;
+    display: inline-block;
+}
+
+div.popupDiv#labelPopup label::after {
+    content: ":";
+}
+
+div.popupDiv#labelPopup select {
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+div.popupDiv#labelPopup input[type="button"] {
+    border: 1px solid #ABABAB;
+    padding: 6px 10px;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+div.popupDiv#labelPopup a.popupCloseLink img.popupCloseImg {
+    display: none;
+}
+
+div.popupDiv#labelPopup a.popupCloseLink {
+    margin-top: 0;
+}
+
+div.popupDiv#labelPopup a.popupCloseLink::before {
+    content: "x";
+    font-size: 22px;
+    display: inline-block;
+    color: #FFF!important;
+    padding: 4px 13px 7px;
+    background: #DA3434;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+}
+
+div.popupDiv#labelPopup a.popupCloseLink:hover::before {
+    box-shadow: inset 2px -3px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+div#labelPopup.popupDiv > input[type="button"]:hover {
+    background: #EFEFEF;
+}
+
+div.popupDiv#labelPopup > span {
+    padding: 2px 10px;
+    display: inline-block;
+    line-height: 22px;
+    position: absolute;
+    bottom: 8px;
+    right: 11px;
+}
+
+div.popupDiv#labelPopup > span > em {
+    font-style: normal;
+}
+
+div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] {
+    position: relative;
+}
+
+div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > table#recTable {
+    display: block;
+}
+
+div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > table#recTable > tr {
+    display: block;
+}
+
+div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > table#recTable > tr > td:nth-of-type(1),div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > table#recTable > tr > td:nth-of-type(2),div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > table#recTable > tr > td:nth-of-type(3) {
+    display: inline-block;
+    padding-top: 17px;
+}
+
+div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > table#recTable > tr > td:nth-of-type(4) {
+    display: block;
+    border: none!important;
+    border-top: 1px dashed #000!important;
+}
+
+div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > table#recTable > tr > td:nth-of-type(5) {
+    display: block;
+}
+
+div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > table#recTable > tr > td:nth-of-type(6) {
+    display: block;
+}
+
+div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > table#recTable > tr > td:nth-of-type(2) {
+    border-top: 2px solid #00B1B9;
+    border-bottom: 2px solid #00B2BA;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin: 0 14px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    padding-top: 5px;
+    margin-top: 5px;
+}
+
+div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > table#recTable tr td label {
+    font-size: 14px;
+    color: #4E5252;
+    display: block;
+    line-height: 20px;
+    margin-top: 0;
+}
+
+div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > table#recTable tr td input[type="button"] {
+    border: 1px solid #ABABAB;
+    padding: 6px 10px;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+}
+
+div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > table#recTable tr td:nth-of-type(4) label,div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > table#recTable tr td:nth-of-type(5) label {
+    margin-top: 7px;
+}
+
+div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > table#recTable tr td input[type="button"]:hover {
+    background: #EFEFEF;
+}
+
+div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > a {
+    text-decoration: none;
+    color: #fff;
+    background: #E80E0E;
+    padding: 6px 11px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-bottom: 1px solid #3A3A3A;
+    border-left: 1px solid #3A3A3A;
+}
+
+div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > a:hover {
+    background: #D01911;
+}
+
+div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > a::before {
+    content: "X";
+    font-size: 14px;
+    padding-right: 5px;
+}
+
+div#aboveArxOneContainer > div[style*="width: 95%; border: 1px solid black;"] > h1 {
+    color: #7B7B7B;
+    line-height: 130%;
+    font-size: 22px;
+    border-bottom: 1px solid #DADADA;
+    display: inline;
+    padding: 3px 8px;
+    text-transform: uppercase;
+    font-weight: 400;
+    display: inline-block;
+    font-family: Lato;
+    -webkit-font-smoothing: antialiased;
+}
+
+td[style*="width:835px;background-color:#eee;padding:15px 0px 15px 15px;"] > #arxOneContainer {
+    padding: 10px 0px 15px 30px;
+}
+
+td[style*="width:835px;background-color:#eee;padding:15px 0px 15px 15px;"] > #arxOneContainer > div > h1 {
+    margin-top: 9px;
+    color: #7B7B7B;
+    line-height: 130%;
+    font-size: 22px;
+    border-bottom: 1px solid #DADADA;
+    padding: 3px 8px;
+    font-weight: 400;
+    display: block;
+    font-family: Lato;
+    margin-left: 14px;
+    -webkit-font-smoothing: antialiased;
+    width: 215px;
+    text-align: center;
+}
+
+td[style*="width:835px;background-color:#eee;padding:15px 0px 15px 15px;"] > #arxOneContainer > div > label {
+    font-size: 14px;
+    color: #4E5252;
+    display: inline-block;
+    margin-top: 19px;
+    line-height: 20px;
+}
+
+td[style*="width:835px;background-color:#eee;padding:15px 0px 15px 15px;"] > #arxOneContainer > div > label::after{
+    content: ":";
+}
+
+td[style*="width:835px;background-color:#eee;padding:15px 0px 15px 15px;"] > #arxOneContainer > div > select {
+    margin-left: 14px;
+    font-size: 16px;
+    display: inline-block;
+}
+
+td[style*="width:835px;background-color:#eee;padding:15px 0px 15px 15px;"] > #arxOneContainer > div > input#fireButton {
+    border: 1px solid #ABABAB;
+    padding: 6px 10px;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+    display: block;
+}
+
+td[style*="width:835px;background-color:#eee;padding:15px 0px 15px 15px;"] > #arxOneContainer > div > input#fireButton:hover {
+    background-color: #EFEFEF;
+}
+
+.ax1-text > a.regLink > img {
+    width: 16px;
+}
+
+.ax1-text > a.regLink:nth-of-type(1) {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 4px 3px 0px;
+}
+
+.ax1-text > a.regLink:nth-of-type(2) {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 3px 3px 0px;
+}
+
+table#contentTable > tbody > tr > td:nth-of-type(1) > div > div#aNav > nav > ul li ul li a:hover {
+    background: #A8B5C7;
+}
+
+table#contentTable > tbody > tr > td.footerInfoTD {
+    border: none!important;
+}
+
+.invPopupDiv.invPopupDivResults.sideBySide.well, .invPopupDiv.invPopupDivResults.sideBySide.compound {
+    width: 45%;
+}
+
+.invPopupDiv.invPopupDivResults.sideBySide.well .ax1-childLinks2-label:first-of-type, .invPopupDiv.invPopupDivResults.sideBySide.compound .ax1-chem-label:first-of-type {
+    font-weight: 300;
+    margin-left: 0px;
+    margin-bottom: 25px;
+    border-left: 3px solid #00b2ba;
+    padding-left: 6px;
+    line-height: 25px;
+}
+
+.invPopupDiv.invPopupDivResults.sideBySide.well h1:first-of-type, .invPopupDiv.invPopupDivResults.sideBySide.compound h1:first-of-type {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.invPopupDiv.invPopupDivResults.sideBySide.well .ax1-text, .invPopupDiv.invPopupDivResults.sideBySide.well .ax1-date, .invPopupDiv.invPopupDivResults.sideBySide.well .ax1-select, .invPopupDiv.invPopupDivResults.sideBySide.well .ax1-textarea, .invPopupDiv.invPopupDivResults.sideBySide.well .ax1-childLinks2, .invPopupDiv.invPopupDivResults.sideBySide.well .ax1-productId, .invPopupDiv.invPopupDivResults.sideBySide.well .ax1-reactantIds, .invPopupDiv.invPopupDivResults.sideBySide.well .ax1-multiText, .invPopupDiv.invPopupDivResults.sideBySide.well .ax1-checkbox,
+.invPopupDiv.invPopupDivResults.sideBySide.compound .ax1-text, .invPopupDiv.invPopupDivResults.sideBySide.compound .ax1-date, .invPopupDiv.invPopupDivResults.sideBySide.compound .ax1-select, .invPopupDiv.invPopupDivResults.sideBySide.compound .ax1-textarea, .invPopupDiv.invPopupDivResults.sideBySide.compound .ax1-childLinks2, .invPopupDiv.invPopupDivResults.sideBySide.compound .ax1-productId, .invPopupDiv.invPopupDivResults.sideBySide.compound .ax1-reactantIds, .invPopupDiv.invPopupDivResults.sideBySide.compound .ax1-multiText, .invPopupDiv.invPopupDivResults.sideBySide.compound .ax1-checkbox {
+    max-width: 100%;
+}
+
+.multipleValuesField_valueContainer input[type="text"] {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding: 3px 8px;
+    width: 314px!important;
+    color: black;
+    margin-left: 14px;
+    display: inline-block;
+    word-break: break-word;
+    max-width: calc(100% - 347px);
+    font-size: 16px;
+    line-height: 130%;
+    font-family: Lato, Arial, Helvetica!important;
+}
+
+.multipleValuesField_valueContainer button.multipleValuesField_newValueButton {
+    display: inline-block;
+    border: 1px solid #ABABAB;
+    padding: 6px 10px;
+    font-size: 15px;
+    line-height: 16px;
+    vertical-align: top;
+    margin-top: 6px;
+    background: white;
+    cursor: pointer;
+    margin-left: 6px;
+}
+
+.multipleValuesField_valueContainer button.multipleValuesField_removeValueButton {
+    display: inline-block;
+    border: 1px solid #ABABAB;
+    border-left: none;
+    padding: 6px 10px;
+    font-size: 15px;
+    line-height: 16px;
+    vertical-align: top;
+    margin-top: 6px;
+    cursor: pointer;
+    margin-left: 0px;
+    background: #e83d3d;
+    color: #fff;
+}
+
+.multipleValuesField_valueContainer:first-of-type button.multipleValuesField_removeValueButton {
+    display: none;
+}
+
+.multipleValuesField_valueContainer:first-of-type input[type="text"] {
+    width: 400px!important;
+}
+
+.multipleValuesField_valueContainer .multipleValuesField_value {
+    margin-left: 14px;
+    margin-bottom: 4px;
+    min-height: 20px;
+}
+
+.fieldGroupContainer {
+    background: transparent!important;
+    border-top: 1px solid #c3c3c3;
+    border-bottom: 1px solid #c3c3c3;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.fieldGroupContainer label.fieldGroupName {
+    font-size: 16px;
+    color: #4E5252;
+}
+
+.fieldGroupContainer div.fieldGroupFields > div {
+    display: table-cell;
+    padding: 0 7px;
+    border-right: 1px solid #d2d2d2;
+}
+
+.fieldGroupContainer .fieldGroupFields {
+    display: table;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.fieldGroupContainer div.fieldGroupFields > div > label {
+    margin-top: 7px;
+}
+
+.fieldGroupContainer div.fieldGroupFields > div > .ax1-date, .fieldGroupContainer div.fieldGroupFields > div > .ax1-text, .fieldGroupContainer div.fieldGroupFields > div > .ax1-select {
+    max-width: initial;
+    display: block;
+    padding-bottom: 7px;
+    margin-left: 7px;
+}
+
+.fieldGroupContainer div.fieldGroupFields > div:last-of-type {
+    border-right: none;
+}
+
+.fieldGroupContainer div.fieldGroupFields > div > input[type="text"].ax1-text {
+    width: 162px;
+}
+
+.fieldGroupContainer .multipleValuesField_valueContainer input[type="text"] {
+    width: 177px!important;
+    display: inline-block;
+}
+
+.fieldGroupContainer .multipleValuesField_valueContainer button.multipleValuesField_newValueButton, .fieldGroupContainer .multipleValuesField_valueContainer button.multipleValuesField_removeValueButton {
+    display: none;
+}
+
+.fieldGroupContainer .multipleValuesField_valueContainer input[type="text"] {
+    max-width: initial;
+    margin-left: 0;
+}
+
+.groupedMultiValueFieldsButtons button {
+    cursor: pointer;
+    margin: 6px 0;
+    width: 100%;
+    vertical-align: top;
+    padding: 6px 0px;
+    font-size: 13px;
+    line-height: 16px;
+    border: 1px solid #ABABAB;
+    display: inline-block;
+}
+
+.groupedMultiValueFieldsButtons button.newValuesButton {
+    background: white;
+}
+
+.groupedMultiValueFieldsButtons button.removeValuesButton {
+    background: #e83d3d;
+    color: #fff;
+}
+
+.fieldGroupContainer div.fieldGroupFields > div.groupedMultiValueFieldsButtons {
+    padding: 27px 7px 0;
+    width: 125px;
+}
+
+.fullWidth{
+    width: 100%;
+}
+
+/******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+*******************************************************************
+                                
+                             END
+
+                    2016 Reskin - Inventory
+
+*******************************************************************
+*******************************************************************
+*******************************************************************
+******************************************************************/

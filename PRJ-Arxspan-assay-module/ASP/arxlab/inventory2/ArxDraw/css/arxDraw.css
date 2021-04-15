@@ -1,0 +1,497 @@
+div.arxDrawContainer{
+	padding-left:8px;
+	width:auto;
+	height:100%;
+	/*border:1px solid blue;*/
+}
+
+
+/**** ArxDraw CSS ****/
+    .arxD_wrapper {
+        /*width: 100%;*/
+        height: 750px;
+        border: 1px solid black;
+        overflow: auto;
+        /*position: relative;*/
+    }
+
+    .arxD_wrapper_linear {
+        /*width: 100%;
+        height: 450px;*/
+        border: 1px solid black;
+        overflow: auto;
+    }
+    
+/* JQuery Sliders */    
+    .arxD_Slider {
+        width:200px; 
+        margin:8px;
+    }
+    
+    .arxD_topNavbar .navbar-nav > li {
+        padding-right: 20px;
+    }
+    
+    .arxD_left .navbar-nav > li {
+        padding-right: 5px;
+    }
+    
+    .htmlColorBox {   
+        float: left;
+        width: 20px;
+        height: 20px;
+        margin: 5px 5px 5px 5px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgba(0,0,0,.2);
+    }
+
+    .arxD_displayTabs li a, .displayEnzymeTabs li a { border-color: #333333; background-color:#A0A0A0; }
+    .arxD_displayTabs li.active a, .displayEnzymeTabs li.active a { border-bottom-color: transparent; background-color:#CCCCCC ; font-weight: bold; }
+    
+    .td {
+        height:20px;
+    }
+    
+    .table {
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgba(0,0,0,.2);
+    }
+    
+    .nav > li > a {
+        position: relative;
+        display: block;
+        padding: 5px 5px;
+        /*padding: 7px 25px;*/
+    }
+    
+    .verticalLine {
+        border-left: thick solid #ff0000;
+        display:inline-block;
+    }
+    
+    .arxD_well {
+        background-color: #f5f5f5;
+        border: 1px solid #e3e3e3;
+        border-radius: 4px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+        margin-bottom: 2px;
+        margin-top: 2px;
+        /*min-height: 20px;*/
+        padding: 10px;
+    }
+    
+    .arxD_well > span > div{
+        display:inline-block;
+    }
+    
+    .arxD_well > span > label, .arxD_well > span > span {
+        font-size: 12px;
+        vertical-align: 16px;
+    }
+
+.arxD_menuBar {
+    height: 40px;
+    line-height: 100%;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    box-shadow: 2px 2px 3px #666666;
+    -webkit-box-shadow: 2px 2px 3px #666666;
+    -moz-box-shadow: 2px 2px 3px #666666;
+    background: #000000;
+    border: solid 1px #000000;
+    position: relative;
+    z-index: 999;
+  
+    padding: -40px 0px -20px 0px;
+    border-top-width: 0px;
+}
+
+.arxD_menuBar a {
+  font-weight: bold;
+  font-family: arial;
+  font-style: normal;
+  font-size: 12px;
+  color: #E7E5E5;
+  text-decoration: none;
+  display: block;
+  padding: 11px 15px 16px 0px;
+  margin: 0;
+  margin-bottom: 11px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  text-shadow: 0px 0px 0px #000000;
+}
+
+.arxD_menuBar a:hover, .arxD_menuBar a:focus {
+	color:#fff;
+}
+
+.arxD_menuBar li:hover, .arxD_menuBar li:focus {
+	color:gray;
+}
+
+* html .arxD_menuBar {
+  height: 1%;
+}
+/* allow buttons to display on the same line */
+.arxD_menuButton { display:inline-block; }
+
+/* make button float on the right */
+.arxD_menuButtonRight {
+	position: relative; 
+	display: none; 
+	float: right;
+	margin-right: 10px; 
+}
+
+.arxD_MSLView {
+    width: 100%;
+    margin:0 auto;
+}
+
+.arxD_MSLView .arxD_left, .arxD_MSLView .arxD_middle, .arxD_MSLView{
+    display:inline-block;
+}
+
+
+.arxD_left {
+    width: 12%;
+    border: 1px solid #FFFFFF;
+    float: left;
+}
+
+
+/*.arxD_tab_content {*/
+.arxD_middle{
+    width:87%;
+    /*border: 1px solid blue;*/
+    background:#FFFFFF;
+    font-size:73%;
+    line-height:normal;
+}
+
+
+
+/* begin css tabs */
+
+ul.arxD_displayTabs { /* general settings */
+    text-align: left; /* set to left, right or center */
+    margin: 1em 0 0.2em 0; /* set margins as desired */
+    font: bold 11px verdana, arial, sans-serif; /* set font as desired */
+    border-bottom: 1px solid #333333; /* set border COLOR as desired */
+    list-style-type: none;
+    padding: 10px 10px 3px 12%; 
+}
+
+.arxD_displayTabs li, .arxD_displayEnzymeTabs li{
+    display: inline;
+    padding: 0.2em;
+}
+
+body.arxD_mapViewTab li.arxD_mapViewTab, body.arxD_SequenceViewTab li.arxD_SequenceViewTab, body.arxD_LinearViewTab li.arxD_LinearViewTab, body.arxD_FeaturesViewTab li.arxD_FeaturesViewTab, body.arxD_EnzymesViewTab li.arxD_EnzymesViewTab,  .arxD_displayEnzymeTabs li.arxD_displayEnzymeLocTabs, .arxD_displayEnzymeTabs li.arxD_displayEnzymeLineTabs { /* settings for selected tab */
+    border-bottom: 1px solid #fff; /* set border color to page background color */
+    background-color: #A0A0A0; /* set background color to match above border color */
+}
+
+body.arxD_mapViewTab li.arxD_mapViewTab a, body.arxD_SequenceViewTab li.arxD_SequenceViewTab a, body.arxD_LinearViewTab li.arxD_LinearViewTab a, body.arxD_FeaturesViewTab li.arxD_FeaturesViewTab a, body.arxD_EnzymesViewTab li.arxD_EnzymesViewTab a, .arxD_displayEnzymeTabs li.arxD_displayEnzymeLocTabs a, .arxD_displayEnzymeTabs li.arxD_displayEnzymeLineTabs a { /* settings for selected tab link */
+    background-color: #333333; /* set selected tab background color as desired */
+    color: #555; /* set selected tab link color as desired */
+    position: relative;
+    top: 1px;
+    padding-top: 4px; /* must change with respect to padding (X) above and below */
+}
+
+ul.arxD_displayTabs li a, ul.arxD_displayEnzymeTabs li a { /* settings for all tab links */
+    padding: 3px 4px; /* set padding (tab size) as desired; FIRST number must change with respect to padding-top (X) above */
+    border: 1px solid #333333; /* set border COLOR as desired; usually matches border color specified in .arxD_displayTabs */
+    background-color: #A0A0A0; /* set unselected tab background color as desired */
+    color: #666; /* set unselected tab link color as desired */
+    margin-right: 0px; /* set additional spacing between tabs as desired */
+    text-decoration: none;
+}
+
+.arxD_displayTabs li:last-child a {
+    border: none;
+    color: #000000;
+    float: right;
+    background-color: #fff;
+    padding-bottom: 0px;
+}
+
+.arxD_displayTabs li.active a, .arxD_displayEnzymeTabs li.active a {
+    border-bottom-color: transparent;
+    background-color: #CCCCCC;
+    font-weight: bold;
+}
+
+ul.arxD_displayTabs a:hover , ul.arxD_displayEnzymeTabs a:hover{ /* settings for hover effect */
+    background: #CCCCCC; /* set desired hover color */
+}
+
+/* end css tabs */
+
+/* Left Menu */
+
+dl> dt> dd> ul> li {
+    /*padding: 0.2em;
+    list-style-type: none;*/
+}
+
+.arxD_left .arxD_leftMenu {
+    position: absolute;
+    left: 0.6em;
+    width: 5.6em;
+}
+
+.arxD_left .arxD_leftMenu dt {
+    cursor: pointer;
+    background: #A0A0A0;
+    font-family: arial;
+    font-style: normal;
+    font-size: 11px;
+   
+    margin: 2px 0;
+    border: 1px solid #333333;
+    text-align: center;
+    font-weight: bold;
+}
+
+.arxD_left .arxD_leftMenu dd {
+    position: absolute;
+    z-index: 100;
+    left: 4em;
+    margin-top: -1.4em;
+    width: 8em;
+    background: #A0A0A0;
+    border: 1px solid #333333;
+}
+
+.arxD_left .arxD_leftMenu ul {
+    padding: 8px;
+    list-style-type: none;
+    font-family: arial;
+    font-style: normal;
+    font-size: 11px;
+}
+
+.arxD_left .arxD_leftMenu li{
+    margin-top: -10px;
+}
+
+.arxD_left .arxD_leftMenu li a, .arxD_leftMenu dt a, .arxD_leftMenu dt span {
+    color: #666;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* end of left menu */
+.arxD_tab_content_parent {
+	/*overflow: hidden;*/
+}
+
+.arxD_tab_content_fView{
+	max-height: 540px;
+	overflow-y: scroll;
+}
+.arxD_tab_content_fView > .arxD_tab_pane {
+    display: hidden;
+}
+.arxD_tab_content_fView > .active {
+    display: block;
+}
+
+.arxD_tab_content_eView{
+	overflow: auto;
+}
+.arxD_tab_content_eView > .arxD_tab_pane {
+    display: hidden;
+}
+.arxD_tab_content_eView > .active {
+    display: block;
+}
+
+.arxD_tab_content > .arxD_tab_pane {
+    display: hidden;
+}
+.arxD_tab_content > .active {
+    display: block;
+}
+
+/* JQUERY slider */
+.ui-slider-horizontal .ui-slider-handle {
+    top: -.2em;
+    margin-left: -.6em;
+    font-size: 80%;
+    width: 28px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.arxD_middle > div {
+    display:none;
+}
+
+.arxD_middle > div:target {
+    display:block;
+}
+
+/* Spinner Div */
+.arxD_uploadSpinner {
+    width: 100px;
+    height: 100px;
+   /* background-color: #fff; */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+.arxD_features , .arxD_enzymesList, .arxD_enzymeLocTable,  .arxD_enzymeLinesTable {
+    width: 100%;
+    font-size: 12px;
+}
+
+table.arxD_features tbody tr:nth-child(odd), table.arxD_enzymesList tbody tr:nth-child(odd), table.arxD_enzymeLocTable tbody tr:nth-child(odd) , table.arxD_enzymeLinesTable tbody tr:nth-child(odd){
+   background-color: #ccc;
+}
+
+table.arxD_feature td , table.arxD_displayEnzymeTabs td {
+    text-align: left;
+}
+
+table.arxD_feature, table.arxD_displayEnzymeTabs { empty-cells: show; }
+
+/** Enzymes Tab **/
+.arxD_EnzymesViewTab {
+    width: 100%;
+    margin:0 auto;
+}
+
+.arxD_enzymesList th span {
+    background: #A0A0A0;
+    height: 18px;
+    line-height: 18px;
+    margin: 3px 0px 0px 0px;
+    border: 1px solid #333333;
+    text-align: center;
+    font-weight: bold;
+    width: 8em;
+    
+    font: bold 11px verdana, arial, sans-serif; /* set font as desired */
+    color: #666;
+    text-decoration: none;
+    display: block;
+}
+
+.arxD_displayEnzymeTabs tr td {
+    vertical-align: top;
+}
+
+ul.arxD_displayEnzymeTabs { 
+    text-align: left; 
+    margin: 0 0 0 0; 
+    font: bold 11px verdana, arial, sans-serif; 
+    border-bottom: 1px solid #333333; 
+    list-style-type: none;
+    padding: 10px 10px 3px 10px; 
+}
+
+div#mCSB_1_container.mCSB_container {
+    left: 0px;
+}
+
+.arxD_detailsPopup1 {
+	width: auto;
+	height: auto;
+	position: absolute;
+	color: #000000;
+	background-color: #ffffff;
+	margin: 0 auto;
+	top: 20%;
+  	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	display: none;
+}
+
+.arxD_detailsPopup {
+	display: none;
+}
+
+.blockUI blockOverlay {
+    z-index: 1000;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    width: 90%;
+    height: 10%;
+    top: 0px;
+    left: 0px;
+    opacity: 0.85;
+    cursor: wait;
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+}
+
+.blockUI blockMsg blockPage {
+	text-align: left;
+}
+
+.arxD_showDetails {
+	position: absolute; 
+	padding: 8px; 
+	background-color: #b0c4de;
+	border: 2px solid #a1a1a1; 
+	border-radius: 5px;
+	font-family: arial;
+	font-style: normal;
+	font-size: 12px;
+	color: #000000;
+}
+
+.arxD_dragDrop {
+	text-align: center;
+    vertical-align: middle;
+	border:1px solid black; 
+	height:50px; 
+	width:100%;"
+}
+
+.arxD_progressBar {
+	margin-left: 100px;
+	width: 400px;
+	height: 22px;
+}
+
+.arxD_progressBar div {
+	height: 100%;
+	color: #fff;
+	text-align: center;
+	font-size: 12px;
+	line-height: 22px;
+	width: 0;
+}
+
+
+.default {
+	background: #292929;
+	border: 1px solid #111;	
+	border-radius: 5px;	
+	overflow: hidden;
+	box-shadow: 0 0 5px #333;				
+}
+.default div {
+	background-color: #1a82f7;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0099FF), to(#1a82f7)); 
+	background: -webkit-linear-gradient(top, #0099FF, #1a82f7); 
+	background: -moz-linear-gradient(top, #0099FF, #1a82f7); 
+	background: -ms-linear-gradient(top, #0099FF, #1a82f7); 
+	background: -o-linear-gradient(top, #0099FF, #1a82f7);
+}

@@ -1,0 +1,199 @@
+.login-page {
+  padding: 5% 0 0;
+  margin: auto;
+ 
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  background: #f5fbff;
+  margin: 0 auto 100px;
+  padding-top: 20px;
+  padding-left: 45px;
+  padding-right: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 #e8e8e8, 0 5px 5px 0 #e8e8e8;
+  border-radius: 10px;
+  color: var(--bruker-gui-blue);
+  max-width: 850px;
+}
+
+.form #icon{
+    background-image: url("/images/icons.png");
+    background-image: 
+      -webkit-image-set(
+        url("/images/icons.png") 1x,
+        url("/images/icons@2x.png") 2x);
+}
+
+.form .cloudBased{
+    text-align: left;
+}
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  border: 1.1px;
+  border-style: solid;
+  border-color: #b3b3b3;
+  border-radius: 2px;
+  width: 100%;
+  margin: 0 0 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #131313;
+}
+
+
+.form input#login-pass{
+    margin-bottom: 0px;
+}
+
+.form button {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: var(--bruker-gui-blue);
+  width: 50%;
+  border: 0;
+  padding: 10px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  border-radius: 3px;
+  float: left;
+}
+
+.form button.centerButton{
+    float: none;
+}
+
+
+.form button:hover,.form button:active,.form button:focus {
+  background: var(--bruker-gui-darkblue);
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: var(--bruker-gui-blue);
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}
+.form .bottom {
+    margin-top: 25px;
+    padding-top: 25px;
+    margin-left: -45px !important;
+    margin-right: -45px !important;
+    border-top: 1px !important;
+    border-top-color: #e8e8e8 !important;
+    border-top-style: solid !important;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 20px;
+    text-align: justify-all;
+}
+
+.form .companyPicker{
+    margin-top: 80px;
+}
+
+.form h2{
+    margin: 0px;
+    font-weight: 100;
+    font-size: 30px;
+}
+.form h1{
+    margin-top: 30px;
+}
+
+.form .errorText{
+    color: #EB4C62;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    text-align: left;
+}
+
+.form .loginAccessDisclaimer{
+    color: #4b4b4b;
+}
+
+.form .logoutMessage{
+    padding-top: 30px;
+}
+
+.form #login-company{
+    width: 100%;
+    padding: 10px;
+}
+
+#login-form{
+    margin-top: 20px;
+}
+
+#login-form label{
+    float: left;
+    font-weight: bold;
+}
+
+
+
+
+body {
+    background: white;
+    background-image: url("/images/login-background.png");
+    background-image: 
+      -webkit-image-set(
+        url("/images/login-background.png") 1x,
+        url("/images/login-background-2x.png") 2x);
+  
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;      
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.header {
+  background-color: var(--bruker-gui-blue);
+  height: 80px;
+}
+
+.logoHolder {
+  grid-template-columns: 1fr auto 1fr;
+  display: grid;
+  min-height: 80px;
+  align-items: center;
+}
+
+.logo {
+  padding-left: 30px;
+  display: flex;
+}
+
+.logo img {
+  max-width: 150px;
+}
+
+.brukerLogo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 30px;
+}
+
+.brukerLogo img {
+  height: 50px;
+  width: 94px;
+}
+
+:root {
+  --bruker-gui-blue: #054169; 
+  --bruker-gui-darkblue: #042F4D;
+}

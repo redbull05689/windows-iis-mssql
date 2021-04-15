@@ -1,0 +1,76 @@
+<!-- 
+    Document   : d2s
+    Created on : May 9th, 2013
+    Author     : Daniel
+	-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>Configuring OSR tools for Document to Structure</TITLE>
+ <link rel="stylesheet" type="text/css" href="../marvinmanuals.css">
+</HEAD>
+  <body>
+  
+  <h1>Configuring OSR tools for Document to Structure</h1>
+
+The following instructions must be used to make sure Document to Structure can convert images to structures, using one
+of the supported tools.
+
+<h2>CLiDE</h2>
+
+To use CLiDE with d2s, you need to obtain the
+<a href="http://www.keymodule.co.uk/products/clide/clide-batch.html">CLiDE batch</a> product and a license from Keymodule.
+
+<p>
+On Windows 32 bit, CLiDE will be used automatically after installation, without further configuration.
+On Windows 64 bit, you will need to set an environment variable named CLIDE to the installation directory of CLiDE,
+typically <code>C:\Program Files (x86)\Keymodule\Clide Batch</code>
+
+<p>
+On Linux and Mac OS X, you can install CLiDE batch to any directory. To make it usable by d2s, you should
+only make sure that either clide-batch.sh is in your <code>$PATH</code>, or that you create a symbolic link from
+<code>$HOME/.chemaxon/naming/clide-batch.sh</code>
+to the installed copy of CLiDE, using this command: <pre>ln -s /&lt;clide-directory&gt;/clide-batch.sh $HOME/.chemaxon/naming/clide-batch.sh</pre>
+
+<p>
+Alternatively, on all platforms, if the <code>CLIDE</code> environment variable is set, it will be used
+to find the CLiDE installation directory.
+
+<p>
+Please note that you need to activate your license before CLiDE works from d2s. Please follow the instructions provided by Keymodule
+to do so.
+
+<h2>OSRA</h2>
+
+To use OSRA with d2s, you first need to
+<a href="http://cactus.nci.nih.gov/osra/">download and install OSRA</a>.
+
+<p>
+On Windows, OSRA will be used automatically after installation, without further configuration.
+
+<p>
+On Linux and Mac OS X, you can install OSRA to any directory. To make it usable by d2s, you should
+only make that the <code>osra</code> command is in your <code>$PATH</code>.
+
+<p>
+Alternatively, on all platforms, if the <code>OSRA</code> environment variable is set, it will be used
+to find OSRA. The <code>OSRA</code> variable can either refer to the directory containing the <code>osra</code> command,
+or to the command itself.
+
+<h2>Imago</h2>
+
+To use Imago, you need to <a href="http://ggasoftware.com/download/imago#commandline-utility-imagoconsole">download the command line utility</a> from GGA's website.
+You should then unzip the downloaded file either to a directory on the <code>PATH</code>, or inside the ChemAxon naming directory:
+<ul>
+<li>On Windows: <code>C:\Users\&lt;USER&gt;\chemaxon\naming\imago_console.exe</code>
+<li>On Linux and Mac OS X: <code>$HOME/.chemaxon/naming/imago_console</code>
+</ul>
+
+<p>
+Alternatively, on all platforms, if the <code>IMAGO</code> environment variable is set, it will be used
+to find Imago. The <code>IMAGO</code> variable can either refer to the directory containing the <code>imago_console</code> command,
+or to the command itself.
+
+  </body>
+</html>

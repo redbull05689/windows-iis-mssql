@@ -1,0 +1,18 @@
+.settingsTable {
+    background-color: white;
+    border-style: solid;
+    border-color: darkgray;
+    border-width: 1px;
+    padding: 3px;
+}
+
+.settingsTable > thead > tr > td,
+.settingsTable > tbody > tr > td {
+    padding: 5px;
+}
+
+.toggleView {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}

@@ -1,0 +1,36 @@
+.textHolder {
+    display: flex;
+    margin: 15px;
+}
+
+.textBlock {
+    width: 50%;
+}
+
+.textBlock > pre {
+    counter-reset: line;
+}
+
+.textBlock > pre > div:before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    border-right: 1px solid #ddd;
+    padding: 0 .5em;
+    margin-right: .5em;
+    text-align: right;
+    color: #888;
+    width: 4em;
+}
+
+.textBlock > pre > div:hover {
+    background-color: rgb(194, 194, 194);
+}
+
+.oldVersion > pre > .diff {
+    background-color: #ff9494;
+}
+
+.currVersion > pre > .diff {
+    background-color: #a0ff94;
+}

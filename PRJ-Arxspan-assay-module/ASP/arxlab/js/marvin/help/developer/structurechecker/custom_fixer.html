@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel ="stylesheet" type="text/css" href="../../structurechecker.css">
+<title>Structure Checker Developer's Guide - Tutorial</title>
+</head>
+<body>
+
+<h1>Structure Checker Developer's Guide - Implementing fixers tutorial </h1>
+<table>
+	<tr>
+		<td width="30%"> <font color="blue">&larr;</font> <a href="checker_gui.html">Create Graphical User Interface for Checker Options</a> </td>
+		<td width="30%"><font color="blue">&uarr;</font> <a href="checker.html">Structure Checker Developer's Guide</a></td>	
+		<td width="30%">&nbsp;</td>
+	</tr>
+</table>
+<h2>Contents</h2>
+
+    <ul>
+		<li><a href="#create">Use a ChemAxon Fixer</a></li>
+		<li><a href="#newfixer">Create a new Fixer</a>
+		</li>
+	<ul>
+			<li><a href="#implement_new">Implement the new fixer</a></li>
+			<li><a href="#integrate_new">Integrate the new fixer</a></li>
+		</ul>
+	</li>
+</ul>
+
+
+<h2><a id="fixer"></a>Creating Fixers for the new Checker</h2>
+<p>The new Checker has a custom error code, so the stock fixers cannot recognize it. You can use the 
+<code>@FixesExternal</code> annotation to bind a fixer to a result.
+</p>
+
+<h3><a id="create"></a>Use a ChemAxon Fixer</h3>
+<p>
+If you want to use a ChemAxon fixer to fix the problem, the easiest way is to create a subclass of 
+it, and use the <code>@FixesExternal</code> annotation.
+</p>
+<p>Download the <a href="custom.zip">example</a> and find "ExternalRemoveAtomMapFixer.java". 
+</p>
+<pre>
+    <span class="annotation">@FixesExternal</span>(DuplicateAtomMapChecker.<span class="static">DUPLICATE_ATOM_MAP_CHECKER_ERROR</span>)
+    <span class="annotation">@FixerInfo</span>(
+        name = <span class="static">&quot;Remove duplicated atom maps&quot;</span>,
+        description = <span class="static">&quot;Removes duplicated atom maps.&quot;</span>,
+        actionStringToken = <span class="static">&quot;removeduplicatedmaps&quot;</span>)
+    <span class="keyword">public class</span> ExternalRemoveAtomMapFixer <span class="keyword">extends</span> RemoveAtomMapFixer {
+    }
+</pre>
+
+<h2><a id="newfixer"></a>Create a new Fixer</h2>
+<p>To implement a new Fixer, you have to subclass the <code>AbstractStructureFixer</code> class, add the annotations as
+above, and implement the <code>fix</code> method.
+</p>
+<p>
+Download the <a href="custom.zip">example</a> and find  "RemapReactionFixer.java". 
+</p>
+
+<pre>
+    <span class="annotation">@FixesExternal</span>(DuplicateAtomMapChecker.<span class="static">DUPLICATE_ATOM_MAP_CHECKER_ERROR</span>)
+    <span class="annotation">@FixerInfo</span>(name = <span class="static">&quot;Remap reaction&quot;</span>,
+            description = <span class="static">&quot;Remaps the reaction with AutoMapper&quot;</span>,
+            actionStringToken = <span class="static">&quot;remapreaction&quot;</span>)
+    <span class="keyword">public class</span> RemapReactionFixer <span class="keyword">extends</span> AbstractStructureFixer {
+
+        <span class="annotation">@Override</span>
+        <span class="keyword">public boolean</span> fix(StructureCheckerResult result) {
+            <span class="keyword">boolean</span> success = false;
+
+            <span class="linecomment">// check if we are trying to fix a reaction</span>
+            <span class="keyword">if</span> (result.getMolecule().isReaction()) {
+
+                <span class="linecomment">// clear the current mapping</span>
+                AutoMapper.clearMaps(RxnMolecule.getReaction(result.getMolecule()));
+                <span class="keyword">try</span> {
+                    <span class="linecomment">// try to get complete mapping</span>
+                    AutoMapper.map(
+                            RxnMolecule.getReaction(result.getMolecule()),
+                            AutoMapper.COMPLETE);
+                    success = <span class="keyword">true</span>;
+                } <span class="keyword">catch</span> (AutoMapperException e) {
+                    <span class="linecomment">// AutoMapper failed</span>
+                }
+            }
+            <span class="keyword">return</span> success;
+        }
+    }
+
+</pre>
+
+<h2><a id="integrate"></a>Integration</h2>
+<p>Export all the classes to a JAR file, and use MarvinSketch Preferences to add the Checker and Fixers from it.
+Imported Checkers and Fixers will be available in all applications using Structure Checker.</p>
+<p>
+<img src="images/IMG14.png" >
+<img src="images/IMG15.png">
+</p>
+
+<table>
+	<tr>
+		<td width="30%"> <font color="blue">&larr;</font> <a href="checker_gui.html">Create Graphical User Interface for Checker Options</a> </td>
+		<td width="30%"><font color="blue">&uarr;</font> <a href="checker.html">Structure Checker Developer's Guide</a></td>	
+		<td width="30%">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="lenia">&nbsp;</div>
+
+<h2><a class="anchor" name="links"></a>Links</h2>
+
+<p>
+	<a href="checker.html">Structure Checker Developer's Guide</a><br>
+	<a href="../../structurechecker/checkerlist.html">List of available checkers</a><br>
+	<a href="https://www.chemaxon.com/jchem/doc/user/structurechecker.html">Structure Checker GUI</a><br>
+	<a href="https://www.chemaxon.com/jchem/doc/user/structurecheck_cline.html"><code>structurecheck</code> Command Line Application</a><br>
+	<a href="../../structurechecker/checker.html">Structure Checker in MarvinSketch</a>
+</p>
+
+<div class="lenia">&nbsp;</div>
+
+</body>
+</html>

@@ -1,0 +1,375 @@
+.topSection{
+	height: 72px;
+}
+
+/*.arxspanSide{
+	width: 232px;
+	float: left;
+}
+why did tyler ever do this?!?
+*/
+
+.topNavButton{
+	background-repeat: no-repeat;
+	-ms-behavior: url(backgroundsize.min.htc);
+	background-size:16px 16px!important;
+	background-position-x:0px!important;
+	background-position-y:0px!important;
+}
+.rightSide .inventoryNavButton{
+    background-image: url('../images/nugget-inv_1x.png')!important;
+}
+.rightSide .registrationNavButton{
+    background-image: url(../images/nugget-reg_1x.png)!important;
+}
+.rightSide .assayNavButton{
+    background-image: url(../images/nugget-assay_1x.png)!important;
+}
+.rightSide .notebookNavButton{
+    background-image: url('../images/nugget-eln_1x.png')!important;
+}
+
+div.expandCollapseArrow.collapseArrow{
+	background-repeat: no-repeat;
+	-ms-behavior: url(backgroundsize.min.htc);
+	background-size:16px 28px!important;
+	background-image: url('../images/triangle_down_1x_IE.png');
+}
+
+div.expandCollapseArrow.expandArrow{
+	background-repeat: no-repeat;
+	-ms-behavior: url(backgroundsize.min.htc);
+	background-size:16px 28px!important;
+	background-image: url('../images/triangle_right_1x_IE.png');
+}
+
+div.expandCollapseArrow.collapseArrowSmall{
+    width: 11px;
+    height: 28px;
+    display: inline-block;
+    margin-left: 10px;
+    background: url('../images/triangle_down_1x_11_IE.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: top;
+    background-position:0px 50%;
+}
+
+.plateMap tbody tr.topPlateMapRow td, .plateMap tbody tr.topPlateMapRow th, .plateMap tbody tr.topPlateMapRow td:hover, .plateMap tbody tr.topPlateMapRow th:hover{
+	background: rgb(233, 233, 233);
+	text-align: center;
+	font-weight: 300;
+}
+.plateMap tbody tr td.leftSidePlateMapCell, .plateMap tbody tr td.leftSidePlateMapCell:hover{
+	background: rgb(233, 233, 233);
+	text-align: center;
+	font-weight: 300;
+}
+.plateMap tbody tr td:hover{
+	background: #DFDFDF;
+}
+
+.select-style{
+	background-repeat: no-repeat;
+/*	-ms-behavior: url(backgroundsize.min.htc); */
+	background-size:16px 28px!important;
+	background-image: url('../images/triangle_down_select_1x_IE.png');
+}
+
+.tableSearchBoxSearchGlass {
+	background-image: url('../images/search_glass_1x.png');
+}
+
+button.tableDownloadButton{
+	background-image:url('../images/download_box_2_1x.png');
+}
+
+/*
+.tableDownloadButtonContainer{
+	top:-4px;
+}*/
+
+.listTable tbody tr.topListTableRow td:hover, .listTable tbody tr.lastListTableRow td:hover{
+    background: rgb(233, 233, 233)!important;
+    box-shadow: none;
+}
+
+.listTable tbody tr th:hover div{
+    background-image:url('../images/triangle_up_12by12_1x_IE.png');
+}
+
+.listTable tbody tr th div.sortColumnDesc{
+    background-image:url('../images/triangle_down_12by12_1x_IE.png');
+}
+
+.listTable tbody tr th div.sortColumnAsc{
+    background-image:url('../images/triangle_up_12by12_1x_IE.png');
+}
+
+.listTable tbody tr th:hover div.sortColumnDesc{
+    background-image:url('../images/triangle_up_12by12_1x_IE.png');
+}
+
+.listTable tbody tr th:hover div.sortColumnAsc{
+    background-image:url('../images/triangle_down_12by12_1x_IE.png');
+}
+
+table.doubleColumnTable{
+	padding: 0;
+	border-left: 1px solid rgb(217, 217, 217);
+}
+
+table.doubleColumnTable tr td{
+	padding: 0;
+}
+
+ul.pageContentTabsUL {
+	border-left: 1px solid rgb(190, 190, 190);
+}
+
+ul.pageContentTabsUL .pageContentTabLI {
+	border: 1px solid rgb(210, 210, 210);
+}
+
+ul.pageContentTabsUL .pageContentTabLI:hover {
+	border-bottom: 1px solid #C68B8B;
+}
+
+ul.pageContentTabsUL .pageContentTabLI.activeTab {
+	border: 1px solid rgb(110, 212, 212);
+}
+
+li.pageContentTabLI.addButtonTab .pageContentTabContent{
+	margin-top: -1px;
+	line-height:34px;
+}
+
+.commentsContainer{
+	height: 178px;
+}
+
+.savesNotificationContainerImage {
+	background-image: url('../images/saves_1x.png');
+}
+
+.notesNotificationContainerImage {
+	background-image: url('../images/notes3_1x.png');
+}
+
+.attachmentsNotificationContainerImage {
+	background-image: url('../images/attachment_1x.png');
+}
+
+.commentsNotificationContainerImage {
+	background-image: url('../images/comments_1x.png');
+}
+
+.informationButton {
+	background-image: url('../images/information_1x.png');
+}
+
+.commentsButton {
+	background-image: url('../images/comments_1x_30px.png');
+}
+
+.copyButton {
+	background-image: url('../images/copy_1x.png');
+}
+
+.checkmarkButton {
+	background-image: url('../images/check_button_dash_2_1x.png');
+}
+
+.checkmarkButton:hover{
+    background-image: url('../images/check_button_grey_2_1x.png');
+}
+
+.checkmarkButton.activeCheckmarkButton{
+    background-image: url('../images/check_button_green_2_1x.png');
+}
+
+.checkmarkButton.activeCheckmarkButton:hover{
+    background-image: url('../images/check_button_green_2_1x.png');
+}
+
+.helpButton {
+	background-image: url('../images/help_1x.png');
+}
+
+.commentDeleteButton {
+	right: 22px;
+	display: none;
+}
+
+.tooltipComment.revealDeleteButton {
+	margin-left: -58px;
+}
+
+.tooltipComment.revealDeleteButton .commentDeleteButton {
+	display: block;
+}
+
+.commentsTooltip, .informationTooltip {
+	text-align: left;
+}
+
+.tooltipComment {
+	width: 320px;
+}
+
+.commentText {
+	width: 218px;
+}
+
+.mediumContentBoxHeaderInsertButton {
+	background-image: url('../images/download_box_1x.png');
+}
+
+.tooltipCommentTextbox textarea {
+	border-top: 3px solid rgb(165, 165, 165);
+}
+
+table.userProfileMediumContentBoxTable tr td label {
+	padding-left: 4px;
+	padding-right: 3px;
+}
+
+table.userProfileMediumContentBoxTable.changePasswordTable tr td label {
+	padding-left: 1px;
+	padding-right: 5px;
+	font-size: 13px;
+}
+
+table.userProfileMediumContentBoxTable tr td div {
+	padding-right: 3px;
+}
+
+table.userProfileMediumContentBoxTable.userProfileInfoTable tr td div {
+	padding-left: 4px;
+}
+
+
+/* First/Prev/Next/Last Buttons for Tables */
+.lastButton {
+    background-image: url('../images/load_last_2_1x.png');
+}
+
+.nextButton {
+    background-image: url('../images/load_next_2_1x.png');
+}
+
+.previousButton {
+    background-image: url('../images/load_previous_2_1x.png');
+}
+
+.firstButton {
+    background-image: url('../images/load_first_2_1x.png');
+}
+/* END First/Prev/Next/Last Buttons for Tables */
+
+.infoHoverBox {
+	background-image: url('../images/information_1x_40.png');
+}
+
+.shareHoverBox {
+	background-image: url('../images/share_2_1x.png');
+}
+
+.userIcons {
+	background-image: url('../images/edit_1x.png');
+}
+
+a.userDataBlockContentChangeButton {
+	background-image: url('../images/saves_1x.png');
+}
+
+a.userDataBlockContentCancelButton {
+	background-image: url('../images/trashcan_1x.png');
+}
+
+.infoHoverBoxHoverContent .userLocation {
+	background-image: url('../images/location_1x.png');
+}
+
+.infoHoverBoxHoverContent .userPhone {
+	background-image: url('../images/phone_1x.png');
+}
+
+.infoHoverBoxHoverContent .userEmail{
+	background-image: url('../images/email_1x.png');
+}
+
+
+table.listTable.expandableRows tr td.leftSideListTableCell {
+	background-image: url('../images/triangle_right_1x_14_IE.png');
+}
+
+table.listTable.expandableRows tr td.leftSideListTableCell.leftSideTableCellExpanded {
+	background-image: url('../images/triangle_down_1x_14_IE.png');
+}
+
+table.listTable.expandableRows tr td.leftSideListTableCell img {
+	/* img is used by more modern browsers because it's friendly with animations */
+	display: none;
+}
+
+.tabRightSideButtonsContainer button {
+	background-image: url('../images/plus_circle_1x.png');
+}
+
+.removeTabButton {
+	background-image: url('../images/cross_2_1x.png');
+}
+
+.renameTabButton {
+	background-image: url('../images/edit_1x.png');
+}
+
+.tabEditRemoveHoverContainer {
+	top: 0px;
+}
+.maintainTabHover {
+	top: -79px;
+	background-color: rgb(250, 250, 250);
+	border: 1px solid rgb(224, 224, 224);
+}
+.unseenIncrementNumber {
+	background-color: #62d0d0;
+}
+
+ul.sidebarContent li.sidebarSectionHeader {
+    border-bottom: 1px solid rgb(164, 164, 164)!important;
+}
+
+.sidebarSubsectionViewAll, .sidebarSubsectionHeader:hover .sidebarSubsectionViewAll {
+    -ms-filter: "none";
+    filter: ;
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    opacity: 1;
+}
+
+.chemSearchResult {
+	border: 2px solid rgb(226, 226, 226);
+}
+/* ELN-783 */
+#showExperimentSectionsInAttachmentsTable {
+	display: block!important;
+	position: static!important;
+}
+
+.commentsTagsTabContent {
+	height: 85%!important;
+}
+
+#commentsTabContentInner {
+	height: 70%!important;
+}
+
+#commentsDiv textarea#comment {
+	width: 90%!important;
+}
+
+div#commentsDiv {
+	height: 400px!important;
+}

@@ -1,0 +1,412 @@
+/* START OF former editor.css */
+.mjs-top,
+.mjs-top:focus, 
+.mjs-top *,
+.mjs-top *:focus{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);	
+}
+
+.mjs-top:focus,
+.mjs-top *:focus{
+	outline: none;
+}
+
+.mjs-main {
+	background-color: white;
+	-moz-box-shadow:    0px 0px 3px 2px #ccc;
+  	-webkit-box-shadow: 0px 0px 3px 2px #ccc;
+	box-shadow:         0px 0px 3px 2px #ccc;
+	max-height:100%;
+	max-width: 100%;
+	min-height:100%;
+	min-width: 100%;
+}
+
+.mjs-main, 
+.mjs-main canvas, 
+#sketch, 
+.mjs-root, 
+.mjs-focused, 
+.mjs-canvasScrollPanel {
+	width: 100%;
+	height: 100%;
+}
+
+.mjs-main table {
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+
+.mjs-main canvas{
+    background: white;
+    -moz-box-shadow: 0px 0px 3px 2px #e0e0e0 inset;
+    -webkit-box-shadow:0px 0px 3px 2px #e0e0e0 inset;
+    box-shadow:0px 0px 3px 2px #e0e0e0 inset;
+    -webkit-transition: background 0.2s linear;
+    -moz-transition: background 0.2s linear;
+    -o-transition: background 0.2s linear;
+    transition: background 0.2s linear;
+}
+
+.mjs-main canvas.mjs-logo{
+	background: transparent;
+	-webkit-transition: background 1.5s linear 0.7s;
+	-moz-transition: background 1.5s linear 0.7s;
+	-o-transition: background 1.5s linear 0.7s;
+	transition: background 1.5s linear 0.7s;
+}
+
+.mjs-canvasScrollPanel{
+	background-color: white;
+	margin: 0px;
+	padding: 0px;
+	-webkit-transition: background 1.5s linear 0.7s;
+	-moz-transition: background 1.5s linear 0.7s;
+	-o-transition: background 1.5s linear 0.7s;
+	transition: background 1.5s linear 0.7s;
+}
+
+.mjs-canvasScrollPanelNoLogo{
+	background: none no-repeat center center;
+	background-color: white;
+	margin: 0px;
+	padding: 0px;
+	-webkit-transition: background 0.2s linear;
+    -moz-transition: background 0.2s linear;
+    -o-transition: background 0.2s linear;
+    transition: background 0.2s linear;
+}
+@external .mjs-cursor-*;
+.mjs-cursor-moved {
+	cursor: move;
+}
+
+.mjs-cursor-copied {
+	cursor: copy
+}
+
+.mjs-cursor-defaultCursor {
+	cursor: default;
+}
+
+.mjs-cursor-navigate {
+	cursor: default;
+	cursor: pointer;
+	cursor: move;
+	cursor: all-scroll;
+}
+
+.mjs-about{
+	color: #585858;
+}
+
+.mjs-disabledText{
+	color: darkgray;
+	font-style: italic;
+}
+
+.mjs-hidden{
+	visibility: hidden;
+}
+
+.mjs-thumbPanel{
+	background: white;
+	margin: 10px auto;
+}
+
+.mjs-thumbPanel img{
+	border: 1px solid gray;
+	margin: 5px;
+}
+
+.mjs-thumbPanel img:hover{
+	border: 1px solid black;
+	margin: 5px;
+}
+
+/* END OF former editor.css */
+
+
+.mjs-toolbar *:focus{	
+	outline: 1px solid lightgray;
+}
+
+.mjs-CloseButton{
+	float:right;
+	font-size: 20px;
+	color: gray;
+	cursor: pointer;
+}
+
+.mjs-marginTop, 
+.gwt-Button.mjs-marginTop,
+.mjs-separated{
+	margin-top: 15px;
+}
+.mjs-marginRight{
+	margin-right: 10px;
+}
+
+.mjs-expandCheckbox{
+	margin-left: 10px;
+}
+
+.mjs-errorMessage {
+	font-weight: bold;	
+	color: red;
+}
+
+.mjs-dialogSubHeader{
+	color: gray;
+	font-weight: bold;	
+	font-size: 14px;
+	margin-top: 15px; 
+	margin-bottom: 5px;
+}
+
+.mjs-hasBottomLine{
+	padding-bottom: 4px;
+	margin-bottom: 4px;
+	border-bottom: 1px solid gray;
+}
+
+.mjs-separated{
+	padding-bottom: 15px;
+	border-bottom: 1px solid gray;
+}
+
+
+.mjs-propertyDialog .gwt-CheckBox{
+	margin-left: 10px;
+}
+
+.mjs-disableiOSMenu{
+	-webkit-touch-callout: none;
+}
+
+/* for Defaultmjs-listPanel */
+
+/* ### canvas ### */
+canvas.mjs-canvas, 
+canvas.mjs-canvas:FOCUS{
+	outline: none;
+	margin: 0px;
+	padding: 0px;
+	-webkit-user-select: none;
+}
+/* ### toolbar ### */
+.mjs-toolbar .gwt-ToggleButton,
+.mjs-toolbar .gwt-PushButton,
+.mjs-comboButtonPopup .gwt-ToggleButton,
+.mjs-comboButtonPopup .gwt-PushButton {
+	width: 28px;
+	height: 28px;
+	line-height: 26px;
+}
+
+.mjs-touchToolbar .gwt-ToggleButton,
+.mjs-touchToolbar .gwt-PushButton,
+.mjs-touchComboButtonPopup .gwt-ToggleButton,
+.mjs-touchComboButtonPopup .gwt-PushButton{
+	width: 43px;
+	height: 43px;
+	line-height: 41px;	
+}
+
+.mjs-hToolbarNavigator .gwt-PushButton{
+	width: 9px;
+}
+
+
+.mjs-vToolbarNavigator .gwt-PushButton{
+	height: 13px;
+	line-height: 11px;	
+}
+
+
+.mjs-touchToolbar .mjs-hTouchToolbarNavigator .gwt-PushButton{
+	width: 16px;
+}
+
+.mjs-touchToolbar .mjs-vTouchToolbarNavigator .gwt-PushButton{
+	height: 20px;
+	line-height: 18px;	
+}
+
+.mjs-touchToolbar img,
+.mjs-touchComboButtonPopup img,
+.mjs-toolbar img,
+.mjs-comboButtonPopup img{
+	vertical-align: middle;
+	margin-top: 1px;
+}
+
+
+.mjs-comboButton{
+	background-color: white;
+}
+
+.mjs-comboButton-down{
+	background-color: #B6CDEF;
+}
+
+
+.mjs-comboButton,
+.mjs-comboButton-down{
+	border-bottom-right-radius: 9px;
+}
+
+.mjs-touchToolbar .mjs-comboButton,
+.mjs-touchToolbar .mjs-comboButton-down{
+	border-bottom-right-radius: 12px;
+}
+
+.mjs-comboButtonBackground{
+	background: black;
+	filter: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.mjs-slidingBar{
+	transition: margin 0.25s;
+	-webkit-transition: margin 0.25s;
+}
+.mjs-contextMenu {}
+.mjs-touchContextMenu .gwt-MenuItem{
+	font-size: 20px;
+}
+
+.mjs-touchContextMenu{
+	max-height: 80%;
+	max-width: 80%;
+	overflow-y: scroll;
+}
+
+.mjs-toolbar, .mjs-touchToolbar, 
+.mjs-toolbar div, 
+.mjs-touchToolbar div,
+.mjs-toolbar table, 
+.mjs-touchToolbar table, 
+.mjs-toolbar td, 
+.mjs-touchToolbar td {
+	-webkit-user-select: none;
+}
+
+/* ### .mjs-propertyDialog ### */
+
+.mjs-propertyDialog .gwt-ToggleButton{
+background-color: transparent;
+background-image: none;
+padding: 0px 2px;
+margin: 0px 3px;
+border:0px;
+}
+
+/* ### .mjs-periodicsystem ### */
+.mjs-periodicsystem .gwt-ToggleButton {
+	border-radius:0px;
+	border: 0px;
+	font-size: 11px;
+	width: 20px;
+	height: 24px;
+	padding-right: 3px;
+	line-height: 22px;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	padding: 0px;
+}
+
+.mjs-emptyRow .gwt-Label{
+	font-size: 4px;	
+	line-height: 8px;
+	visibility: hidden;
+}
+
+.mjs-emptyRow{
+	font-size: 4px;
+	border: 1px solid #bbb;
+	border-left: 0px;
+	border-right:0px;	
+}
+.mjs-periodicButton{
+	border: 1px solid #bbb;
+}
+
+.mjs-periodicsystem{
+	border-collapse: collapse;
+}
+
+.mjs-periodicsystem .gwt-ToggleButton,
+.mjs-periodicsystem .gwt-ToggleButton-up{
+    background: none;
+}
+
+.mjs-periodicsystem .gwt-ToggleButton-up-disabled,
+.mjs-periodicsystem .gwt-ToggleButton-down-disabled{
+    background: lightgray;
+    color: gray;
+    text-decoration: italic;
+}
+
+.mjs-periodicsystem .gwt-ToggleButton-down,
+.mjs-periodicsystem .gwt-ToggleButton-down-hovering{
+    background: #ddd;
+}
+
+.mjs-periodicsystem .gwt-Label { 
+	padding: 0px 5px;
+}
+
+.mjs-periodicsystem td, 
+.mjs-periodicsystem div{
+	text-align: center;
+	vertical-align: middle;
+	padding: auto;
+}
+
+.mjs-listButton .gwt-ToggleButton{
+	width: 62px;
+	height: 22px;
+}
+
+.mjs-listButton .gwt-ToggleButton,
+.mjs-listButton .gwt-ToggleButton-up{
+    background-color: #8B9699;
+    color: white;
+    font-weight: normal;
+}
+.mjs-listButton .gwt-ToggleButton-down,
+.mjs-listButton .gwt-ToggleButton-down-hovering{
+    background-color: #7DC9BE;
+    font-weight: normal;
+}
+
+.mjs-listButton{ /* remove this style definition, to make list/not list buttons visible*/ 
+	visibility: visible;
+}
+
+.mjs-topGap{
+	border-top: 20px solid rgba(0,0,0,0);
+}
+
+/* ### error ### */
+.mjs-errorpanel {
+	background: none;
+}
+.mjs-errorpanel .mjs-details {
+	background: none;
+	border-left: none;
+}
+
+.mjs-errorpanel .mjs-details .gwt-Label {
+	font-weight: bold;
+	padding-left: 2px;
+}
+
+.mjs-errorpanel .mjs-details .gwt-TextArea-readonly {
+	color: black;
+	border-style: none;
+	background: #E7E7E7;
+}

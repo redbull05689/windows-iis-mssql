@@ -1,0 +1,69 @@
+<style type="text/css">
+@import url("templates/mskihc_preparation.css");
+.fieldMappingTable th{
+	background-color:#99A1AF;
+	padding:4px;
+	text-align:left;
+}
+.fieldMappingTable td{
+	padding:4px;
+}
+.fieldMappingTable{
+	width: 340px;
+	display: inline-table;
+	background-color:white;
+	border-collapse:collapse;
+}
+
+.errorTable th{
+	background-color:#99A1AF;
+	padding:4px;
+	text-align:left;
+}
+.errorTable td{
+	padding:4px;
+}
+.errorTable{
+	width: 700px;
+	display: table;
+	background-color:white;
+	border-collapse:collapse;
+}
+</style>
+
+	<h1 formName="objectType" class="osadjfoijaspdoifjsdo"></h1>
+    
+    <div class="inventoryTemplate inventoryTemplate3">
+		<div class="inventoryTemplateOuterBox">
+
+            <div class="templateFile" formName="Import File">
+                <label for="12714f0898" class="ax1-file-label" style="vertical-align:top;">Import File</label>
+            </div>
+            <div class="templateSelect" formName="Object Type">
+                <label for="87acf4001b" class="ax1-select-label">Object Type*</label>
+            </div>
+			<div class="templateText" formName="Field Mapping">
+				<label for="877f4ffb6a" class="ax1-text-label">Field Mapping</label>
+				<select class="bulkImport_bulkUpdateMapTemplatesDropdown" id="bulkImport_bulkUpdateMapTemplatesDropdown"><option value="custom" selected>-- Custom Mapping --</option></select>
+			</div>
+			<button class="saveAsNewMappingTemplateButton">Save as New Mapping Template</button>
+			<div class="templateText" formName="Errors">
+				<label for="877f4ffb6a" class="ax1-text-label">Errors</label>
+			</div>
+		</div>
+        <div style="display:none!important;" class="hiddenFormRows"></div>
+        <div class="templateBottomButtonsContainer">
+            <div class="templateAddButtonContainer" formName="Add">
+            </div>
+            <div class="templateEditButtonContainer" formName="Edit">
+            </div>
+            <div class="templateViewButtonContainer" formName="View">
+            </div>
+            <div class="templateSubmitButtonContainer" formName="Submit">
+            </div>
+        </div>
+	</div>
+
+	<script type="text/javascript">
+		window.bulkImport_bulkUpdateMappingTemplates = restCall("/fetchAllMappingTemplates","POST",{"category": "bulkImport_bulkUpdate","connectionId":connectionId})["templates"]
+	</script>

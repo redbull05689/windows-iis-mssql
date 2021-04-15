@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../structurechecker.css">
+<title>Structure Checker</title>
+</head>
+<body>
+
+<h1>Structure Checker</h1>
+<center>
+<h3>until Version 5.10.4</h3>
+</center>
+<h5>Visit the user guide of <a href="structurechecker.html">Structure Checker GUI from version 5.11.0</a></h5>
+<h2>Contents</h2>
+
+        <ul>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#gui">Structure Checker Graphical User Interface (GUI) user guide</a></li>
+            <li><a href="#links">Links</a>
+				<ul>
+					<li><a href="checker.html#checkerlist">Available checkers</a></li>
+					<li><a href="structurechecker_cline.html"><code>structurechecker</code> command line tool</a></li>
+					<li><a href="checker.html">Structure Checker in MarvinSketch</a></li>
+					<li><a href="../developer/structurechecker/checker.html">Structure Checker Developer Guide</a></li>
+				</ul>
+			</li>
+       </ul>
+
+<h2><a class="anchor" id="intro"></a>Introduction</h2>
+
+<p>Structure Checker is a chemical validation tool detecting and fixing common structural errors or special features that can be potential sources of problems. The Structure Checker wizard is a desktop application for the batch checking and fixing structures of input file(s). Your large files (like SDfiles) are scanned for drawing errors or features you want or don't want to include in the file. This application offers manual operation mode displaying the compounds having errors and allowing the manual modification. Additionally, automatic fixers are provided for many types of issues, and a validation report can be generated as well. A simple guide leads your through the simple steps of the configuration details. 
+
+<h2><a class="anchor" id="listofcheckers"></a>Available checkers</h2>
+
+<p>See the detailed <a href="checkerlist.html">list of available checkers</a>.
+
+<h2><a class="anchor" id="gui"></a>Structure Checker Graphical User Interface (GUI) user guide</h2>
+
+<p>This chapter gives you a simple walkthrough of the usage of Structure Checker. The major steps are demonstrated on the screenshots of every page of the checking routine.
+
+<ol>
+	<li><b>Select input files:</b> 
+		<p>
+		<table>
+			<tr>
+				<td><img src="images/str_checker_files/screen1_top.png" alt="select input file"/></td>
+			</tr>
+		</table>
+		</p>
+		<p>In this step you define the files to be checked and fixed. Click on the Add file... button on the right side.</p> 
+		<table>
+			<tr>
+				<td><img src="images/str_checker_files/addfile.png" alt="Add file"/></td>
+			</tr>
+		</table>
+		<br>Select one or more files (Shift or Ctrl + mouse click) and click Open. You can add unlimited number of files but don't forget, the output will be written to only one file.<br> 
+		To make an ordered list of input files, select the file (or group of files) then click one of the "Move selected item ..." buttons (Up and Down arrow on the right).<br> 
+		To remove a file from the list, click the file, then click the Remove file button. 
+		<table>
+			<tr>
+				<td><img src="images/str_checker_files/removefile.png" alt="remove file"/></td>
+			</tr>
+		</table>
+		Then click Next to proceed to the next step.
+	</li>
+	<li><b>Create checklist:</b>
+		<p>
+		<table>
+			<tr>
+				<td><img src="images/str_checker_files/actionlist.png" alt="create checklist"/></td>
+			</tr>
+		</table> 
+		<p>In this screen you can see two panels. On the left, all available checkers are listed in alphabetical order. For creating your checklist, just select the actions you want to perform and click the Add button to transfer it to your checklist, i.e., into the right panel.</p> 
+		<p>You can create an ordered list of checkers by moving the selected item(s) with the up or down arrow.
+		<p><img src="images/str_checker_files/arrange.png" alt="arrange list"/>
+		<p>Removal of check elements from the checklist is similarly easy, click the items in the right panel and click Remove. If you'd like to use this checking configuration later, save it by clicking the Save button. <img src="images/str_checker_files/saveconfig.png" alt="save confiuration"/></p>
+ 
+		<p>To load a configuration file click the Open Configuration File button, <img src="images/str_checker_files/openicon.png" alt="open"/>. Browse to the location, and name the file in the Save dialog window.</p> 
+		<table>
+			<tr>
+				<td><img src="images/str_checker_files/openconfig.png" alt="open configuration"/></td>
+			</tr>
+		</table>
+
+		<p>Some checkers have options to refine the issue detection. These options appear when you click on the checker in the right panel of the configuration page. It can be configured for each checker what to do when an issue is found. 		
+		<table>
+			<tr>
+				<td><img src="images/str_checker_files/actionfixoptions.png" alt="set checker option"/></td>
+			</tr>
+		</table> 
+		Fixer options can also be set. Apart from <b>manual fix</b> and keeping the compounds <b>unfixed</b> (Do not fix), one or more automatic fixers are also available as <b>fix</b> option.
+		<p>Click Next to proceed.
+	</li>
+
+	<li><b>Set  options:</b>
+	<p>
+	<table>
+		<tr>
+			<td><img src="images/str_checker_files/screen3.png" alt="set options"/></td>
+		</tr>
+	</table> 
+	
+	<p><b>Run options</b>
+	<ul>
+		<li><b>Check:</b> validates the structures without any modifications. Recommended for report generation only.</li>
+		<li><b>Fix:</b> issues are fixed according to the configuration of the actions. When manual fix was set for a given checker or a problem cannot be fixed, the structure is displayed for manual fix. Recommended for routine file checkups.</li>
+		<li><b>Manual:</b> all issues are displayed for manual acceptance or modification regardless of the individual settings. It gives total manual control of the validation process.</li>
+		<li><b>Automatic:</b> recommended for fully automatic batch fix, it does not require manual operation, unfixable structures are not modified.</li>
+	</ul>
+	<p><b>Report options</b>
+	<p>Each error and issue is commented by the report logged during the checking and fixing procedure.
+	<ul>
+		<li><b>No report:</b> no log file is generated about the result of the validation process.</li>
+		<li><b>File report:</b> a report file is generated in <code>txt</code> format containing statistics and a detailed list of problems detected.</li>
+		<li><b>Output report:</b> detected issues are saved in a field of the output file. Use this log option if you work with mrv, sdf, or rdf file formats supporting extra data fields.</li>
+	</ul>
+	<p>Click Next to proceed.
+	</li>
+
+	<li><b>Specify output:</b>
+
+	<p>
+	<table>
+		<tr>
+			<td><img src="images/str_checker_files/screen4.png" alt="specify output"/></td>
+		</tr>
+	</table> 
+			
+	<ul>
+		<li><b>Single Output:</b> each input molecule appears in a single output file either fixed or unfixed form depending on the above fix options. </li>
+		<li><b>Separated Output:</b> accepted and discarded structures are saved in two different output files.</li>
+		<li><b>Ignore errors and continue with next structure</b>: finding errors does not stop the procedure.</li>
+		<li><b>Discard OCR errors</b>: if molecules with OCR errors are found, Structure Checker doesn't start fixing the structures (which may take a considerable large amount of time), but skips those entries.</li>
+	</ul>
+	</li>
+
+	<li><b>Check:</b>
+
+	<p>
+	<table>
+		<tr>
+			<td><img src="images/str_checker_files/screen5.png" alt="summary"/></td>
+		</tr>
+	</table> 
+
+	<p>In this page you can see the summary of the input and output files, the checking options, and the report options. To change any of these settings, click Back, or click the page name in the left side menu. To run structure check, click Finish.
+	<p>
+	<table>
+		<tr>
+			<td><img src="images/str_checker_files/manual.png" alt="manual fix"/></td>
+		</tr>
+	</table> 
+	<p>If you have chosen a mode which prompts you to manual fixing of structures, a MarvinSketch window is displayed with the incorrect structure, and a Structure Checker side window indicates you the source of the warning. Choose the fixing method by clicking on the warning, and click Fix selected. After fixing the molecule, click on Accept button to accept the changes, or Discard, if you want to save the molecule with errors.
+	<p>
+	<table>
+		<tr>
+			<td><img src="images/str_checker_files/result.png" alt="result"/></td>
+		</tr>
+	</table> 
+	<p>The result window summarizes the checking and fixing process, clicking the Show Report button adds the logs at the bottom of the result page. 
+	<p>
+	<table>
+		<tr>
+			<td><img src="images/str_checker_files/log.png" alt="log"/></td>
+		</tr>
+	</table> 
+	</li>
+</ol>
+
+<center><div class="lenia">&nbsp;</div></center>
+
+<h3><a class="anchor" name="links"></a>Links</h3>
+<li><a href="structurechecker.html">Structure Checker GUI from version 5.11.0</a></li>
+<a href="checkerlist.html">List of available checkers</a><br>
+<a href="structurecheck_cline.html"><code>structurecheck</code> command line tool</a><br>
+<a href="checker.html">Structure Checker in MarvinSketch</a><br>
+<a href="../developer/checker.html">Structure Checker Developer Guide</a><br>
+<p>
+<a href="#">Go to top</a>
+</p>
+
+<center><div class="lenia">&nbsp;</div></center>
+
+</body>
+</html>

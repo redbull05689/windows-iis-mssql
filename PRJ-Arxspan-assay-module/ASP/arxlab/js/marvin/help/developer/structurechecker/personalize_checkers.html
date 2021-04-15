@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel ="stylesheet" type="text/css" href="../../structurechecker.css">
+<title>Structure Checker Developer's Guide </title>
+</head>
+<body>
+
+<h1>Adding special checker or fixer description</h1>
+
+<h3>from Structure Checker version 6.1</h3>
+<p>The checkers and fixers of ChemAxon's Structure Checker can be personalized according to individual 
+requirements, for example, they can be renamed, have special description texts, or 
+distinctive warning messages. You can even simply rephrase or translate the standard checker or fixer messages into different languages.</p> 
+<p>The @annotation properties, such as name, help, description, etc., can be personalized in order to amend the 
+selected checker parameters both ChemAxon and individual checker types.  
+</p>
+<p>
+Successful personalization can be achieved by editing two files in your chemaxon home folder:
+<ul>
+<li><strong>mycheckercustomization.properties</strong>: It defines the individual settings of the original checker properties.</li>
+<li><strong>externalcheckersfixers.xml</strong>: It connects the individual settings to the checkers.</li>
+</ul>
+</p>
+
+<h2>How to...</h2>  
+<ul>
+<li> Create the <code>mycheckercustomization.properties</code> file, which will contain the customization description. 
+(You can name the <code>properties</code> file as you want. <b>Note</b>: your chemaxon home folder may contain other properties files as well; please, do not overwrite them.) 
+<p>The customization should follow the next example:</p>
+<p>
+<a href="images/personalize01.png" title="Click to enlarge" target="blank"><img src="images/personalize.png" width="600" height="96" alt="ValenceErrorChecker.name=Wertigkeit Fehler Prüfer" /></a><br />
+</p>
+<br />
+<b>Note</b>: UTF-8 character set is accepted; Non-ASCII characters must be unicode escaped.
+<br />
+In case of substructure checker, the name of the group cannot be added to the general description, because it is a general description for substructure checker. <br />
+<a href="#checkerlist">List of ChemAxon Checker and Fixer IDs</a>
+<p>List of checker or fixer properties available to customize:
+<ul>
+	<li>name</li>
+	<li>localMenuName</li>
+	<li>description</li>
+	<li>help</li>
+	<li>icon</li>
+	<li>noErrorMessage</li>
+	<li>oneErrorMessage</li>
+	<li>moreErrorMessage</li>
+</ul>
+</p>
+<p>
+Example: 
+</p>
+<p>
+Place the created properties file into your chemaxon home folder.</p></li>
+<li> Create or edit (if it already exists) the externalcheckersfixers.xml in your chemaxon/home folder in order to bind the created properties file to Structure Checker applications.
+Insert the following content into the XML file:
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;configuration&gt;
+  &lt;bundle base="mycheckercustomization.properties" /&gt;
+&lt;/configuration&gt;
+</pre>
+Use the name of your <code>properties</code> file in the &lt;bundle&gt; tag. In the above example, the "<code>mycheckercustomization.properties</code>" file contains the customization description.   
+
+If you have already added userdefined checkers and fixers to Structure Checker, externalcheckersfixers.xml will contain them as well.
+In this case, insert the &lt;bundle&gt; tag before &lt;checker-list&gt; and &lt;fixer-list&gt; tags.
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;configuration&gt;
+  &lt;bundle base="mycheckercustomization.properties" /&gt;
+  &lt;checker-list&gt;
+    &lt;checker class="chemaxon.examples.checkerintegration.checkers.DuplicateAtomMapChecker" editor-class="" id="DuplicateAtomMapChecker" jar="https://shared.chemaxon.com/projects/UGM2013/duplicateatommapchecker.jar"/&gt;
+  &lt;/checker-list&gt;
+  &lt;fixer-list&gt;
+    &lt;fixer class="chemaxon.examples.checkerintegration.fixers.ExternalRemoveAtomMapFixer" id="ExternalRemoveAtomMapFixer" jar="https://shared.chemaxon.com/projects/UGM2013/duplicateatommapchecker.jar"/&gt;
+  &lt;/fixer-list&gt;
+&lt;/configuration&gt;
+</pre>
+</li>
+</ul>
+
+Next time you start Structure Checker or MarvinSketch, the new checker settings will be applied.
+</p>
+<p>
+<b>MarvinSketch example after changing Valence Error Checker's name and its oneErrorMessage.</b>
+</p>
+<p>
+<a href="images/customization.png" title="Click to enlarge" target="blank"><img src="images/customization01.png" width="" height="" alt="example01"></a>
+</p>
+
+<p>
+<b><code>evaluate</code> example after changing Valence Error Checker's name and its oneErrorMessage.</b>
+</p>
+<p>
+<a href="images/evaluate_example.png" title="Click to enlarge" target="blank"><img src="images/evaluate_example01.png" width="600" height="98" alt="example02"></a>
+</p>
+
+<p>
+<div class="lenia">&nbsp;</div>
+<a id="checkerlist"><table>
+<caption>List of IDs of structure checkers and fixers</caption>
+	<tr>	
+		<th>Name</th>
+		<th>ID</th>
+	</tr>
+	<tr>
+		<td>Abbreviated Group Checker</td> 
+		<td>AbbreviatedGroupChecker</td>
+	</tr>
+	<tr>
+		<td>Absent Chiral Flag Checker</td>
+		<td>AbsentChiralFlagChecker</td>
+	</tr>
+	<tr>
+		<td>Absolute Stereo Configuration Checker</td>
+		<td>AbsoluteStereoConfigurationChecker</td>
+	</tr>
+	<tr>
+		<td>Alias Checker</td>
+		<td>AliasChecker</td>
+	</tr>
+	<tr>
+		<td>Aromaticity Error Checker</td>
+		<td>AromaticityErrorChecker</td>
+	</tr>
+	<tr>
+		<td>Atom Map Checker</td>
+		<td>AtomMapChecker</td>
+	</tr>
+	<tr>
+		<td>Atom Query Property Checker</td>
+		<td>AtomQueryPropertyChecker</td>
+	</tr>
+	<tr>
+		<td>Atom Value Checker</td>
+		<td>AtomValueChecker</td>
+	</tr>
+	<tr>
+		<td>Atropisomer Checker</td>
+		<td>AtropisomerChecker</td>
+	</tr>
+	<tr>
+		<td>Attached Data Checker</td>
+		<td>AttachedDataChecker</td>
+	</tr>
+	<tr>
+		<td>Bond Angle Checker</td>
+		<td>BondAngleChecker</td>
+	</tr>
+	<tr>
+		<td>Bond Length Checker</td>
+		<td>BondLengthChecker</td>
+	</tr>
+	<tr>
+		<td>Chiral flag Checker</td>
+		<td>hiralFlagChecker</td>
+	</tr>
+	<tr>
+		<td>Chiral Flag Error Checker</td>
+		<td>ChiralFlagErrorChecker</td>
+	</tr>
+	<tr>
+		<td> Circular R-group Reference Checker</td>
+		<td>CircularRGroupReferenceChecker</td>
+	</tr>
+	<tr>
+		<td>Coordination System Error Checker</td>
+		<td>CoordinationSystemErrorChecker</td>
+	</tr>
+	<tr>
+		<td>Covalent Counterion Checker</td>
+		<td>CovalentCounterionChecker</td>
+	</tr>
+	<tr>
+		<td> Crossed Double-Bond Checker</td>
+		<td>CrossedDoubleBondChecker</td>
+	</tr>
+	<tr>
+		<td>Duplicate Atom Map Checker</td>
+		<td>DuplicateAtomMapChecker</td>
+	</tr>
+	<tr>
+		<td>EZ Double Bond Checker</td>
+		<td>EZDoubleBondChecker</td>
+	</tr>
+	<tr>
+		<td>Empty Structure Checker</td>
+		<td>EmptyStructureChecker</td>
+	</tr>
+	<tr>
+		<td>Explicit Hydrogen Checker</td>
+		<td>ExplicitHydrogenChecker</td>
+	</tr>
+	<tr>
+		<td>Explicit Lone Pair Checker</td>
+		<td>ExplicitLonePairChecker</td>
+	</tr>
+	<tr>
+		<td>Isotope Checker</td>
+		<td>IsotopeChecker</td>
+	</tr>
+	<tr>
+		<td>Metallocene Error Checker</td>
+		<td>MetalloceneErrorChecker</td>
+	</tr>
+	<tr>
+		<td>Missing Atom Map Checker</td>
+		<td>MissingAtomMapChecker</td>
+	</tr>
+	<tr>
+		<td>Missing R-group Checker</td>
+		<td>MissingRGroupChecker</td>
+	</tr>
+	<tr>
+		<td>Molecule Charge Checker</td>
+		<td>MoleculeChargeChecker</td>
+	</tr>
+	<tr>
+		<td>Multicenter Checker</td>
+		<td>MultiCenterChecker</td>
+	</tr>
+	<tr>
+		<td>Multicomponent Checker</td>
+		<td>MultiComponentChecker</td>
+	</tr>
+	<tr>
+		<td>Multiple Stereocenter Checker</td>
+		<td>MultipleStereocenterChecker</td>
+	</tr>
+	<tr>
+		<td>OCR Error</td>
+		<td>OCRErrorChecker</td>
+	</tr>
+	<tr>
+		<td>Overlapping Atoms Checker</td>
+		<td>OverlappingAtomsChecker</td>
+	</tr>
+	<tr>
+		<td>Overlapping Bonds Checker</td>
+		<td>OverlappingBondsChecker</td>
+	</tr>
+	<tr>
+		<td>Pseudo Atom Checker</td>
+		<td>PseudoAtomChecker</td>
+	</tr>
+	<tr>
+		<td>Query Atom Checker</td>
+		<td>QueryAtomChecker</td>
+	</tr>
+	<tr>
+		<td>Query Bond Checker</td>
+		<td>QueryBondChecker</td>
+	</tr>
+	<tr>
+		<td>Racemate Checker</td>
+		<td>RacemateChecker</td>
+	</tr>
+	<tr>
+		<td>Radical Checker</td>
+		<td>RadicalChecker</td>
+	</tr>
+	<tr>
+		<td>Rare Element Checker</td>
+		<td>RareElementChecker</td>
+	</tr>
+	<tr>
+		<td>R-atom Checker</td>
+		<td>RatomChecker</td>
+	</tr>
+	<tr>
+		<td>Reaction Map Error Checker</td>
+		<td>ReactionMapErrorChecker</td>
+	</tr>
+	<tr>
+		<td>Relative Stereo Checker</td>
+		<td>RelativeStereoChecker</td>
+	</tr>
+	<tr>
+		<td>R-group Attachment Error Checker</td>
+		<td>RgroupAttachmentErrorChecker</td>
+	</tr>
+	<tr>
+		<td>R-group Reference Error Checker</td>
+		<td>RgroupReferenceErrorChecker</td>
+	</tr>
+	<tr>
+		<td>Ring Strain Error Checker</td>
+		<td>RingStrainErrorChecker</td>
+	</tr>
+	<tr>
+		<td>Solvent Checker</td>
+		<td>SolventChecker</td>
+	</tr>
+	<tr>
+		<td>Star Atom Checker</td>
+		<td>StarAtomChecker</td>
+	</tr>
+	<tr>
+		<td>Stereo Care Box Checker</td>
+		<td>StereoCareBoxChecker</td>
+	</tr>
+	<tr>
+		<td>Straight Double Bond Checker</td>
+		<td>StraightDoubleBondChecker</td>
+	</tr>
+	<tr>
+		<td>Substructure Checker</td>
+		<td>SubstructureChecker</td>
+	</tr>
+	<tr>
+		<td>Three Dimension Checker</td>
+		<td>ThreeDimensionChecker</td>
+	</tr>
+	<tr>
+		<td>Unbalanced Reaction Checker</td>
+		<td>UnbalancedReactionChecker</td>
+	</tr>
+	<tr>
+		<td>Unused R-group Checker</td>
+		<td>UnusedRGroupChecker</td>
+	</tr>
+	<tr>
+		<td>Valence Error Checker</td>
+		<td>ValenceErrorChecker</td>
+	</tr>
+	<tr>
+		<td>Valence Property Checker</td>
+		<td>ValencePropertyChecker</td>
+	</tr>
+	<tr>
+		<td>Wedge Error Checker</td>
+		<td>WedgeErrorChecker</td>
+	</tr>
+	<tr>
+		<td>Wiggly Bond Checker</td>
+		<td>WigglyBondChecker</td>
+	</tr>
+	<tr>
+		<td>Wiggly Double Bond Checker</td>
+		<td>WigglyDoubleBondChecker</td>
+	</tr>
+</table>
+</p>
+<div class="lenia">&nbsp;</div>
+
+<h2><a class="anchor" name="links"></a>Links</h2>
+
+<p>
+	<a href="checker.html">Structure Checker Developer's Guide</a><br>
+	<a href="../../structurechecker/checkerlist.html">List of available checkers</a><br>
+	<a href="https://www.chemaxon.com/jchem/doc/user/structurechecker.html">Structure Checker GUI</a><br>
+	<a href="https://www.chemaxon.com/jchem/doc/user/structurecheck_cline.html"><code>structurecheck</code> Command Line Application</a><br>
+	<a href="../../structurechecker/checker.html">Structure Checker in MarvinSketch</a>
+</p>
+
+<div class="lenia">&nbsp;</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel ="stylesheet" type="text/css" href="../../structurechecker.css">
+<title>Structure Checker Developer's Guide - Tutorial</title>
+</head>
+<body>
+
+<h1>Structure Checker Developer's Guide - About the Structure Checker API</h1>
+<table>
+	<tr>
+		<td width="30%"><font color="blue">&larr;</font> <a href="custom_implementations.html">Introduction</a></td>
+		<td width="30%"><font color="blue">&uarr;</font> <a href="checker.html">Structure Checker Developer's Guide</a></td>
+		<td width="30%"><a href="custom_checker.html">Implementing a new Structure Checker</a> <font color="blue">&rarr;</font></td>
+	</tr>
+</table> 
+
+<h2><a id="intro"></a>About the Structure Checker API</h2>
+
+<p>The most important classes and interfaces of the Structure Checker API are:
+<ul>
+	<li><code>chemaxon.checkers.StructureChecker</code> interface and its implementations: contain 
+	the code to detect issues in structures;</li>
+	<li><code>chemaxon.checkers.result.StructureCheckerResult</code> interface and its 
+	implementations: represent the result of a structure check, and contain information about the 
+	problems;</li>
+	<li><code>chemaxon.fixers.StructureFixer</code> interface and its implementations: contain the 
+	code to fix a certain issue represented by a <code>StructureCheckerResult</code>.</li>
+</ul>
+<img src="images/api.png" width="551" height="321" alt="Structure Checker logic" /><br>
+<strong>Figure 1.</strong> Logic of Structure Checker's checkers and fixers 
+</p>
+
+<h3>Configuration, metadata and persistence</h3>
+<p>A list of checkers (optionally with preferred fixers) can be executed on a structure using an 
+implementation of <code>chemaxon.checkers.runner.StructureCheckerRunner</code>. 
+<code>BasicCheckerRunner</code> is meant for checking, and it has basic fixing capabilities, 
+<code>AdvancedCheckerRunner</code> is more robust, and has better fixing method, like running more 
+iterations and fixer priorities.</p>
+<p>A list of checkers can be saved and restored with <code>ConfigurationReader</code> and 
+<code>ConfigurationWriter</code> implementations located in 
+<code>chemaxon.checkers.runner.configuration.reader</code> (and <code>writer</code>) packages. 
+Implementations for XML and Action String representation are available.</p>
+<p>Checker and Fixer metadata is kept in the <code>@CheckerInfo</code> and <code>@FixerInfo</code> 
+annotations of the corresponding class.</p>
+
+<table>
+	<tr>vpalfi
+		<td width="30%"><font color="blue">&larr;</font> <a href="custom_implementations.html">Introduction</a></td>
+		<td width="30%"><font color="blue">&uarr;</font> <a href="checker.html">Structure Checker Developer's Guide</a></td>
+		<td width="30%"><a href="custom_checker.html">Implementing a new Structure Checker</a> <font color="blue">&rarr;</font></td>
+	</tr>
+</table> 
+
+<div class="lenia">&nbsp;</div>
+
+<h2><a class="anchor" name="links"></a>Links</h2>
+
+<p>
+	<a href="checker.html">Structure Checker Developer's Guide</a><br>
+	<a href="../../structurechecker/checkerlist.html">List of available checkers</a><br>
+	<a href="https://www.chemaxon.com/jchem/doc/user/structurechecker.html">Structure Checker GUI</a><br>
+	<a href="https://www.chemaxon.com/jchem/doc/user/structurecheck_cline.html"><code>structurecheck</code> Command Line Application</a><br>
+	<a href="../../structurechecker/checker.html">Structure Checker in MarvinSketch</a>
+</p>
+
+<div class="lenia">&nbsp;</div>
+
+</body>
+</html>

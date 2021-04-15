@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<EntryList>
+	<entry>
+        <name>Compound Type</name>
+        <description>Controlled Vocab</description>
+        <required>true</required>
+        <type>String</type>
+        <values>
+			<value>Option 1</value>
+			<value>Option 2</value>
+			<value>Option 3</value>
+		</values>
+		<defaultvalue>Option 1</defaultvalue>
+    </entry>
+    <entry>
+        <name>Salt</name>
+        <description>Controlled Vocab</description>
+        <required>true</required>
+        <type>String</type>
+        <values>
+			<value>Option 1</value>
+			<value>Option 2</value>
+			<value>Option 3</value>
+		</values>
+		<defaultvalue>Option 1</defaultvalue>
+    </entry>
+    <entry>
+        <name>Program</name>
+        <description>Controlled Vocab</description>
+        <required>true</required>
+        <type>String</type>
+        <values>
+			<value>Option 1</value>
+			<value>Option 2</value>
+			<value>Option 3</value>
+		</values>
+		<defaultvalue>Option 1</defaultvalue>
+	</entry>
+    <entry>
+        <name>Supplier</name>
+        <description>Controlled Vocab</description>
+        <required>true</required>
+        <type>String</type>
+        <values>
+			<value>Option 1</value>
+			<value>Option 2</value>
+			<value>Option 3</value>
+		</values>
+		<defaultvalue>Option 1</defaultvalue>
+    </entry>
+    <entry>
+        <name>Supplier Code</name>
+        <description>Supplier's Compound ID</description>
+        <required>true</required>
+        <defaultvalue>true</defaultvalue>
+        <type>String</type>
+    </entry>
+    <entry>
+        <name>Supplier Lot</name>
+        <description>Supplier's Batch/Lot</description>
+        <required>true</required>
+        <type>String</type>
+    </entry>
+    <entry>
+        <name>Barcode</name>
+        <description>Barcode on the vial</description>
+        <required>true</required>
+        <type>String</type>
+    </entry>
+    <entry>
+        <name>Vial Type</name>
+        <description>Controlled Vocab</description>
+        <required>true</required>
+        <type>String</type>
+        <values>
+			<value>Option 1</value>
+			<value>Option 2</value>
+			<value>Option 3</value>
+		</values>
+		<defaultvalue>Option 1</defaultvalue>
+    </entry>
+    <entry>
+        <name>Container Location</name>
+        <description>Controlled Vocab</description>
+        <required>true</required>
+        <type>String</type>
+        <values>
+			<value>Option 1</value>
+			<value>Option 2</value>
+			<value>Option 3</value>
+		</values>
+		<defaultvalue>Option 1</defaultvalue>
+    </entry>
+    <entry>
+        <name>Container Tare (mg)</name>
+        <description>The Container/Vial Tare</description>
+        <required>true</required>
+        <type>String</type>
+    </entry>
+    <entry>
+        <name>Amount In Container (mg)</name>
+        <description>The current amount in the vial</description>
+        <required>true</required>
+        <type>String</type>
+    </entry>
+    <entry>
+        <name>Total Mass Synthesized (mg)</name>
+        <description>The total amount of lot/batch which was synthesized</description>
+        <required>true</required>
+        <type>String</type>
+    </entry>
+    <entry>
+        <name>Notebook</name>
+        <description>The ELN Notebook Name</description>
+        <required>false</required>
+        <type>String</type>
+    </entry>
+    <entry>
+        <name>Experiment</name>
+        <description>The ELN Experiment ID</description>
+        <required>false</required>
+        <type>String</type>
+    </entry>
+    <entry>
+        <name>Experiment Name</name>
+        <description>The ELN Experiment Name</description>
+        <required>false</required>
+        <type>String</type>
+    </entry>
+    <entry>
+        <name>Comments</name>
+        <description>Any Comments</description>
+        <required>false</required>
+        <type>MultiLIneString</type>
+    </entry>
+    <entry>
+        <name>Generic Name</name>
+        <description>Any generic name given to the sample</description>
+        <required>false</required>
+        <type>String</type>
+    </entry>
+</EntryList>

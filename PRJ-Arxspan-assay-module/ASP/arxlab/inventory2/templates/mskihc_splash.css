@@ -1,0 +1,157 @@
+.homePageHierarchyContainer .findLotsButtonContainer, .homePageHierarchyContainer .findReagentsButtonContainer, .homePageHierarchyContainer .findDilutionButtonContainer{
+    background: rgb(252, 252, 252);
+    -webkit-box-shadow: 0 0 9px 0px rgba(0,0,0,.8); 
+    box-shadow: 0 0 9px 0px rgba(0,0,0,.8);
+    display: inline-block;
+    width: 240px;
+    height: auto;
+    padding: 17px 0;
+    text-align: center;
+    font-size: 29px;
+    margin-right: 70px;
+    margin-top: 32px;
+    cursor: pointer;
+    -webkit-border-radius: 2px; 
+    border-radius: 2px;
+}
+
+.homePageHierarchyContainer .findLotsButtonContainer:hover, .homePageHierarchyContainer .findReagentsButtonContainer:hover, .homePageHierarchyContainer .findDilutionButtonContainer:hover{
+    background: white;   
+}
+
+.homePageHierarchyContainer > .spaceInBetween {
+    background: gainsboro;
+    height: 163px;
+    width: 4px;
+    margin-left: -4px;
+    padding-bottom: 50px;
+    padding-top: 118px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.homePageHierarchyContainer .addLotButtonContainer, .homePageHierarchyContainer .addReagentButtonContainer, .homePageHierarchyContainer .addDilutionButtonContainer {
+    background: rgb(252, 252, 252);
+    -webkit-box-shadow: 0 0 9px 0px rgba(0,0,0,.8);
+    box-shadow: 0 0 9px 0px rgba(0,0,0,.8);
+    display: inline-block;
+    width: 240px;
+    height: auto;
+    padding: 17px 0;
+    text-align: center;
+    font-size: 29px;
+    margin-left: 70px;
+    margin-top: 32px;
+    cursor: pointer;
+    -webkit-border-radius: 2px; 
+    border-radius: 2px;
+}
+
+.homePageHierarchyContainer .addLotButtonContainer:hover, .homePageHierarchyContainer .addReagentButtonContainer:hover, .homePageHierarchyContainer .addDilutionButtonContainer:hover {
+    background:#FFF;
+}
+
+.findSection {
+    width: 411px;
+    height: 332px;
+    display: inline-block;
+    text-align: right; 
+    -webkit-box-shadow: inset 2px -2px 11px 0 #eee; 
+    box-shadow: inset 2px -2px 11px 0 #eee;
+}
+.findSection:hover{
+    background:rgb(232, 232, 232);
+}
+.addSection {
+    width: 412px;
+    height: 332px;
+    display: inline-block;
+    text-align: left;
+	margin-left:-4px;
+    -webkit-box-shadow: inset -2px -2px 11px 0 #eee; 
+    box-shadow: inset -2px -2px 11px 0 #eee;
+}
+
+.addSection:hover{
+    background:rgb(232, 232, 232);
+}
+.homePageHierarchyContainer {
+    display: inline-block;
+	margin-left:-2px;
+}
+.homePageTitle {
+    padding: 14px;
+    font-size: 32px;
+    border-bottom: 2px solid rgb(188, 188, 188);
+    width: 796px;
+    font-weight: bold;
+}
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+.homePageHierarchyContainer .addLotPopup{
+    display: none;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 27.5px;
+    font-family: Lato, Helvetica;
+    width: 430px;
+    -webkit-box-shadow: 0 0 18px 0 #7D7D7D;
+    box-shadow: 0 0 18px 0 #080808;
+}
+
+.homePageHierarchyContainer .addDilutionPopup{
+    display: none;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 27.5px;
+    font-family: Lato, Helvetica;
+    width: 386px;
+    -webkit-box-shadow: 0 0 18px 0 #7D7D7D;
+    box-shadow: 0 0 18px 0 #080808;
+}
+
+.topText {
+    padding: 20px 22px;
+    text-align: center;
+    display:none;
+	line-height:34px;
+	font-family: Lato, Helvetica, Arial;
+}
+.okSection {
+    text-align: center;
+    background: #fff;
+    padding: 10px 0;
+    font-weight: 300;
+	font-family: Lato, Helvetica;
+	line-height:34px;
+    color: rgb(73, 145, 244);
+    -webkit-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+    cursor:pointer;
+}
+label.dontShowAgainLabel {
+    font-size: 16px;
+    padding: 9px 9px 9px 5px;
+    display: inline-block;
+}
+input.dontShowAgainCheckbox {
+    margin-left: 26px;
+    height: 16px;
+    width: 16px;
+}
+.dontShowAgainCheckboxContainer {
+    background: rgb(254, 254, 232);
+	display:none;
+}

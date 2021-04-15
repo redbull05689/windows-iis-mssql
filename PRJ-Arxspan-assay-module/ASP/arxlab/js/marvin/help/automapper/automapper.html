@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="author" content="Viktoria Palfi">
+	<link rel ="stylesheet" type="text/css" href="../marvinmanuals.css" title="Style">
+	<title>AutoMapper</title>
+</head>
+<body>
+<h1>AutoMapper</h1>
+<h2><a id="intro"></a>Introduction</h2>
+<p>AutoMapper is a tool that performs automated chemical reaction mapping. It assigns atom maps to 
+the atoms of a reaction, so that the same map number will identify the corresponding atoms on the 
+two sides of the reaction arrow (reactant side and product side). Atom mapping reflects the 
+mechanism of the reaction.
+</p>
+
+<h2><a id="features"></a>Features</h2>
+<p>AutoMapper provides the following features:
+<ul>
+	<li>Map reactions in various mapping styles;
+	<ul>
+		<li><b>Complete</b>: All atoms of a reaction will be mapped. </li>
+		<li><b>Changing</b>: Atoms connected to forming, breaking, or modified bonds, and orphan 
+		atoms (they have no matching pair on the other side of the reaction arrow) will be mapped.
+		</li>
+		<li><b>Matching</b>: Atoms present on both sides of the reaction will be mapped. </li>
+	</ul>
+	</li>
+	<li>Preserve the original maps of a partially mapped reaction;</li>
+	<li>Mark reaction center. The following bonds will be marked:
+	<ul>
+		<li><img src="automapper_images/make_or_break16.png" width="16" height="16" alt="make or brake" /> Make or break: bond is made or broken in the reaction;</li>
+		<li><img src="automapper_images/change16.png" width="16" height="16" alt="change" /> Change: 
+		type of the bond has changed during the reaction (e.g., single bond to double bond). </li>
+	</ul>
+	</li>
+</ul>
+</p>
+
+<h2><a id="usage"></a>Usage</h2>
+<p>Automapper is integrated into and used by the following ChemAxon products:
+<ul>
+	<li>MarvinSketch: <a href="../sketch/sketch-basic.html#howto-map.reactions">Map Atoms action</a> in case of reactions (menu Structure &gt; Mapping &gt; Map Atoms); </li>
+	<li>Standardizer: Action <a href="https://www.chemaxon.com/jchem/doc/user/standardizer_actions.html#mapreaction">Map Reaction</a> (actionstring: mapreaction);</li>
+	<li>Structure Checker: Fixer of <a href="../structurechecker/checkerlist.html#mapreaction">Reaction Map Error Checker</a> (actionstring: mapreaction).</li>
+</ul>
+</p>
+
+<h2><a id="algorithm"></a>Algorithm</h2>
+<p>AutoMapper algorithm is based on Maximum Common Substructure (MCS) and Minimal Chemical Distance 
+(MCD) algorithms.
+</p>
+
+<h2><a id="examples"></a>Examples</h2>
+<p>Example 1: Comparison of different mapping styles 
+<table>
+	<tr>
+		<td><a href="automapper_images/example01.png" title="Click to enlarge" target="blank">
+		<img src="automapper_images/example01_small.png" width="557" height="150" alt="complete" /></a></td>
+		<td>Fiedel-Crafts acylation of indole with propionyl chloride. <br /> Mapping style: <i>Complete</i><br />
+		All atoms of the reaction are mapped.</td>
+	</tr>
+	<tr>
+		<td><a href="automapper_images/example02.png" title="Click to enlarge" target="blank">
+		<img src="automapper_images/example02_small.png" width="557" height="150" alt="changing" /></a></td>
+		<td>Fiedel-Crafts acylation of indole with propionyl chloride. <br /> Mapping style: <i>Changing</i><br />
+		AutoMapper maps atoms connecting to forming and breaking bonds.</td>
+	</tr>
+	<tr>
+		<td><a href="automapper_images/example03.png" title="Click to enlarge" target="blank">
+		<img src="automapper_images/example01_small.png" width="557" height="150" alt="matching" /></a></td>
+		<td>Fiedel-Crafts acylation of indole with propionyl chloride. <br /> Mapping style: <i>Matching</i><br />
+		AutoMapper's Matching style maps atoms present on both sides of the reaction.
+		<br/>
+		In a balanced chemical reaction, Matching style mapping does not differ from Complete style mapping.
+		</td>
+	</tr>
+	<tr>
+		<td><a href="automapper_images/example04.png" title="Click to enlarge" target="blank">
+		<img src="automapper_images/example04_small.png" width="557" height="150" alt="matching2" /></a></td>
+		<td>Fiedel-Crafts acylation of indole with propionyl chloride. <br /> Mapping style: <i>Matching</i><br />
+		AutoMapper's Matching style maps atoms present on both sides of the reaction;<br /> see 
+		missing map numbers on explicit hydrogen and chlorine on the reactant side.<br /></td> 
+	</tr>
+	</table>
+</p>
+<p>
+Example 2: Demonstration of reaction center bond marks and Changing mapping style<br />
+<table>
+	<tr>
+		<td><a href="automapper_images/example05.png" title="Click to enlarge" target="blank">
+		<img src="automapper_images/example05_small.png" width="557" height="150" alt="bondmarks2" /></a></td>
+		<td>Dehalogenation of 1,2-dibromocyclohexane <br /> Mapping style: <i>Changing</i><br />
+		Bonds between atoms 1 and 3, and between atoms 2 and 4 have broken in this reaction, while bond between 
+		atoms 1 and 2 has changed from single to double bond. </td>
+	</tr>
+</table>
+</p>
+
+<h2><a id="links"></a>Links</h2>
+<ul>
+	<li><a href="">AutoMapper API Documentation</a></li>
+</ul> 
+</body>
+</html>
+

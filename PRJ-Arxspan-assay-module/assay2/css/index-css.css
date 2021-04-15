@@ -1,0 +1,361 @@
+
+	#arxOneContainer .fieldHolder .label{
+		/*-webkit-border-radius: 10px 0 0;
+		border-radius: 10px 0 0;
+		border-top: 1px solid #d1d1d1;
+		border-left: 1px solid #d1d1d1;*/
+	}
+
+	#arxOneContainer .fieldHolder .label ~ .label{
+		/*-webkit-border-radius: 10px 0 0;
+		border-radius: 10px 0 0;
+		border-top: 1px solid #d1d1d1;
+		border-left: 1px solid #d1d1d1;*/
+	}
+
+	#arxOneContainer h1{
+		padding-top:10px;
+		padding-bottom:10px;
+	}
+	#arxOneContainer h2{
+		padding-top:10px;
+		padding-bottom:10px;
+	}
+
+	#arxOneContainer .fieldHolder:nth-of-type(1) .field{
+
+		border-top: 1px solid #d1d1d1;
+		border-left: 1px solid #d1d1d1;
+	}
+
+	#arxOneContainer .fieldHolder:nth-child(odd) .label{
+	    background: rgba(220,220,220,1);
+	}
+
+	#arxOneContainer .fieldHolder:nth-child(odd) .field{
+	    background: rgba(220,220,220,1);
+	}
+
+	#arxOneContainer .fieldHolder:nth-child(even) .label{
+	    background: rgba(230,230,230,1);
+	}
+
+	#arxOneContainer .fieldHolder:nth-child(even) .field{
+	    background: rgba(230,230,230,1);
+	}
+
+
+	#arxOneContainer .fieldSetHolder :nth-child(even) .field{
+	    background: rgba(220,220,220,1);
+	}
+
+	#arxOneContainer .fieldSetHolder .fieldHolder{
+		margin-bottom:10px;
+	}
+
+	#arxOneContainer .fieldSetHolder .fieldHolder .fieldHolder{
+		margin-bottom:0px;
+	}
+
+	#arxOneContainer .fieldSetHolder .fieldHolder{
+		margin-bottom:10px;
+	}
+
+	#arxOneContainer .fieldSetHolder .removeParentLink{
+		position:absolute;
+		z-index:20000;
+		right:-300px;
+	}
+
+	#arxOneContainer .fieldSetHolder .fieldSetHolder .removeParentLink{
+		position:absolute;
+		z-index:20000;
+		right:300px;
+		top:10px;
+	}
+
+	#arxOneContainer .label{
+		width:280px;
+		margin-top: 0;
+		border-top: 1px solid #d1d1d1;
+		border-left: 1px solid #d1d1d1;
+		text-align: right;
+		padding-right: 15px;
+		display: inline-block;
+		vertical-align: top;
+		padding-top: 7px;
+		padding-bottom: 7px;
+		font-weight:bold;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	#arxOneContainer .fieldHolder{
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+	}
+
+	#buttonHolder{
+		padding-top:12px;
+	}
+
+	#buttonHolder input[type="button"] {
+		width:110px;
+		margin-right:10px;
+		-moz-box-shadow: 0px 10px 14px -7px #276873;
+		-webkit-box-shadow: 0px 10px 14px -7px #276873;
+		box-shadow: 0px 10px 14px -7px #276873;
+		background-color:#7cbed6;
+		-moz-border-radius:8px;
+		-webkit-border-radius:8px;
+		border-radius:8px;
+		display:inline-block;
+		cursor:pointer;
+		color:#ffffff;
+		font-family:Arial;
+		font-size:13px;
+		font-weight:bold;
+		padding:13px 32px;
+		text-decoration:none;
+		text-shadow:0px 1px 0px #3d768a;
+	}
+	#buttonHolder input[type="button"]:hover {
+		background-color:#408c99;
+	}
+	#buttonHolder input[type="button"]:active {
+		position:relative;
+		top:1px;
+	}
+
+
+	#arxOneContainer input, #arxOneContainer select{
+		margin-top:0px!important;
+		display:inline-block!important;
+		width:380px;
+	}
+
+	#arxOneContainer input{
+		width:380px;
+	}
+
+	#arxOneContainer input[type="checkbox"]{
+		width:40px;
+	}
+
+	#arxOneContainer select{
+		width:385px;
+	}
+	#arxOneContainer .errorDiv{
+		margin-left:311px;
+	}
+
+	#arxOneContainer .field{
+		min-height:30px;
+		width:100%;
+		padding-left:311px;
+		margin-top: 0;
+		border-top: 1px solid #d1d1d1;
+		border-left: 1px solid #d1d1d1;
+	    background: rgba(224,224,224,1);
+		text-align: right;
+		display: inline-block;
+		vertical-align: top;
+		padding-top: 7px;
+		padding-bottom: 7px;
+		text-align:left;
+	}
+
+	#arxOneContainer .fieldHolder .fieldHolder{
+		margin-left:-311px;
+		border:none;
+		overflow:visible;
+		border-top:none;
+		border-left:none;
+		background:transparent;
+	}
+
+	#arxOneContainer .label .label{
+		border-top:none;
+		border-left:none;
+	}
+
+	#arxOneContainer .fieldHolder .fieldHolder .fieldHolder{
+		margin-left:0;
+		width:800px;
+	}
+	#arxOneContainer .fieldHolder .fieldHolder .fieldHolder .fieldHolder .fieldHolder{
+		margin-left:-311px;
+		width:800px;
+	}
+	#arxOneContainer .fieldHolder .fieldHolder .fieldHolder .fieldHolder{
+		padding-left:311px;
+	}
+	#arxOneContainer .fieldSetHolder .field div{
+		border:none!important;
+	}
+
+	#arxOneContainer .plateMap{
+		width:inherit;
+		max-width:480px;
+		overflow-x:auto;
+		margin-top:0px;
+	}
+
+	#arxOneContainer .plateMap td{
+		padding:2px;
+	}
+
+	#arxOneContainer .plateMap .even td{
+		background-color:white;
+	}
+	
+	#arxOneContainer .plateMap .odd td{
+		background: rgb(233, 233, 233);
+	}
+	#arxOneContainer .plateMap td span{
+		font-size:12px;
+	}
+	#arxOneContainer .plateMap .headerRow td span{
+		font-size:14px;
+	}
+
+	
+
+	#arxOneContainer .plateMap .headerRow td{
+		border-bottom:2px solid black;
+		font-weight:bold;
+		background-color:#ccc;
+	}
+
+	.fieldSetHolder .label{
+		display:none!important;
+	}
+	.fieldSetHolder .field .fieldSetHolder .label{
+		display:none!important;
+	}
+	.fieldSetHolder .field .label{
+		display:inline-block!important;
+	    background: rgba(230,230,230,1)!important;
+	}
+	.fieldSetHolder .field .fieldSetHolder .field .label{
+		display:inline-block!important;
+	    background: rgba(230,230,230,1)!important;
+	}
+
+	.fieldSetHolder .field{
+		border-top: 1px solid #d1d1d1!important;
+		border-left: 1px solid #d1d1d1!important;
+	    background: rgba(230,230,230,1)!important;
+	}
+
+	#arxOneContainer .field .field{
+		padding:0;
+		border:none;
+		border-top:0;
+		border-left:0;
+	}
+
+	#arxOneContainer .fn_Assay_Component{
+		width:800px;
+		margin-left:311px;
+	}
+
+	#arxOneContainer .field .field .field .field{
+		padding-top: 7px;
+		padding-bottom: 7px;
+	    background: rgba(220,220,220,1)!important;
+	}
+
+	#arxOneContainer .field .field .field .field .fieldValue{
+		padding-left:10px;
+	}
+
+	#arxOneContainer .field .field .field .field .field .fieldValue,#arxOneContainer .field .field .field .field .field h2,#arxOneContainer .field .field .field .field a{
+		padding-left:20px;
+		margin-left:0px;
+	}
+
+	#arxOneContainer .field .field .field .field .field{
+	    background: rgba(230,230,230,1)!important;
+	}
+
+	#arxOneContainer .field .field .field .field .field .field{
+	    background: rgba(220,220,220,1)!important;
+	}
+
+	#arxOneContainer .fn_Measurement_Labels .field{
+		max-height: 140px;
+		overflow-y: auto;
+	}
+
+	#wellView{
+		z-index:1000;
+		background-color:white;
+		border:1px solid black;
+		display:none;
+		position:fixed;
+		left:0;
+		top:0;
+		width:400px;
+	}
+	#wellView div{
+		width:160px;
+		float:left;
+	}
+	.plateMap .odd{
+		background-color:#4c4;
+	}
+	.plateMap .even{
+		background-color:white;
+	}
+	.plateMap a,.plateMap span{
+		text-decoration:none;
+		color:black;
+		font-weight:bold;
+		font-size:11px;
+	}
+	.plateMap td{
+		min-width:50px;
+		text-align:center;
+	}
+	.datebox{
+		float:right;
+		margin-right:25px;
+	    background: rgba(246,246,246,1);
+		padding:5px;
+	}
+	.datebox div div{
+		display:inline-block;
+		padding-left:6px;
+	}
+
+	.fn_IC50_Curve .label{
+		display:block!important;
+		position:relative!important;
+	}
+	.fn_IC50_Curve .field{
+		padding-left:5px!important;
+		padding-top:30px!important;
+		width:815px!important;
+	}
+
+	.resizer {
+		width: 500px;
+		height: 500px;
+		display: flex;
+		margin: 0;
+		padding: 0;
+		resize: both;
+		overflow: hidden;
+	}
+	.resizer > .resized {
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+	.resized {
+		width: 95%;
+		height: 100%;
+	}

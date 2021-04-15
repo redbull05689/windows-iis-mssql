@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+	<meta HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<title>Document to Database</title>
+  <link rel="stylesheet" type="text/css" href="../marvinmanuals.css">
+  </head>
+  <body>
+  
+  <h1>Document to Database</h1>
+
+  <h2>Architecture</h2>
+  <p>
+  A typical system will consist of three server computers:
+  <ul>
+  <li>a document repository (Documentum)
+  <li>a crawler (Document to Database)
+  <li>a database server (for instance Oracle with the JChem cartridge)
+  </ul>
+  
+<p>
+The document repository is supposed to be existing and working. It is not needed when indexing documents from a filesystem.
+
+<p>
+The database server should also be already installed and running.
+
+<p>
+This documentation concerns the installation and setup of the crawler server.
+It is recommended to dedicate a Linux machine for this task.
+  </p>
+
+  <h2>Installation</h2>
+
+<ol>
+<li>Download <a href="https://shared.chemaxon.com/users/dbonniot/d2db-6.2.zip">d2db.zip</a>
+<li>Log onto the crawler machine as the desired user.
+<li><code>unzip d2db.zip</code>
+<li><code>cd d2db</code>
+<li><code>cp -a conf.sample conf</code>
+</ol>
+
+You are now ready to start the configuration.
+  
+  <h2>Configuration</h2>
+
+The <code>conf</code> directory contains all configuration.
+You need to edit at least the <code>d2db.conf</code> file, which contains
+an example configuration and comments for each options.
+You also need to edit <code>documentum/dfc.properties</code> with
+documentum configuration (host, username and password).
+
+  <h2>Commands</h2>
+<p> 
+Document to Database command-line actions all have the following form:
+<p>
+<code>./d2db d2db.conf &lt;command&gt; &lt;parameters...&gt;</code>
+
+  <h2>Initialization</h2>
+
+At this point you should be ready to run the first d2db command
+to initialize the database. This will create the necessary tables.
+Note that if you created the database schema yourself and only
+want d2db to populate it, you should have used the
+<code>d2db.fixedSchema = true</code> option and can skip this section.
+<p>
+To create the database tables, run this command once:
+<p>
+<code>./d2db d2db.conf create</code>
+
+  <h2>Indexing</h2>
+
+The <code>index</code> command should be used to tell d2db
+which documents to index. For indexing a documentum folder, use:
+<p>
+<code>./d2db d2db.conf index documentum:&lt;folder&gt;</code>
+<p>
+For indexing a directory on a local or shared filesystem, use:
+<p>
+<code>./d2db d2db.conf index &lt;folder&gt;</code>
+
+<p>
+Note that d2db will automatically
+detect documents that have already been indexed in a previous
+run and have not been modified, in which case it will skip
+over them quickly. This means that the index command can be used
+both once for an initial indexing of a set of documents,
+and also later to update the index (add new documents, remove
+deleted documents, refresh modified documents). You can use the
+<code>reindex</code> command to force reindexing all documents
+even when they have not changed.
+<p>
+Once indexing has been done successfully, you might want to set up a cron job to run the index command
+regularly.
+
+</body>
+</html>

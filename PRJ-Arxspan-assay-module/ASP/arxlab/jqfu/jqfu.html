@@ -1,0 +1,303 @@
+
+<!-- The file upload form used as target for the file upload widget -->
+<form id="fileupload" action="/arxlab/experiments/upload-file.asp" method="POST" enctype="multipart/form-data">
+	<div id="overlay" class="overlay">
+	<div class="droptouploadtext">Drag files to upload</div>
+	<div class="droptouploadtextIEonly">Upload files</div>
+    <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+    <div class="fileupload-buttonbar" >
+
+        <div class="fileupload-buttons">
+            <!-- The fileinput-button span is used to style the file input field as button -->
+            <span class="addFilesButton fileinput-button">
+                <span>Add files...</span>
+                <input type="file" name="files[]" multiple>
+            </span>
+            <button type="submit" class="start">Start upload</button>
+            <button type="reset" class="cancel">Cancel upload</button>
+			<!--
+            <button type="button" class="delete">Delete</button>
+            <input type="checkbox" class="toggle">
+			-->
+            <!-- The global file processing state -->
+            <span class="fileupload-process"></span>
+        </div>
+        <!-- The global progress state -->
+        <div class="fileupload-progress fade" style="display:none">
+            <!-- The global progress bar -->
+            <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+            <!-- The extended global progress state -->
+            <div class="progress-extended">&nbsp;</div>
+        </div>
+    </div>
+    <!-- The table listing the files available for upload/download -->
+	<!-- individual files for jqfu-->
+    <!--<table role="presentation" class="filelisttable"><tbody class="files"></tbody></table>-->
+	</div>
+</form>
+
+<!-- The template to display files available for upload -->
+<script id="template-upload" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+
+	<tr class="template-upload fade">
+        <td>
+            <p class="name">{%=file.name%}</p>
+            <strong class="error"></strong>
+        </td>
+        <td>
+            <div class="size">Processing...</div>
+            <div class="progress"></div>
+        <!-- </td>
+        <td> -->
+            {% if (!i && !o.options.autoUpload) { %}
+                <button class="start" disabled style="display:none">Start</button>
+            {% } %}
+            {% if (!i) { %}
+                <button class="cancel" style="display:none">Cancel</button>
+            {% } %}
+        </td>
+    </tr>
+{% } %}
+</script>
+
+
+<script id="template-download" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+		<td>
+            <p class="name">{%=file.name%}</p>
+            {% if (file.error) { %}
+                <div><span class="error">Error</span> {%=file.error%}</div>
+            {% } %}
+        </td>
+		<td>
+            <div class="size">Processing...</div>
+            <div class="progress" role="progressbar" aria-valuenow="100"></div>
+        </td>
+        
+    </tr>
+{% } %}
+</script>
+
+<!-- Script to change the visibility of the buttons on the top -->
+<script>
+var fileuploadfailed = 0;
+
+$('#fileupload').bind('fileuploadadd', function (e, data) {
+    // Reset the variable  every time file is added
+	fileuploadfailed = 0;
+	$(".overlay").show();
+    $(".cancel").show();
+	$(".droptouploadtext").text("Drag files to upload");
+	$(".droptouploadtextIEonly").text("Upload files");
+	// Trigger the modal trigger element:
+});
+
+$('#fileupload').bind('fileuploadstart', function (e, data) {
+	$(".fileupload-buttons").show();
+});
+
+$('#fileupload').bind('fileuploaddone', function (e, data) {
+    /*$(".overlay").hide();*/
+	//$(".start").hide();
+	//$(".cancel").hide();
+	
+});
+
+$('#fileupload').bind('fileuploadstop', function (e, data) {
+   // If upload cancelled, we do not need to process stop
+	if(fileuploadfailed == 1) {
+		fileuploadfailed = 0;
+		//console.log("process stop return");
+		return;
+	}
+	$(".droptouploadtext").text("Upload complete");
+	$(".droptouploadtextIEonly").text("Upload complete");
+	$(".cancel").hide();
+	setTimeout(function() {
+		$('#fileupload div table tbody tr').remove();
+	}, 1500);
+	
+    /**Send a request to update the data base with parent folder id**/
+	url = "<%=mainAppPath%>/ajax_doers/updateAttachmentTableWithFolderId.asp?experimentId=<%=experimentId%>&experimentType=<%=experimentType%>";
+	console.log("url: "+url);
+	var update = postDataToFile(url);
+	if(update=="success"){
+		console.log("success");
+		//window.location.reload();
+	}
+    
+	//$('#formresetbutton').click();
+	el = document.getElementById("uploadFormHolder");
+	el.style.display = "none";
+	document.getElementById("uploadFormHolderHolder").appendChild(el.parentNode.removeChild(el));
+
+	htmlStr = getFile("/arxlab/ajax_loaders/getAttachmentTable.asp?experimentId=<%=experimentId%>&experimentType=<%=experimentType%>&rand="+Math.random());
+	document.getElementById("attachmentTable").innerHTML = htmlStr;
+	for (k=0;k<tableItemsToRemove.length ;k++ )
+	{
+		try{document.getElementById(tableItemsToRemove[k]).style.display = 'none';}catch(err){}
+	}
+	delayedRunJS(htmlStr);
+	unsavedChanges = true;
+	sendAutoSave('experimentId',experimentJSON['experimentId']); //bit of a hack, but should work to make the unsaved changes banner show
+	
+	el = document.getElementById("uploadFormHolder");
+	document.getElementById("attachmentTableFileUploadRow").appendChild(el.parentNode.removeChild(el));
+	el.style.display = "block";
+	positionButtons();
+	
+	//ELN-1184 Reinitialize blueimp fileupload dropzone
+	reInitializeDropZone()
+	
+});
+
+$('#fileupload').bind('fileuploadfail', function (e, data) {
+	
+	/*$(".fileupload-buttons").hide();*/
+	//console.log("Cancelling the upload");	
+	$(".droptouploadtext").text("Upload Error");
+	$(".droptouploadtextIEonly").text("Upload Error");
+	$(".cancel").hide();
+	fileuploadfailed = 1;
+	$('#formresetbutton').click();
+});
+
+$('#formresetbutton').click(function(e) {
+	//console.log("reset/cancel button clicked");
+	$(".fileupload-buttons").hide();
+});
+
+/* Checking for the duplicate files added to the upload widget*/
+$('#fileupload').bind('fileuploadadd', function(e,data) {
+
+    var currentfiles = [];
+    $(this).fileupload('option').filesContainer.children().each(function(){
+        currentfiles.push($(this).data('data').files[0].name);
+    });
+
+    data.files = $.map(data.files, function(file,i){
+        if ($.inArray(file.name,currentfiles) >= 0) { 
+            return null; 
+        }
+        return file;
+    });
+    $('.fileupload-loading').hide();
+
+});
+
+function encodeIt(str){
+if(!str){
+	return "";
+}
+ var aStr = str.split(''),
+     i = aStr.length,
+     aRet = [];
+   while (--i>=0) {
+    var iC = aStr[i].charCodeAt();
+    if (iC> 255) {
+      aRet.push('&#'+iC+';');
+    } else {
+      aRet.push(aStr[i]);
+    }
+  }
+ return aRet.reverse().join('');
+}
+
+// add additional form data on submit
+$('#fileupload').bind('fileuploadsubmit', function (e, data) {
+    // The example input, doesn't have to be part of the upload form:
+	//data.url = "/arxlab/experiments/upload-file.asp?experimentType="+document.getElementById("experimentType").value+"&experimentId="+document.getElementById("experimentId").value+"&jqfu=1"+"&random="+Math.random()+"&filename="+encodeURIComponent(encodeIt(data.files[0].name));
+    //Including relative path 
+    data.url = "/arxlab/experiments/upload-file.asp?experimentType="+document.getElementById("experimentType").value+"&experimentId="+document.getElementById("experimentId").value+"&jqfu=1"+"&random="+Math.random()+"&filename="+encodeURIComponent(encodeIt(data.files[0].name))+"&path="+encodeURIComponent(encodeIt(data.files[0].relativePath));
+});
+</script>
+
+
+<script>
+// Initialize the jQuery UI theme switcher:
+$('#theme-switcher').change(function () {
+    var theme = $('#theme');
+    theme.prop(
+        'href',
+        theme.prop('href').replace(
+            /[\w\-]+\/jquery-ui.css/,
+            $(this).val() + '/jquery-ui.css'
+        )
+    );
+});
+
+function reInitializeDropZone(){
+	$('#fileupload').fileupload({
+		disableImageResize: false,
+		dropZone: $('.attachmentsIndexTable'),
+        maxRetries: 10,
+        retryTimeout: 500,
+        fail: function (e, data) {
+            // jQuery Widget Factory uses "namespace-widgetname" since version 1.10.0:
+            var fu = $(this).data('blueimp-fileupload') || $(this).data('fileupload'),
+                retries = data.context.data('retries') || 0,
+                retry = function () {
+                    $(".droptouploadtext").text("Upload Retry");
+                    console.log("Retry File Upload...");
+                    data.data = null;
+                    data.submit();
+                };
+            if (data.errorThrown !== 'abort' && retries < fu.options.maxRetries) {
+                retries += 1;
+                data.context.data('retries', retries);
+                window.setTimeout(retry, retries * fu.options.retryTimeout);
+                return;
+            }
+            data.context.removeData('retries');
+            $.blueimp.fileupload.prototype
+                .options.fail.call(this, e, data);
+        }
+    })
+	.bind('fileuploadpaste', function (e, data) { return false; }); // Disable pasting files into experiment - it's never used and it triggers whenever someone pastes a file in the comments popup
+	$(document).bind('drop dragover', function (e) {
+		e.preventDefault();
+	});
+	
+	$('#fileupload').fileupload(
+		'option',
+		'redirect',
+		window.location.href.replace(
+			/\/[^\/]*$/,
+			'/cors/result.html?%s'
+		)
+	);
+
+	$('#fileupload').fileupload(
+		'option', {	acceptFileTypes: /^.*(\.|\/)(?!(exe|js|htaccess|bat|pif|msi)$)(?![^\.\/]*(\.|\/))/i }
+	);
+}
+$(function() {
+  // Handler for .ready() called.
+  reInitializeDropZone();
+});
+
+</script>
+
+<!-- The Templates plugin is included to render the upload/download listings -->
+<script src="/arxlab/jqfu/JavaScript-Templates-2.5.3/js/tmpl.min.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="/arxlab/jqfu/js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="/arxlab/jqfu/js/jquery.fileupload.js"></script>
+<!-- The File Upload processing plugin -->
+<script src="/arxlab/jqfu/js/jquery.fileupload-process.js"></script>
+<!-- The File Upload validation plugin -->
+<script src="/arxlab/jqfu/js/jquery.fileupload-validate.js"></script>
+<!-- The File Upload user interface plugin -->
+<script src="/arxlab/jqfu/js/jquery.fileupload-ui.js"></script>
+<!-- The File Upload jQuery UI plugin -->
+<script src="/arxlab/jqfu/js/jquery.fileupload-jquery-ui.js"></script>
+<!-- The main application script -->
+<script src="/arxlab/jqfu/js/main.js"></script>
+
+<!-- The XDomainRequest Transport is included for cross-domain file deletion for IE 8 and IE 9 -->
+<!--[if (gte IE 8)&(lt IE 10)]>
+<script src="/arxlab/jqfu/js/cors/jquery.xdr-transport.js"></script>
+<![endif]-->

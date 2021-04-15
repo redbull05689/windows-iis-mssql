@@ -1,0 +1,9 @@
+added curve as a result definition type
+moved save function into constructor and split out the initial save into interface save so that from the custom functions you can call save and override the interface save
+added curve to upload template save for JSON fields
+added fields from result set to result in resultSet beforeSave
+added jeff js files to js/jsfit
+changed jeffs code to accept a div
+changed jeffs code to send plotly a div instead of an id
+add css for plot to break on new line to index.asp
+changed upload template object and code significantly

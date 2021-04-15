@@ -1,0 +1,474 @@
+* {
+	font-family: Lato, Helvetica!important;
+	box-sizing: border-box;
+}
+
+.label{
+	display: block;
+	height:auto;
+	line-height: 24px;
+}
+.fieldHolder{
+	position:relative;
+	margin-bottom: 15px;
+}
+
+.displayTable .field{
+	text-align:center;
+	padding:0px;
+}
+
+.displayTable .field .displayTable .field .displayTable .field{
+	text-align:center;
+	padding:0px;
+}
+
+.displayTable .field .field .field{
+	text-align:center;
+	padding:10px;
+}
+
+.displayTable .field .displayTable .field{
+	text-align:center;
+	padding:0px;
+}
+
+.displayTable .field .field .field .field .field .field{
+	text-align:center;
+	padding:10px;
+}
+
+.displayTable .field .field .field .field .field .field .field{
+	text-align:center;
+	padding:0px;
+}
+
+.displayTable .field .field .field .field .field .field .field .field .field{
+	text-align:center;
+	padding:10px;
+}
+
+
+
+.displayTable .fieldHolder .fieldHolder{
+	display:inline-block;
+	margin:-1px 0 0 -1px;
+	min-width:200px;
+	border:1px solid black;
+	padding:2px;
+}
+
+.displayTable .fieldHolder .fieldHolder .fieldHolder{
+	display:block;
+	border:none;
+	margin:0;
+	padding:0;
+}
+
+.displayTable .fieldHolder .fieldHolder .displayTable .fieldHolder .fieldHolder{
+	display:inline-block;
+	margin:-1px 0 0 -1px;
+	min-width:200px;
+	border:1px solid black;
+	padding:2px;
+}
+
+.displayTable .fieldHolder .fieldHolder .fieldHolder .fieldHolder .fieldHolder .fieldHolder{
+	display:block;
+	border:none;
+	margin:0;
+	padding:0;
+}
+
+.displayTable .fieldHolder .fieldHolder .displayTable .fieldHolder .fieldHolder .displayTable .fieldHolder .fieldHolder{
+	display:inline-block;
+	margin:-1px 0 0 -1px;
+	min-width:200px;
+	border:1px solid black;
+	padding:2px;
+}
+
+.displayTable .fieldHolder .fieldHolder .fieldHolder .fieldHolder .fieldHolder .fieldHolder .fieldHolder .fieldHolder .fieldHolder{
+	display:block;
+	border:none;
+	margin:0;
+	padding:0;
+}
+
+.tableHead{
+	text-align:left;
+}
+
+.tableHeader{
+	display:inline-block;
+	margin:-1px 0 0 -1px;
+	min-width:200px;
+	text-align:center;
+	border:1px solid black;
+	padding:2px;
+}
+
+
+.field{
+	/* background-color:#aaa; */
+	/* border:1px solid #aaa; */
+	/* display:inline-block; */
+	vertical-align:top;
+}
+.fieldValue{
+	position:relative;
+}
+.value{
+	/*background-color:white;*/
+}
+.removeParentLink{
+	width:16px;
+	height:16px;
+	margin-left: 5px;
+}
+body {
+    margin: 0;
+    background: #2AC57A;
+}
+
+div#test2 {
+    padding: 15px 15px;
+    border-bottom: 1px solid #000;
+    background-color: #85CADA;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#test3 {
+    padding: 15px 15px;
+    border-bottom: 1px solid #000;
+    background-color: #F6F6F6;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#test {
+    padding: 15px 15px;
+    border-bottom: 1px solid #000;
+    background-color: #F6F6F6;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 300;
+}
+
+div#buttonHolder input[type="button"] {
+    background: #FFFFFF;
+    border: 1px solid #B7B7B7;
+    padding: 5px 18px;
+    height: auto;
+    width: auto;
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 6px!important;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Lato;
+    line-height: 25px;
+    color: #000;
+}
+
+div#buttonHolder input[type="button"]:hover, div#buttonHolder input[type="button"]:focus {
+	background: #EFEFEF;
+}
+
+.fieldHolder div.label {
+    font-size: 14px;
+    color: #4E5252;
+    display: block;
+    margin-top: 0px;
+    line-height: 20px;
+    font-family: Lato, Arial, Helvetica!important;
+    font-weight: 700;
+}
+
+div.fieldValue input[type="text"] {
+    color: black;
+    margin-left: 14px;
+    display: block;
+    word-break: break-word;
+    width: 400px;
+    max-width: calc(100% - 347px);
+    font-size: 16px;
+    line-height: 130%;
+    -webkit-appearance: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    border: 1px solid #D2D2D2;
+    padding: 3px 8px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.fieldHolder.fs_fields, .fieldHolder.fieldSetHolder,.fieldHolder.fieldSetHolder > div.field > div.fieldHolder {
+    background-color: rgba(99, 92, 92, 0.06);
+    padding: 20px;
+    margin-top: 11px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+input[type="checkbox"] {
+    font-size: 16px;
+}
+
+select {
+    font-size: 16px;
+    margin-left: 15px;
+}
+
+body > div#test3 > div.fieldHolder:not(.fn_name):not(.fn_fields) {
+    /* display: inline-block; */
+    /* width: 200px; */
+}
+
+.fieldHolder.fn_multi, .fieldHolder.fn_required, .fieldHolder.fn_inTable, .fieldHolder.fn_isTableLink {
+    display: inline-block;
+    width: 24%;
+    text-align: center;
+    position: relative;
+    padding-left: 50px;
+    border-right: 1px solid #FFF;
+    margin-bottom: 20px;
+    text-align: left;
+    background: #E4E4E4;
+}
+
+.fieldHolder.fn_multi div.label, 
+.fieldHolder.fn_required div.label, 
+.fieldHolder.fn_inTable div.label, 
+.fieldHolder.fn_isTableLink div.label {
+    padding-left: 23px;
+    text-align: left;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.fieldHolder.fn_multi div.field, 
+.fieldHolder.fn_required div.field, 
+.fieldHolder.fn_inTable div.field, 
+.fieldHolder.fn_isTableLink div.field {
+    position: absolute;
+    left: 50px;
+    top: 12px;
+}
+
+.fieldHolder.fn_isTableLink {
+    border-right: none;
+}
+
+.fieldHolder.fn_afterChange > div.field > div.fieldValue > textarea,.fieldHolder.fn_afterShow > div.field > div.fieldValue > textarea {
+	width: 400px;
+	height: 80px;
+	font-weight: 400;
+	color: black;
+	margin-left: 14px;
+	display: block;
+	word-break: break-word;
+	max-width: calc(100% - 347px);
+	font-size: 16px;
+	line-height: 130%;
+}
+
+.fieldHolder.fn_fields.fieldSetHolder > div.label:first-of-type {
+    font-size: 30px;
+    text-transform: capitalize;
+    line-height: 30px;
+    margin-top: 34px;
+}
+
+.removeButtonContainer {
+    display: inline-block;
+    background: #FF0000;
+    border-radius: 5px;
+    padding-right: 7px;
+}
+
+.removebuttoncontainer > div.removeButtonText {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    font-size: 11px;
+    margin-left: -2px;
+}
+
+.fieldHolder > div.field > div.fieldValue > select {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.addButtonContainer {
+    display: inline-block;
+    background: #3DAA2F;
+    border-radius: 5px;
+    padding-right: 7px;
+}
+
+.addbuttoncontainer > div.addButtonText {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    font-size: 11px;
+    margin-left: -2px;
+}
+
+a.addLink {
+    margin-top: 7px;
+    display: inline-block;
+}
+
+.fieldHolder[fieldtype="checkbox"] .label,.fieldHolder[fieldtype="checkbox"] .field {
+    display: inline-block;
+    margin-top: 0;
+}
+
+.fieldHolder[fieldtype="checkbox"] .label {
+    margin-left: 4px;
+}
+
+.fieldHolder.fs_fields:last-of-type + a.addLink .addButtonContainer img {
+    display: none;
+}
+
+.fieldHolder.fs_fields:last-of-type + a.addLink .addButtonContainer .addButtonText {
+    font-size: 16px;
+    line-height: 25px;
+    color: #000;
+}
+
+.fieldHolder.fs_fields:last-of-type + a.addLink {
+	margin-bottom: 24px;
+}
+
+.fieldHolder.fs_fields:last-of-type + a.addLink .addButtonContainer {
+    background-color: transparent;
+}
+
+.fieldHolder.fs_fields:last-of-type + a.addLink .addButtonContainer .addButtonText:before {
+    content: "+";
+    padding-right: 4px;
+}
+
+.fieldHolder.fs_fields:last-of-type + a.addLink .addButtonContainer .addButtonText {
+    background: #FFFFFF;
+    border: 1px solid #B7B7B7;
+    padding: 5px 18px;
+    height: auto;
+    width: auto;
+    font-size: 17px;
+    font-weight: 300;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Lato;
+    line-height: 23px;
+    color: #000;
+}
+
+.fieldHolder.fs_fields:last-of-type + a.addLink .addButtonContainer .addButtonText:hover, .fieldHolder.fs_fields:last-of-type + a.addLink .addButtonContainer .addButtonText:focus {
+    background: #EFEFEF;
+}
+
+.fieldHolder[fieldtype="checkbox"] {
+    margin-bottom: 14px;
+}
+
+.fieldHolder[fieldtype="checkbox"] .field .fieldValue input[type="checkbox"]:after {
+	padding-right: 22px;	
+	content: "";
+	display: block;
+	width: 130px;
+	height: 14px;
+}
+
+.fieldHolder.fs_fields:last-of-type + a.addLink .addButtonContainer .addButtonText:after {
+    content: " Field";
+}
+
+a.moveUpButton {
+    background: url('../images/moveUp.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    display: block;
+    height: 24px;
+    margin-left: -20px;
+    margin-bottom: -20px;
+    width: 40px;
+    background-color: #F9F9F9;
+    border: 1px solid #CACACA;
+}
+a.moveDownButton {
+    background: url('../images/moveDown.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    display: block;
+    height: 24px;
+    margin-left: -20px;
+    margin-top: 20px;
+    margin-bottom: -20px;
+    width: 40px;
+    background-color: #F9F9F9;
+    border: 1px solid #CACACA;
+    border-top: none;
+}
+
+.fieldHolder[fieldtype="select"] {
+    margin-top: 11px;
+    margin-bottom: 24px;
+}
+
+.fieldHolder.fs_fields > .removeParentLink:first-child, 
+.fieldHolder.fieldSetHolder > div.field > div.fieldHolder > a.removeParentLink {
+    position: absolute;
+    right: 17px;
+    width: auto;
+    height: auto;
+    z-index: 1;
+}
+
+.fieldHolder.fs_fields > .removeParentLink:first-child .removebuttoncontainer,
+.fieldHolder.fieldSetHolder > div.field > div.fieldHolder > a.removeParentLink .removebuttoncontainer {
+    background: transparent;
+    padding: 0;
+}
+
+.fieldHolder.fs_fields > .removeParentLink:first-child .removebuttoncontainer > img,
+.fieldHolder.fieldSetHolder > div.field > div.fieldHolder > a.removeParentLink .removebuttoncontainer > img {
+    display: none;
+}
+
+.fieldHolder.fs_fields > .removeParentLink:first-child .removebuttoncontainer > div.removeButtonText:after {
+    content: " Field";
+}
+
+.fieldHolder.fs_fields > .removeParentLink:first-child .removebuttoncontainer > div.removeButtonText,
+.fieldHolder.fieldSetHolder > div.field > div.fieldHolder > a.removeParentLink .removebuttoncontainer > div.removeButtonText {
+    background: #E00808;
+    padding: 8px;
+    font-size: 15px;
+}
+
+div[fieldtype="heading"] > h2 {
+    -webkit-font-smoothing: antialiased;
+    color: #4E5252;
+    font-weight: 700;
+    font-size: 30px;
+    text-transform: capitalize;
+    line-height: 30px;
+    margin-top: 34px;
+    margin-bottom: 10px;
+}
+

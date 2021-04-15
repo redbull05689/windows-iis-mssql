@@ -1,0 +1,143 @@
+div.structureImage {
+    border: 1px solid #e4e4e4;
+	background-color: white;
+}
+
+.structureImageContainer {
+    text-align: center;
+}
+
+.structureImageContainer a.editStructureLink {
+    position: relative;
+    display: block;
+}
+
+.structureImageContainer a.editStructureLink:after, a.installLiveEdit:after, a.isReadOnly:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(16, 16, 16, 0.6);
+    display: block;
+    color: #fff;
+    line-height: 140px;
+    font-size: 20px;
+}
+
+.structureImageContainer a.editStructureLink:hover:after, .structureImageContainer a.editStructureLink.isCheckedOut:after {
+    content: "";
+}
+
+.structureImageContainer a.editStructureLink:before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    display: block;
+    color: #fff;
+    font-size: 20px;
+    z-index: 10;
+    width: 100%;
+    margin-top: -10px;
+}
+
+.structureImageContainer a.isReadOnly:hover:before {
+    content: "Click to Copy Structure";
+}
+
+.structureImageContainer a.editStructureLink:hover:before {
+    content: "Click to Edit Structure";
+}
+
+.structureImageContainer a.editStructureLink.mjs:hover:before {
+    content: "Click to Edit With Marvin";
+}
+
+.structureImageContainer a.editStructureLink.isCheckedOut:before {
+    content: "Click to Submit Changes";
+}
+
+.structureImageContainer a.installLiveEdit {
+    position: relative;
+    display: block;
+}
+
+.structureImageContainer a.installLiveEdit:hover:after {
+    content: "";
+}
+
+.structureImageContainer a.installLiveEdit:before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    display: block;
+    color: #fff;
+    font-size: 15px;
+    z-index: 10;
+    width: 100%;
+    margin-top: -10px;
+}
+
+.structureImageContainer a.installLiveEdit:hover:before {
+    content: "Install Live Edit to enable structure editing\a\a Press the Upload Structure button or drag and drop a file to upload";
+    white-space: pre-wrap;
+}
+
+.structureImageContainer a.installLiveEdit.installLiveEditShort:hover:before {
+    content: "Drag and drop a file to upload";
+    white-space: wrap;
+}
+.structureImageContainer a.discardCheckoutLink {
+    display: block;
+    font-size: 16px;
+    z-index: 10;
+    width: 100%;
+    text-decoration: none;
+}
+
+.structureImageContainer a.discardCheckoutLink:hover {
+    background-color: #dd6b55;
+    box-shadow: rgba(221, 107, 85, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px inset;
+    color: #fff;
+}
+
+.structureImageContainer a.uploadLink {
+    display: block;
+    font-size: 16px;
+    z-index: 10;
+    width: 100%;
+    text-decoration: none;
+}
+
+.structureImageContainer a.uploadLink:hover {
+    background-color: #054169;
+    box-shadow: rgba(5, 65, 105, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px inset;
+    color: #fff;
+}
+
+.structureImageContainer a.isReadOnly {
+    position: relative;
+    display: block;
+}
+
+.structureImageContainer a.isReadOnly:hover:after {
+    content: "";
+}
+
+.structureImageContainer a.isReadOnly:before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    display: block;
+    color: #fff;
+    font-size: 20px;
+    z-index: 10;
+    width: 100%;
+    margin-top: -10px;
+}
+
+.structureImageContainer img[src="images/ellipsis.gif"] {
+    height: auto;
+    width: auto;
+}
+

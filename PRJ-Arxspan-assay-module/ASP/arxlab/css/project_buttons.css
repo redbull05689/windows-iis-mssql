@@ -1,0 +1,115 @@
+.btn-xl{
+    text-transform: none;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    background-color: rgb(48, 142, 244);
+    border-color: rgb(50, 135, 226);
+    color: white;
+    font-family: sans-serif;
+}
+  
+.btn-xl:hover{
+    background-color: rgb(50, 136, 223);
+    border-color: rgb(50, 135, 226);
+}
+  
+.btn-xl:disabled{    
+    background-color: rgb(44, 122, 201);
+    border-color: rgb(50, 135, 226);
+    color: white;
+    cursor: default;
+}
+
+.editTab{
+    display: none;
+    background-color: rgb(240, 240, 240);
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(197, 197, 197);
+    border-radius: 4px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    z-index: 10;
+}
+
+.btn-xl:hover + .editTab, .editTab:hover{
+    display: inline-block;
+    position: absolute;
+    bottom: 100%;
+    left: 0px;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+.btnContainer {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    width: auto;
+}
+
+.editField {
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.edit_name {
+    height: 30px;
+}
+
+.submitTabEdit {
+    background-color: rgb(71, 175, 71);
+    color: rgb(255, 255, 255);
+}
+
+.submitTabEdit:hover {
+    background-color: rgb(62, 151, 62);
+}
+
+.tabDeleteButtonsContainer {
+    display: inline-block;
+    border-top: 1px solid rgb(230, 230, 230);
+    border-left: 1px solid rgb(230, 230, 230);
+    vertical-align: top;
+    margin-left: 10px;
+}
+
+.tabDeleteButtonsContainer button {
+    font-size: 14px;
+    margin: 0;
+    padding: 8px 9px 9px 38px;
+    border: none;
+    color: #343434;
+    transition: background-color 80ms linear;
+    cursor: pointer;
+    background: transparent;
+    border-bottom: 1px solid rgb(213, 213, 213);
+    background-image: url(/arxlab/images/x_circle.png);
+    background-repeat: no-repeat;
+    background-size: 26px;
+    background-position: 6px 4px;
+    text-align: right;
+    border-right: 1px solid rgb(230, 230, 230);
+}
+
+.tabDeleteButtonsContainer button:hover, tabDeleteButtonsContainer button:focus {
+    border-bottom: 1px solid #29C0C0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 -1px 2px 0px #D1D1D1;
+    box-shadow: 0 -1px 2px 0px #D1D1D1;
+    outline: none;
+}

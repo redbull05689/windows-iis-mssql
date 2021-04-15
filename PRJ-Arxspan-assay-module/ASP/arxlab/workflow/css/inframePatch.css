@@ -1,0 +1,10 @@
+div#samplePopup.popupDiv {
+ left: 425px !important;
+ height: 500px !important;
+ top: 5px;
+ overflow-y: scroll;
+}
+
+div#samplePopup.popupDiv .popupCloseLink {
+    display: none;
+}

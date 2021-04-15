@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta NAME="author" CONTENT="István Őri">
+<link REL ="stylesheet" TYPE="text/css" HREF="../marvinmanuals.css" TITLE="Style">
+<title>TIFF image export in Marvin</title>
+</head>
+<body>
+
+<h1>Tagged Image File Format</h1>
+
+<p>
+Codename: <strong>tiff</strong>
+</p>
+<p>
+Marvin is able to export TIFF
+<a HREF="images-doc.html">image files</a>.
+The TiffExport module recognizes
+the <a HREF="images-doc.html#options">common image export options</a>
+</p>
+<p>
+Examples:
+<blockquote>
+<table CELLSPACING="0" CELLPADDING="5" border="0">
+<tr VALIGN=TOP><td><code>tiff</code></td>
+    <td>Default settings: 200x200 pixels,
+	white background (or black in 3D), no compression.</td></tr>
+<tr VALIGN=TOP><td><code>tiff:w100,b32</code></td>
+    <td>100x100 TIFF, alpha channel is encoded.</td></tr>
+</table>
+</blockquote>
+<p>
+
+<p ALIGN=LEFT>
+<small>TiffExport uses the com.sun.media.jai package.</small>
+</p>
+
+</body>
+</html>

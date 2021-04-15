@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel ="stylesheet" type="text/css" href="../../marvinmanuals.css" title="Style">
+<title>NMR Predictor</title>
+</head>
+<body>
+
+<h1>NMR chemical shift model description</h1>
+
+<h2>Contents</h2>
+<ul>
+	<li><a href="#intro">Introduction</a></li>
+	<li><a href="#HOSE">HOSE code-based chemical shift prediction</a></li>
+	<li><a href="#descriptors">Chemical shift descriptors</a></li>
+	<li><a href="#m5p">Decision tree-based (M5P) chemical shift prediction</a></li>
+	<li><a href="#mixed">Mixed chemical shift model</a></li>
+	<li><a href="#data">Chemical shift data source</a></li>
+	<li><a href="#ref">References</a></li>
+</ul>
+
+	<h2><a id="intro"></a>Introduction</h2>
+	
+	<p>The current version of NMRPredictor employs the combination of two basic methods (similarity 
+	search based on HOSE code technology and QSPR modeling) for chemical shift prediction. After a 
+	concise introduction to the HOSE code technology, QSPR descriptors and decision tree-based QSPR 
+	modeling we will show how the HOSE and QSPR approaches can be merged in order to obtain an 
+	accurate and robust chemical shift prediction model.</p>
+	
+	<h2><a id="HOSE"></a>HOSE code-based chemical shift prediction<a href="#ref1"><sup>1</sup></a></h2>
+	
+	<p>The HOSE code technology is often used to describe the chemical environment of a selected 
+	atom up to a certain radius. Atoms with the same HOSE code are assumed to have similar chemical 
+	shift values. The larger the radius of the common HOSE code is the more similar the chemical 
+	shifts are. If we have a database containing HOSE codes as keys and corresponding experimental 
+	chemical shifts as values we can predict chemical shift values based on similarity search.</p>
+	<p>Example:</p>
+	<img src="nmr_files/HOSE_example.png" width="1068" height="651" alt="Example1">
+	
+	<h2><a id="descriptors"></a>Chemical shift descriptors<a href="#ref2"><sup>2,3,4</sup></a></h2>
+	
+	<p>Two kind of descriptor sets were implemented for chemical shift prediction: "sum" 
+	(for <sup>1</sup>H NMR) and "detailed" (for <sup>13</sup>C NMR). Both of them are based on a 
+	traversal of the molecule graph starting from a selected atom (focus atom, this is the atom 
+	whose chemical shift needs to be predicted). After identifying the neighbors of the focus atom in the different spheres (see 
+	the figure below) we count the occurrences of previously defined atom types in the different 
+	spheres. The current implementation employs 6 spheres around the focus atom and an additional 
+	sphere containing the rest of the atoms. Currently 40 atom types are handled by the descriptor 
+	computation. Number of ring closures and hydrogen atoms in a given sphere are added to the 40 
+	atom type counts for each sphere. The same procedure is repeated for atoms belonging to one of 
+	the pi-electron systems of the molecule. Thus the total number of the chemical shift descriptors 
+	equals 2*(6+1)*(40+2) = 588. In addition to the descriptors of the sum model, the detailed model 
+	also utilizes 8 physicochemical descriptors (valence, period, electronegativity, van der Waals 
+	radius, hybridization, bond type to previous atom, number of protons attached, ring closure count) 
+	to characterize atoms of the inner (in our case only for the first) spheres. The rest of the 
+	spheres are described by the previously outlined method. Thus the detailed model generates 
+	2*6*(40+2)+4*8 = 536 descriptors for <sup>13</sup>C NMR chemical shift prediction.
+	</p>
+	<img src="nmr_files/nmr_spheres.png" width="506" height="344" alt="Spheres">
+	
+	<h2><a id="m5p"></a>Decision tree-based (M5P) chemical shift prediction</h2>
+	<p>
+	In order to reach a better chemical shift prediction accuracy the following clusters have been 
+	introduced:
+	<ul>
+		<li><sup>13</sup>C clusters:
+		<ul>
+			<li>aromatic C</li>
+			<li>aromatic CH</li>
+			<li>sp<sup>3</sup> CH<sub>3</sub></li>
+			<li>sp<sup>3</sup> CH<sub>2</sub></li>
+			<li>sp<sup>3</sup> CH</li>
+			<li>sp<sup>3</sup> C</li>
+			<li>sp<sup>2</sup> CH or CH<sub>2</sub></li>
+			<li>sp<sup>2</sup> C</li>
+			<li>sp C</li>			
+		</ul>
+		</li>
+		<li><sup>1</sup>H clusters:
+		<ul>
+			<li>protons attached to C</li>
+			<li>heteroatomic protons (X-H, where X is not C)</li>			
+		</ul>
+		</li>
+	</ul>
+	Each of these clusters has an M5P decision tree-based chemical shift prediction model. Decisions 
+	corresponding to the nodes of the tree are made based on the chemical shift descriptor values 
+	until one of the leaves is reached. Each leaf of the decision tree corresponds to a multilinear 
+	regression (MLR) model which is employed for the prediction of the chemical shift of the focus atom.
+	</p>
+	
+	<h2><a id="mixed"></a>Mixed chemical shift model</h2>
+	<p>In order to predict chemical shifts accurately, we combined the decision tree-based and HOSE 
+	models as follows:
+	<ul>
+		<li>For <sup>1</sup>H NMR:
+		<ul>
+			<li>Start with a HOSE radius of 6 and generate HOSE code for the focus atom</li>
+			<li>If there are shifts corresponding to this HOSE code, return the average them and</li> 
+			<li>If not, go to HOSE radius of 5, ...</li>
+			<li>The minimal possible HOSE radius is 4</li>
+			<li>Invoke the M5P-based chemical shift model if there have not been any HOSE hits.</li>
+		</ul>
+		</li>
+		<li>For <sup>13</sup>C NMR:
+		<ul>
+			<li>Very similar to the 1H NMR mixed chemical shift model</li>
+			<li>The minimal possible HOSE radius is 3 in this case</li>
+		</ul>
+		</li>
+		</ul></p>
+	
+	<h2><a id="data"></a>Chemical shift data source</h2>
+	<p>The training and test chemical shift data were obtained from NMRShiftDB, see the link 
+	<a href="http://nmrshiftdb.nmr.uni-koeln.de/">http://nmrshiftdb.nmr.uni-koeln.de/</a> for further details.</p>
+	
+	<h2><a id="ref"></a>References</h2>
+	<ol>
+		<li><a id="ref1"></a>Anal. Chim. Acta <b>103</b>, 355-365 (1978).</li>
+		<li><a id="ref2"></a>J. Chem. Inf. Model. <b>48</b>, 128-134 (2008).</li>
+		<li>J. Chem. Inf. Comput. Sci. <b>40</b>, 1169-1176 (2000).</li>
+		<li>J. Magn. Reson. <b>157</b>, 242-252 (2002).</li>
+	</ol>
+<center><div class="lenia">&nbsp;</div></center>
+
+<center>
+<font size="-2" face="helvetica">
+Copyright &copy; 1999-2014 
+<a href="http://www.chemaxon.com">ChemAxon Ltd.</a>
+&nbsp;&nbsp;&nbsp;All rights reserved.
+</font>
+</center>
+
+</body>
+</html>

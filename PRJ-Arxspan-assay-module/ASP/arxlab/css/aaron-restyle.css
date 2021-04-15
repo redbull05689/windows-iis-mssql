@@ -1,0 +1,453 @@
+.backgroundFrame {
+    background-color: #eeeeee;
+}
+
+.elnDashObj {
+    border: 1px solid darkgray;
+    border-radius: 3px;
+    box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    margin-top: 12px;
+    margin-bottom: 30px;
+}
+
+.expLink {
+    color: white;
+}
+
+.elnHead {
+    background-color: #054169;
+    border-radius: 3px;
+    margin: -20px 15px 0;
+    box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.dashboardObjectContainer .elnHead h2 {
+    color: white;
+    padding: 5px;
+    text-shadow: 1px 1px #0009;
+}
+
+.topSectionTop {
+    background-color: #eeeeee;
+}
+
+.topSectionBottom {
+    background-color: #eeeeee;
+    border-bottom: 0px;
+}
+
+.overlayText {
+    background-color: rgb(48, 142, 244);
+}
+
+#sideNavSection .backgroundFrame {
+    background-color: white;
+}
+
+#sideNavSection .navFooter a {
+    color: rgb(48, 142, 244);
+}
+
+#sideNavSection .navSectionTabAction a {
+    background-color: white;
+}
+
+#sideNavSection .navSectionBox .navSectionTitle {
+    background-color: white;
+}
+
+#sideNavSection {
+    background-color: white;
+}
+
+div.topSectionLower .topNavButton:hover a {
+    background-color: #042F4D;
+    border: 1px solid #042F4D;
+}
+
+.topNavBorder {
+    border-bottom: 2px solid rgb(48, 142, 244);
+}
+
+.expHeader {
+    background-color: #054169;
+    border-radius: 3px;
+    margin-bottom: 30px;
+}
+
+.headerNavLinks {
+    color: white;
+    text-shadow: 1px 1px #0009;
+}
+
+.headerNavLinks a {
+    color: white;
+}
+
+.headerNavLinks a:hover {
+    color: white;
+    text-shadow: none;
+}
+
+
+.expBoxText {
+    color: black;
+    background-color: white;
+    padding: 8px;
+}
+
+.tabs h2 {
+    background-color: #054169;
+    color: white;
+    border-radius: 3px;
+    text-shadow: 1px 1px #0009;
+}
+
+.tabs a {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding-top: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border: 1px solid darkgray;
+}
+
+.tabs a:hover {
+    background-color: #042F4D;
+    color: white;
+    border: 1px solid #042F4D;
+    text-shadow: 1px 1px #0009;
+}
+
+.tabs a.selectedTab {
+    background-color: #054169;
+    color: white;
+    border: 1px solid #054169;
+    text-shadow: 1px 1px #0009;
+}
+
+.expTabs {
+    margin-bottom: 6px;
+    margin-left: 16px;
+}
+
+.tabHead {
+    border-top-left-radius: 0px;
+}
+
+.gridTabDiv:hover {
+    background-color: #042F4D;
+    color: white;
+}
+
+.gridTabDiv.selectedTab {
+    background-color: #054169;
+    color: white;
+}
+
+a.selectedTab {
+    color: white;
+}
+
+.experimentsTable a {
+    padding: 10px;
+}
+
+.dashLastRow {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: #efefef;
+    text-align: right;
+}
+
+.background {
+    background-color: #eeeeee;
+}
+
+body {
+    background-color: #eeeeee;
+}
+
+.notificationBody {
+    padding: 8px;
+}
+
+div.topSectionLower .topSectionLowerButton {
+    background-color: white;
+    box-shadow: 0 10px 10px -12px rgba(0, 0, 0, 0.42), 0 4px 8px 0px rgba(0, 0, 0, 0.12), 0 8px 3px -5px rgba(0, 0, 0, 0.2);
+}
+
+.attachmentsIndexTable th {
+    background-color: #054169;
+    color: white;
+}
+
+table.attachmentsIndexTable {
+    border: 1px solid darkgray;
+}
+
+.caseInnerTitle a {
+    color: black;
+}
+
+.custExpFrame {
+    width: 100%;
+    border: 2px solid #c9c9c9;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+.hoverObj {
+    border: 1px solid darkgray;
+    border-radius: 3px;
+    box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.js-typeahead {    
+    box-shadow: 0 10px 10px -12px rgba(0, 0, 0, 0.42), 0 4px 8px 0px rgba(0, 0, 0, 0.12), 0 8px 3px -5px rgba(0, 0, 0, 0.2);
+}
+
+.searchBoxFormContainer .js-typeahead {
+    border: 1px solid darkgray;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.elnObjectContainer {
+    float: left;
+    clear: left;
+    display: inline;
+    width: 100%;
+    padding: 0;
+    background-color: white;
+    top: -13px;
+}
+
+.elnTabs {
+    margin-bottom: 18px;
+}
+
+.invButtons {
+    margin-top: -20px;
+}
+
+.addExpTable {
+    margin-top: -7px;
+}
+
+.rxnContainer {
+    margin-top: 0px;
+}
+
+.unitsDiv a {
+    color: black;
+}
+
+
+.stop-scrollingMain {
+
+    position: fixed;
+    overflow: scroll;
+    overflow-x: visible;
+    
+  }
+
+.PDFHideDiv {
+    display: flex;
+    padding-top: 3px;
+}
+
+.PDFHideLabel {
+    margin-top: -4px;
+    margin-left: 4px;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.custExpSelect {
+    padding: 5px 10px 5px 10px;
+    border-radius: 4px;    
+    background-color: #fafafa;
+}
+
+.createExpDropdownDiv {
+    padding-top: 10px;
+    padding-left: 15px;
+}
+
+.createExpDropdownDiv button {
+    margin-left: 5px;
+    padding-top: 2.75px;
+    padding-bottom: 2.75px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.EMDataTable {
+    border-spacing: 0px;
+}
+
+.EMDataTable thead tr th,
+.EMDataTable tbody tr td {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.EMDataTable thead tr th {
+    /*background-color: green;*/
+}
+
+.attachmentsIndexTable tbody tr td {
+    vertical-align: top;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.attachmentsIndexTable tbody tr:nth-child(odd) {
+    
+}
+
+.EMDataTableHolder {
+    max-height: 500px;
+    overflow-y: auto;
+    border-color: darkgrey;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.em_annotation {
+    margin-top: 0px;
+}
+.loadingText {
+    text-align: center;
+}
+
+div#basicLoadingModal {
+    top: 45%;
+}
+
+* {
+    box-sizing: content-box;
+}
+
+
+.resumable-drop {
+    border: 1px;
+    border-style: solid;
+    border-radius: 13px;
+    padding: 1px;
+    border-color: #cccccc;
+    background-color: #efefef;
+    margin-bottom: 6px;
+    width: 99.6%;
+    display: flex;
+    height: 40px;
+    position: relative;
+}
+
+.resumable-browse {
+    font-weight: 500;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 5px;
+    width: 94px;
+}
+
+.currFile {
+    width: 400px;
+}
+
+.currentFileLink {
+    color: #daa6e2;
+    font-weight: bold;
+}
+
+.myProgress {
+    width: 100%;
+    background-color: #cccccc;
+}
+.myBar {
+    border-radius: 9px;
+    padding: 5px;
+    display: flex;
+    position: relative;
+}
+
+.myBar-upload {
+    background-color: #43a047;
+}
+
+.myBar-pause {
+    background-color: rgb(248, 255, 145);
+}
+
+.myBar-success {
+    background-color: rgb(62, 135, 244);
+}
+
+.myBar-error {
+    background-color: #f55a4e;
+}
+
+.fileUploadContainer {
+    display: flex;
+    position: absolute;
+}
+
+.resumablePause {
+    width: 25px;
+    height: 25px;
+    border-style: double;
+    border-width: 0px 0px 0px 20px;
+    border-color: #b7b7b7;
+    background-color: transparent;
+    margin-left: -14px;
+}
+
+.resumableGo {
+    width: 25px;
+    height: 25px;
+    border-style: solid;
+    border-width: 12.5px 0px 12.5px 25px;
+    border-color: transparent transparent transparent #b7b7b7;
+    background-color: transparent;
+    box-sizing: border-box;
+    margin-left: 12px;
+}
+
+.resumableBtns {
+    display: none;
+    left: 95%;
+    position: absolute;
+    top: 24%;
+}
+
+.resumableFileInfo {
+    display: flex;
+}
+
+.uploadFileText {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    font-size: 29px;
+    top: 24%;
+    color: #a2a2a2;
+    font-weight: 300;
+}
+
+.resumableFileHolder {
+    display: flex;
+}
+
+td.childRow {
+    text-align: center;
+}
+
+.multiLineSpacing {
+    white-space: pre-line;
+}

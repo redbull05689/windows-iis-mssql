@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery-ui.js"></script>
+
+    <script src="sdfParser.js"></script>
+    <script src="arxPlate.js"></script>
+	<link rel="stylesheet" href="arxPlate.css">
+	
+<script language="javascript">
+function buildPlate(plateHeight, plateWidth, wellSize)
+{
+	var plateOptions = {
+		 'plateHeight':plateHeight,
+		 'plateWidth':plateWidth,
+		 'wellSize':wellSize,
+		 'allowInteractiveEdit':false,
+		 'mappingTemplate':{'samplePattern':{'primaryLayout':'leftToRight'}},
+		 'wellConfigurations':[
+		  {'displayName':'Compound','keyName':'compound','displayColor':'blue','displayOrder':1,'data':[
+		   {'keyName':'Compound Image','displayName':'Compound Image','dataType':'image','isRequired':true},
+		   {'keyName':'Mol Weight','displayName':'Mol Weight','dataType':'number','isRequired':true},
+		   {'keyName':'Reactant Mass','displayName':'Reactant Mass (mg)','dataType':'number','isRequired':true},
+		   {'keyName':'Product Mass','displayName':'Product Mass(mg)','dataType':'number','isRequired':true},
+		   {'keyName':'Purity','displayName':'Purity (%)','dataType':'number','isRequired':true},
+		   {'keyName':'Yield','displayName':'Yield (%)','dataType':'number','isRequired':true},
+		   {'keyName':'Note','displayName':'Note','dataType':'text','isRequired':false}]},
+		  {'displayName':'Empty','keyName':'empty','displayColor':'gray','displayOrder':2,'data':[]}],
+		 };
+		
+	if($('#thePlate').length == 0)
+	{
+		var plateMap = $.arx.plateMap( {},
+			$('<div/>').appendTo('body').attr({'id':'thePlate'}).css({'margin':'10px','padding':'10px'}));
+	}
+	
+	$('#thePlate').data('arx-plateMap').option(plateOptions);
+	
+	// Or you can update one well at a time, like this:
+	//$('#thePlate').data('arx-plateMap').setWellDataById(34, {'compound':[{'compoundId':'Test Compound 3','amount':50.2,'amountUnits':'mg','purity':10}]});
+	//$('#thePlate').data('arx-plateMap').setWellDataByCoords(3, 4, {'compound':[{'compoundId':'Test Compound 4','amount':20.2,'amountUnits':'mg','purity':0}]});
+	
+	// Or you can update by pushing in an sd file:
+	var theFile = 'csCF1202/ 04021215102D\n\n  6  6  0  0  0  0  0  0  0  0999 V2000\n   10.4636   -6.7560    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   10.4636   -8.1567    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.6582   -8.8570    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   12.8529   -8.1567    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   12.8529   -6.7560    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.6582   -6.0969    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  2  0        0\n  2  3  1  0        0\n  3  4  2  0        0\n  4  5  1  0        0\n  5  6  2  0        0\n  1  6  1  0        0\nM  END\n>  <compoundId> (1)\n112345\n\n>  <amount> (1)\n25\n\n>  <amountUnits> (1)\nug\n\n>  <purity> (1)\n78\n\n>  <Molname> (1)\nBenzene\n\n$$$$\n\ncsCF1202/ 04021215102D\n\n  7  7  0  0  0  0  0  0  0  0999 V2000\n    0.0000    2.1027    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.0000    0.7009    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2126    0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.4228    0.7009    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.4228    2.1027    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2126    2.8012    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.6354    2.8036    0.0000 Br  0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  2  0        0\n  2  3  1  0        0\n  3  4  2  0        0\n  4  5  1  0        0\n  5  6  2  0        0\n  1  6  1  0        0\n  5  7  1  0        0\nM  END\n>  <compoundId> (2)\n8758765\n\n>  <amount> (1)\n0.8\n\n>  <amountUnits> (2)\nmg\n\n>  <purity> (2)\n57\n\n>  <Molname> (2)\nBromobenzene\n\n$$$$\n';
+	$('#thePlate').data('arx-plateMap').setPlateContentsFromFileData({'mimeType':'chemical/x-mdl-sdfile','objectType':'compound','fileContents':theFile});
+	var sdf = $('#thePlate').data('arx-plateMap').getPlateContentsAsFileData('chemical/x-mdl-sdfile');
+	console.log(sdf);
+}
+
+$(document).ready(function() {
+	buildPlate(8, 12, '30px');
+});
+</script>
+
+</head>
+<body>
+</body>
+
+</html>

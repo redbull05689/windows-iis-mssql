@@ -1,0 +1,321 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+<title>Generate3D</title>
+<link rel="stylesheet" type="text/css" href="../marvinmanuals.css" title="Style">
+</head>
+
+<body>
+<center>
+<h1>Generate3D</h1>
+</center>
+
+<h2>Contents</h2>
+<ol>
+    <li><a href="#intro">Introduction</a>
+    </li>
+    <li><a href="#reach">Reaching the Generate3D component</a>
+    <ul>
+        <li><a href="#clean3d">Clean3D in Marvin</a></li>
+        <li><a href="#molconv">Molconvert command line tool</a></li>
+	<li><a href="#api">Using the API</a></li>
+        <li><a href="#chemterms">Chemical Terms</a></li>
+        <li><a href="#stand">Standardizer</a></li>
+    </ul>
+    <li><a href="#conf">Conformer generation and analysis</a>
+    <ul>
+        <li><a href="#confplugin">Conformers plugin</a></li>
+        <li><a href="#molconvconf">Molconvert command line tool</a></li>
+        <li><a href="#cxcalcconf">Cxcalc command line tool</a></li>
+        <li><a href="#ijcconf">IJC Chemical Terms functions</a></li>
+    </ul>
+    </li>
+    <li><a href="#toolswf">ChemAxon tools for chemical workflow management</a></li>
+    <ul>
+        <li><a href="#knime">KNIME</a></li>
+        <li><a href="#pp">Pipeline Pilot</a></li>
+    </ul>
+    <li><a href="#theory">The theory behind Generate3D</a></li>
+    </ul>
+    <ul>
+       <li><a href="#build">Build process</a></li>
+       <li><a href="#geom">Geometry optimization</a></li>
+       <li><a href="#div">Conformer generation options</a></li>
+    </ul>
+    <li><a href="#references">References</a></li>
+</ol>
+
+<center><div class="lenia">&nbsp;</div></center>
+
+<h2><a name="intro"></a>1. Introduction</h2>
+
+This page demonstrates the usage and the theory behind Generate3D, a ChemAxon Discovery Suite component for 
+3D coordinate generation, conformer generation and analysis.
+
+<h2><a name="reach"></a>2. Reaching the Generate3D component</h2>
+
+<p>The Generate3D component can be found in different products of ChemAxon, and offers the same 
+functionality to the user, regardless of the location.</p>
+
+<h3><a name="clean3d"></a>Clean3D in Marvin</h3>
+
+<p>Generate3D can be reached as Clean3D under Structure > Clean3D on the MarvinSketch GUI. You can draw or import 
+your molecule directly onto the canvas, and Clean3D generates 3D coordinates for the structure.  
+Ctrl + 3 serves as a shortcut for the same functionality on the canvas. The generated 3D structure can be rotated
+on the canvas after pressing the F7 shortcut. 
+To get more information on the usage of Clean3D in Marvin, see <a href="http://www.chemaxon.com/marvin/help/sketch/sketch-basic.html#clean">the corresponding part</a> 
+of the user manual.
+</p>
+
+<p>Five cleaning methods are supported in Marvin; each represents a different chemical use case scenario:
+
+<ul>
+<li><p><i><b>Fine Build</b></i></br>
+Fine Build generates 3D coordinates taking into account the implicit hydrogens of the initial stucture; 
+the hydrogens however are not presented in the final 3D structure.
+</p></li>
+
+<li><p><i><b>Fine with Hydrogenize</b></i></br>
+The same as the Fine Build, but it also returns explicit hydrogens in the final 3D structure.
+</p></li>
+
+<li><p><i><b>Fast Build</b></i></br>
+Fast Build uses a different, but in some cases faster method to generate coordinates than Fine Build.
+The justification for this method is the need for a rough 3D structure that is not necessarily valid chemically, 
+but can be built fast. If fast clean fails, fine clean is used instead, and any generated structure is returned.
+</p></li>
+
+<li><p><i><b>Build or Optimize</b></i></br>
+Build or Optimize generates 3D coordinates for non-3D structures, otherwise it runs Dreiding a  
+geometry optimization based on the Dreiding force-field starting from the initial structure. 
+</p></li>
+
+<li><p><i><b>Optimize</b></i></br>
+Optimize only runs a Dreiding force field based geometry optimization starting from the initial stucture.  
+</ul>
+
+<p>These methods are available as options under Structure > Clean3D > Cleaning Method.</p> 
+
+<h3><a name="molconv"></a>Molconvert command line tool</h3>
+
+<p>The functionality of Generate3D is also available in the molconvert command line tool. This enables the user to 
+sequentially generate 3D coordinates for many initial structures.</p>
+
+<p>Use the <code>molconvert -3:options inputfile</code> command to batch-process your inputfile.
+To get a full list of options you can set within molconvert, use the <code>molconvert -H3D</code> command.</p>  
+
+<p>Some 3D coordinate generation examples:</p>
+
+<ul>
+
+<li>Cleaning a molecule given as a SMILES string, and exporting the 3D structure to MOL:
+<p><code>molconvert -3:c3 mol -s "C1CC3C(C1)C4C2CC2CC34" -o struct3d.mol</code></p>
+<p>This gives the same result as the option <code>S{fine}</code>.</p>
+</li>
+
+<li>Cleaning a library of molecules stored in SDF, skipping the ones that already have 3D coordinates:
+<p><code>molconvert -3:c31 mol library.sdf -o cleanedlib.mol</code></p>
+</li>
+
+<li>Generating fine 3D geometry for a molecule given as a SMILES string, using MMFF94 force field optimization, 
+with strict convergence criterion on the gradient:
+<p><code>molconvert -3:S{fine}[mmff94]L{3} mol -s "CC(CCC)CCCCl" -o struct3d.mol</code></i> 
+</li>
+
+<li>Generating 3D coordinates for a library of molecules in SDF, using the fine method and a time limit
+of 6000 seconds pre-set by the user. 
+We also want to store the MMFF94 energies for each molecule as an SDF property:
+<p><code>molconvert -3:S{fine}[mmff94][timelimit]{6000}[E] mol library.sdf -o cleanedlib.sdf</code></p>
+</li>
+
+<li>Generating 3D coordinates for a molecule given as a SMILES string, while adding explicit
+hydrogens and using very strict optimization criterion:
+<p><code>molconvert -3:S{fine}[prehydrogenize][o]{1}{3} mol -s "CCCCC(CCC)C" -o struct3d.mol</code></p>
+</li>
+
+</ul>
+
+<h3><a name="api"></a>MarvinBeans API</h3>
+
+<p>The Generate3D component can also be used via the Marvin Beans API. The options 
+of molconvert can also be set through the API, using the <a href="http://www.chemaxon.com/marvin/help/developer/beans/api/chemaxon/marvin/common/UserSettings.html#setClean3dOpts%28java.lang.String%29">setClean3dOptions</a> method.
+</p>
+
+<h3><a name="chemterms"></a>Chemical Terms</h3>
+<p>One can also use ChemAxon's Chemical Terms to generate 3D structures in the following ways:</p>
+
+<ul>
+<li>In JChem for Excel the 3D cleaning functionality is available through the JC3DCleanStructure function.
+For more information on this feature, see the 
+<a href="https://www.chemaxon.com/jchem4excel/userguide/clean.html">corresponding part</a> 
+of the JChem for Excel manual. 
+</li>
+
+<li>The molconvert Chemical Terms function is capable of generating 3D coordinates for the initial structure, and
+returning it in a given format string. See the <a href="http://www.chemaxon.com/marvin/help/chemicalterms/EvaluatorFunctions.html#molstringex">description</a> of the function in the the manual. 
+</li>
+
+</ul>
+
+<p><img src="generate3d_files/JC4XL_Clean3D_function.jpg" width="600" height="350" alt=""></p>
+
+<h3><a name="stand"></a>Standardizer</h3>
+
+In Standardizer the 3D cleaning functionality is available through the clean:3 action. For more information
+on this feature, see the 
+<a href="http://www.chemaxon.com/jchem/doc/user/standardizer_actions.html#clean3d">corresponding part</a> 
+of the Standardizer manual.
+
+<p><img src="generate3d_files/Standardizer_Clean3D.jpg" width="500" height="370" alt=""></p>
+
+
+<h2><a name="conf"></a>3. Conformer generation and analysis</h2>
+
+Generate3D is also used for generating conformers for a given initial structure. Conformer generation is
+available in three different ways.
+
+<h3><a name="confplugin"></a>Conformers Plugin</h3>
+
+Conformers Plugin is a calculator plugin of ChemAxon that offers the 
+conformer generation functionality in MarvinSketch. The plugin can be reached under Calculations > Conformation > 
+Conformers. The documentation of the plugin, with all of its options, can be found 
+<a href="http://www.chemaxon.com/marvin/help/calculations/conformation.html#conformer">here</a>. 
+
+<h3><a name="molconvconf"></a>Molconvert command line tool</h3>
+
+Molconvert offers a fully customizable way to generate conformers.
+The conformer generation and analysis functionality of Generate3D can be invoked using the <i>-3:[ca]{v1}{v2}</i> option.
+The two parameter values <i>v1, v2</i> sets the number of generated and stored conformers, respectively. The conformers are
+stored as molecular properties. 
+
+<p>Some conformer generation examples with molconvert : </p>
+
+<ul>
+
+<li>Without any count parameters, a warning is given, and only one conformer is generated and reported:
+<p><code>molconvert -3:[ca] -s "CCC(CC)CCCCl" -o conf3d.sdf</code></p>
+</li>
+
+<li>Setting the number of the generated and stored conformers to 10: 
+<p><code>molconvert -3:[ca]{10} sdf -s "CCC(CC)CCCCl" -o conf3d.sdf</code></p>
+</li>
+
+<li>Generating <i>at least</i> 5 conformers, reporting <i>at most</i> 10 of them: 
+<p><code>molconvert -3:[ca]{5}{10} sdf -s "CCC(CC)CCCCl" -o conf3d.sdf</code></p>
+<p>Note that if the number of reported conformers is smaller than that of the generated conformers, 
+a warning is given, and the former is set to the latter. 
+</li>
+
+<li>Invoking sophisticated low-energy conformer prediction, using MMFF94 force field: 
+<p><code>molconvert -3:[hyperfine][mmff94] sdf -s "CCC(CC)CCCCl" -o conf3d.sdf</code></p>
+</li>
+
+<li>Generating and reporting conformers with customized conformer RMSD diversity criterion <i>0.05</i>:
+<p><code>molconvert -3:[ca]{5}{20}[diversity]{0.05} sdf -s "CCC(CC)CC" -o conf3d.sdf</code></p>
+</li>
+
+</ul>
+
+<h3><a name="cxcalcconf"></a>Cxcalc command line tool</h3>
+
+The conformer generation and analysis functionality of the conformer plugin can also be reached via
+ChemAxon's command line calculator <i>cxcalc</i>. The same options can be used 
+as with molconvert. For details see the <a href="http://www.chemaxon.com/marvin/help/applications/cxcalc-calculations.html#Conformation">corresponding part</a> of the manual.
+
+<h3><a name="ijcconf"></a>Chemical Terms functions in IJC</h3>
+
+The conformer generation and analysis functionality can also be reached via the Chemical Terms 
+conformation evaluation functions. A list of these functions and some examples of their
+usage are available in the <a href="http://www.chemaxon.com/marvin/help/chemicalterms/EvaluatorFunctions.html#conformation_functions">corresponding part</a> of the Chemical Terms manual.
+
+<h2><a name="toolswf"></a>4. ChemAxon tools for chemical workflow management</h2>
+
+Workflow management systems were designed to easily compose and execute complex computational tasks, 
+such as data mining, data processing, or statistical analysis. In order to handle the more specific needs of 
+chemistry informatics within this clean and straightforward framework, ChemAxon technology has been 
+implemented into three major scientific workflow management systems: KNIME, Pipeline Pilot, and Inforsense.
+
+<h3><a name="knime"></a>KNIME</h3>
+JChem Extensions offers a set of KNIME nodes with which the user can easily build their own workflows 
+for handling chemical data. KNIME also enables users to integrate their own softwares and other tools. 
+Among JChem Extensions there are nodes that can perform 3D coordinate generation, conformer generation 
+and analysis. To have more information on building chemical workflows using KNIME, see the 
+<a href="http://www.chemaxon.com/products/workflow-tools/#knime">ChemAxon KNIME workflow manual</a>.
+
+<p><img src="generate3d_files/KNIME_Conformers.jpg" width="400" height="500" alt=""></p>
+
+<h3><a name="pp"></a>Pipeline Pilot</h3>
+Currently, about 16 different ChemAxon tools are available in Pipeline Pilot, another chemical
+informatics platform. Among these, there are components also for 3D coordinate generation, 
+conformer generation and analysis. To have more informations on building chemical workflows 
+using Pipeline Pilot, see the 
+<a href="http://www.chemaxon.com/products/workflow-tools/#pipelinepilot">ChemAxon Pipeline Pilot 
+workflow manual</a>.
+
+
+<h2><a name="theory"></a>5. The theory behind Generate3D</h2>
+
+<h3><a name="build"></a>Build process</h3>
+
+<p>The algorithm behind 3D coordinate generation uses a divide-and-conquer approach.</p>
+
+<p>First, the initial structure is split into small fragments. Then the fragments are organized into 
+a build tree using their original connectivity information.</p>
+
+<p>The tree is built in a way to represent the connectivity of the fragments before the split. Each node 
+stores a fragment: the leaves of the tree store the small fragments, while non-leaf nodes store
+fragments obtained from the fusion of smaller ones at lower levels.</p>
+
+<p>The coordinate and conformer generation is done in a command-driven fashion. Every node can be 
+instructed to generate 3D coordinates or conformers for the represented fragment. Leaves do this in an 
+atom-by-atom manner, determining energetically favourable, multiple-atom displacements. Other nodes - including the 
+root - proceeds by exploring the conformational space of fused conformers that were generated by the children 
+of the node. If no more conformers can be generated at a given node, a new conformer
+from a child is returned, and the fusion process restarts. </p>
+
+<h3><a name="geom"></a>Geometry optimization</h3>
+
+<p>Conformers from the fusion process are optimized when required before passing to a higher level node in the build tree. This happens when the rigid fuse results in high energy conformation (due to e.g. strained bond or angle, atom proximity or clash).
+Conformers generated for the initial structure (represented by the root node in the build tree) are also optimized. 
+The building process uses a proprietary extended version of the Dreiding force field.
+
+Optionally an additional MMFF94 based optimization and energy calculation can be run on these final 
+structures.</p>
+
+<h3><a name="div"></a>Conformer generation options</h3>
+
+<p>Diversity for the conformer generation can be pre-set using the <i>diversity limit</i> option. Two conformers
+having greater root-mean-square-deviation (RMSD) than this value are considered different.</p>
+
+<p>Generated conformers can reside in invalid local minimum on the potential energy surface after geometry optimization. 
+This can be eliminated by a <i>hyperfine</i> post-processing step: every conformer is passed through short, 
+low-temperature molecular dynamic runs, followed by a strict geometry optimization.</p>
+
+<p>For details on the algorithm behind Generate3D, see the references below.</p> 
+
+
+<h3><a name="references"></a>References</h3>
+
+<ol>
+    <li>ChemAxon article: <a href="http://www.chemaxon.com/publication/molecules-from-the-minkowski-space-an-approach-to-building-3d-molecular-structures/">Molecules from the Minkowski space: an approach to building 3D molecular structures</a>
+    </li>
+
+    <li>ChemAxon poster: <a href="http://www.chemaxon.com/library/3d-structure-prediction-and-conformational-analysis/">
+    3D structure prediction and conformational analysis</a>
+    </li>
+
+    <li>ChemAxon poster: <a href="http://www.chemaxon.com/ugm-archive/2007-ugm-presentations-library/2007-posters-exhibited/advanced-automatic-generation-of-3d-molecular-structures-2/">Advanced automatic generation of 3D molecular structures</a>
+    </li>
+</ol>
+
+<center>
+<font size="-2" face="helvetica">
+Copyright &copy; 1999-2014
+<a href="http://www.chemaxon.com">ChemAxon Ltd.</a>
+&nbsp;&nbsp;&nbsp;All rights reserved.
+</font>
+</center>
+
+</body>
+</html>

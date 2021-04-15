@@ -1,0 +1,37 @@
+<html>
+<head>
+<meta NAME="author" CONTENT="Balázs Zaicsek, Eufrozina Hoffmann">
+<title>EPS image export in Marvin</title>
+<link REL ="stylesheet" TYPE="text/css" HREF="../marvinmanuals.css">
+</head>
+<body>
+
+<h1>Encapsulated PostScript</h1>
+
+<p>
+Codename: <strong>eps</strong>
+
+<p>
+Marvin is able to export Encapsulated PostScript (EPS)
+<a HREF="images-doc.html">image files</a>.
+The EpsExport module
+recognizes the <a HREF="images-doc.html#options">common image export
+options</a>.
+<p>EPS Export uses the VectorGraphics package of FreeHEP Java Library that is an "Open Source" library distributed under the terms of the GNU Lesser General Public License (LGLP). You can freely modify and recompile the source of this library, then replace the binaries in Marvin with your own version, according to the requirements of the LGLP.
+To update Marvin with your own version of FreeHep library, substitute the proper jar files (freehep-base.jar, freehep-graphics2d.jar, freehep-graphicsio.jar, freehep-graphicsio-emf.jar) in your Marvin package.</p>
+<p>
+Examples:
+
+<blockquote>
+<table CELLSPACING="0" CELLPADDING="5" border="0">
+<tr VALIGN=TOP><td><code>eps</code></td>
+    <td>Default settings: 200x200 pixels,
+	white background.</td></tr>
+	<tr VALIGN=TOP><td><code>msbmp:w100,#ffff00</code></td>
+    <td>100x100 BMP with yellow background.</td></tr>
+</table>
+</blockquote>
+<p>
+
+</body>
+</html>

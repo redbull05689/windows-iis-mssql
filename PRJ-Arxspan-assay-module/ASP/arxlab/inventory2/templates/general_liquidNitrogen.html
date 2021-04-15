@@ -1,0 +1,180 @@
+<style type="text/css">
+@import url("templates/general_containers.css");
+</style>
+
+    <h1>Liquid Nitrogen</h1>
+    <div class="templateParentContainer" formName="parentLink"></div>
+    
+    <div class="inventoryTemplate inventoryTemplate3">
+		<div class="inventoryTemplateOuterBox">
+			<div class="templateInnerBreadcrumbsTable">
+				<div class="templateInnerBreadcrumbs" formName="Location">
+					<label for="877f4ffb6a" class="ax1-text-label">Location</label>
+				</div>
+			</div>
+            <div class="templateSelect" formName="Grid Location">
+                <label for="9fcdf05490" class="ax1-text-label">Grid Location*</label>
+            </div>
+			<div class="templateText" formName="Tube Name">
+                <label for="9fcdf05490" class="ax1-text-label">Tube Name*</label>
+            </div>
+			<div class="templateTextarea" formName="Description">
+				<label for="aa1beeba9f" class="ax1-text-label">Description</label>
+			</div>
+       		<div style="display:none!important;" class="hiddenFormRows"></div>
+			<div class="templateBottomButtonsContainer" style="background-color:rgb(195, 195, 195)!important">
+				<div class="templateSampleButtonContainer" formname="Sample"></div>
+				<div class="templateEditButtonContainer" formname="Edit"></div>
+				<div class="templateViewButtonContainer" formname="View"></div>
+				<div class="templateUseButtonContainer" formname="Use"></div>
+				<div class="templateMoveButtonContainer" formname="Move"></div>
+				<div class="templateCheckOutButtonContainer" formname="Check Out"></div>
+				<div class="templateDisposeButtonContainer" formname="Dispose"></div>
+				<div class="templateCheckInButtonContainer" formname="Copy"></div>
+				<div class="templateSubmitButtonContainer" formname="Submit"></div>
+				<div class="templateCheckInButtonContainer" formname="Check In"></div>
+				<div class="templateCheckInButtonContainer" formname="CAS Lookup"></div>
+			</div>
+			<div class="templateBottomInfoContainer">
+				<div class="templateUserAdded" formname="User Added">
+					<label for="0585f2e389" class="ax1-userInfo-label">User Added</label>
+				</div>
+				<div class="templateDateCreated" formname="Date Created">
+					<label for="f00aabb04f" class="ax1-dateFixed-label">Date Created</label>
+				</div>
+			</div>
+		</div>
+		<div formname="auditTrail" class="auditTrail">
+
+		</div>
+	</div>
+
+<script type="text/javascript">
+
+var t_hideEmptyToggle = false;
+
+var setRowColors = function(){
+    $('.inventoryTemplateOuterBox > div:visible:odd').css("background","rgb(223, 223, 223)");
+    $('.inventoryTemplateOuterBox > div:visible:even').css("background","transparent");
+}
+
+$(document).ready(function() {
+var toggleEmptyFieldVisibility = function(){
+	
+
+	if(t_hideEmptyToggle == false){
+		t_hideEmptyToggle = true;
+		$(".toggleEmptyFieldVisibility").text("Show empty fields");
+	}
+	else{
+		t_hideEmptyToggle = false;
+		$(".toggleEmptyFieldVisibility").text("Hide empty fields");
+	}
+
+
+	if(t_hideEmptyToggle == false){
+			//Show empty fields
+			$(".inventoryTemplateOuterBox").children().show();
+			setRowColors();
+	}
+    else{
+
+		$('.templateText').children('.ax1-text').each(function () {
+			
+		    	//Hide empty fields
+			    if($(this).text() != "" && $(this).text() != undefined && $(this).text() != "undefined" && $(this).text() != " "){
+			    		//Do nothing
+			    }
+			    else{ //This field is empty
+			    		$(this).parent().hide();
+			    }
+		});
+
+		$('.templateTextarea').children('.ax1-textarea').each(function () {
+			
+		    	//Hide empty fields
+			    if($(this).text() != "" && $(this).text() != undefined && $(this).text() != "undefined" && $(this).text() != " "){
+			    		//Do nothing
+			    }
+			    else{ //This field is empty
+			    		$(this).parent().hide();
+			    }
+		});
+
+		$('.templateSelect').children('.ax1-select').each(function () {
+			
+		    	//Hide empty fields
+			    if($(this).text() != "" && $(this).text() != undefined && $(this).text() != "undefined" && $(this).text() != " "){
+			    		//Do nothing
+			    }
+			    else{ //This field is empty
+			    		$(this).parent().hide();
+			    }
+		});
+
+		$('.templateDate').children('.ax1-date').each(function () {
+			
+		    	//Hide empty fields
+			    if($(this).text() != "" && $(this).text() != undefined && $(this).text() != "undefined" && $(this).text() != " "){
+			    		//Do nothing
+			    }
+			    else{ //This field is empty
+			    		$(this).parent().hide();
+			    }
+		});
+		/*
+		$('.templateFile > iframe').on("load", function () {
+			var iframeBodyContent = $(this).contents().find("body").text().trim();
+			var iframeBody = $(this).contents().find("body");
+			iframeBody.find("div img").css("max-width","80%");
+			//Hide empty fields
+			console.log(iframeBodyContent);
+			if(iframeBodyContent != "" && iframeBodyContent != " " && iframeBodyContent != " "){
+				//Do nothing
+			}
+			else{ //This field is empty
+				$(this).parent().appendTo(".hiddenFormRows");
+			}
+		});
+		*/
+
+		setRowColors();
+
+	}
+}
+
+var hideEmptyBottomButtonSpans = function(){
+	if($('.templateAddButtonContainer').children().length == 0){
+		$('.templateAddButtonContainer').hide();
+	}
+
+	if($('.templateEditButtonContainer').children().length == 0){
+		$('.templateEditButtonContainer').hide();
+	}
+}
+
+$(".toggleEmptyFieldVisibility").click(function(){
+	toggleEmptyFieldVisibility();
+});
+
+
+
+hideEmptyBottomButtonSpans();
+
+if (document.createStyleSheet){
+	document.createStyleSheet("templates/mskihc_preparation.css");
+}
+else{
+//	DISABLED because there's a delay - putting it at the top of this template instead
+// ...BUT THEN ENABLED because the h1 and "show/hide" button get messed up during page load without this
+// ...And disabled again
+//	$("head").append('<link rel="stylesheet" type="text/css" href="templates/mskihc_preparation.css?<%=jsRev%>" />'); 
+}
+
+$("#contentDiv").hide();
+var jsodjfoaisdjfsd = setTimeout(function(){
+$("#contentDiv").show();
+},40);
+
+});
+</script>

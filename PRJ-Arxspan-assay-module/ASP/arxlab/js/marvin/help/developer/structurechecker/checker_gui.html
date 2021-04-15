@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel ="stylesheet" type="text/css" href="../../structurechecker.css">
+<title>Structure Checker Developer's Guide - Tutorial</title>
+</head>
+<body>
+
+<h1>Structure Checker Developer's Guide - Create Graphical User Interface for Checker Options </h1>
+<table>
+	<tr>
+		<td width="30%"> <font color="blue">&larr;</font> <a href="custom_checker.html">Implementing a new Structure Checker</a></td>
+		<td width="30%"><font color="blue">&uarr;</font> <a href="checker.html">Structure Checker Developer's Guide</a></td>
+		<td width="30%"><a href="custom_fixer.html">Creating Fixers for the new Checker</a> <font color="blue">&rarr;</font></td>
+		
+	</tr>
+</table>
+
+<h2>Contents</h2>
+<ul>
+	<li><a href="#editorclass">Create an editor class</a></li>
+	<li><a href="#bind">Bind the editor to the checker</a></li>
+	<li><a href="#ready">Ready to edit</a></li>
+</ul>
+
+<h2>Create Graphical User Interface for Checker Options</h2>
+<p>
+To support checker configuration from GUI, an editor is required. We are going to create a simple 
+editor with three radio buttons to set the preferred behavior. The options will be &quot;Reactant Side&quot;, 
+&quot;Product Side&quot;, and &quot;Both Sides&quot; respectively. The class is placed to the same package as the checker 
+class is.
+</p>
+<h3><a id="editorclass"></a>Create an editor class</h3>
+<p>
+Extend the <code>DefaultCheckerEditor</code> class, create a <code>JPanel</code> with some 
+<code>JRadioButton</code> instances, and bind the radio buttons to the <code>Checker</code> instance.</p>
+<p>
+Overriding <code>getCustomComponent</code> method will add the <code>JPanel</code> to the editor, 
+while <code>getEditorComponent</code> sets up the editor to represent the passed Checker’s state. 
+Changing the radio buttons will alter the state of the Checker.
+
+</p>
+<p> 
+Download the <a href="custom.zip">example</a> and find "DuplicateAtomMapCheckerEditor.java". 
+<pre>
+    <span class="keyword">public class</span> DuplicateAtomMapCheckerEditor <span class="keyword">extends</span> DefaultCheckerEditor {
+
+        <span class="doccomment">/** the main component */</span>
+        <span class="keyword">private</span> JPanel <span class="static">mainPanel</span> = <span class="keyword">null</span>;
+
+        <span class="doccomment">/** radio button for reactant only */</span>
+        <span class="keyword">private</span> JRadioButton <span class="static">reactantRadio</span> = <span class="keyword">null</span>;
+
+        <span class="doccomment">/** radio button for product only */</span>
+        <span class="keyword">private</span> JRadioButton <span class="static">productRadio</span> = <span class="keyword">null</span>;
+
+        <span class="doccomment">/** radio button for both */</span>
+        <span class="keyword">private</span> JRadioButton <span class="static">bothRadio</span> = <span class="keyword">null</span>;
+
+        <span class="doccomment">/** the checker instance being edited */</span>
+        <span class="keyword">private</span> DuplicateAtomMapChecker <span class="static">checker</span> = <span class="keyword">null</span>;
+
+        <span class="doccomment">/**
+         * Constructs an editor component for duplicate atom map checker.
+         */</span>
+        <span class="keyword">public</span> DuplicateAtomMapCheckerEditor() {
+            ButtonGroup group = <span class="keyword">new</span> ButtonGroup();
+            group.add(getReactantRadio());
+            group.add(getProductRadio());
+            group.add(getBothRadio());
+        }
+		
+        <span class="annotation">@Override</span>
+        <span class="keyword">protected</span> Component getCustomComponent() {
+            <span class="keyword">if</span> (<span class="static">mainPanel</span> == <span class="keyword">null</span>) {
+
+                <span class="linecomment">// create a panel and set up a layout</span>
+                <span class="static">mainPanel</span> = <span class="keyword">new</span> JPanel();
+                <span class="static">mainPanel</span>.setLayout(<span class="keyword">new</span> BoxLayout(<span class="static">mainPanel</span>, BoxLayout.<span class="static">Y_AXIS</span>));
+
+                <span class="linecomment">// add control components</span>
+                <span class="static">mainPanel</span>.add(getReactantRadio());
+                <span class="static">mainPanel</span>.add(getProductRadio());
+                <span class="static">mainPanel</span>.add(getBothRadio());
+
+                <span class="linecomment">// set up some design</span>
+                <span class="static">mainPanel</span>.setBackground(Color.<span class="static">WHITE</span>);
+                <span class="static">mainPanel</span>.setBorder(BorderFactory.createLineBorder(Color.<span class="static">BLACK</span>));
+
+            }
+            <span class="keyword">return</span> <span class="static">mainPanel</span>;
+        }
+
+        <span class="annotation">@Override</span>
+        <span class="keyword">public</span> JComponent getEditorComponent(StructureChecker checker) {
+            <span class="keyword">if</span> (checker <span class="keyword">instanceof</span> DuplicateAtomMapChecker) {
+                <span class="keyword">this</span>.<span class="static">checker</span> = (DuplicateAtomMapChecker) checker;
+                <span class="keyword">switch</span> (<span class="keyword">this</span>.<span class="static">checker</span>.getReactionSide()) {
+                <span class="keyword">case</span> <span class="static">REACTANT</span>:
+                    getReactantRadio().setSelected(true</span>);
+                    <span class="keyword">break</span>;
+                <span class="keyword">case</span> <span class="static">PRODUCT</span>:
+                    getProductRadio().setSelected(true</span>);
+                    <span class="keyword">break</span>;
+                <span class="keyword">case</span> <span class="static">BOTH</span>:
+                <span class="keyword">default</span>:
+                    getBothRadio().setSelected(true</span>);
+                    <span class="keyword">break</span>;
+                }
+            } <span class="keyword">else</span> {
+                <span class="keyword">this</span>.<span class="static">checker</span> = <span class="keyword">null</span>;
+            }
+            <span class="keyword">return super</span>.getEditorComponent(<span class="keyword">this</span>.<span class="static">checker</span>);
+        }
+
+        <span class="doccomment">/**
+         * Initializes and returns the radio button for reactant only selection.
+         * 
+         * @return the radio button for reactant only selection
+         */</span>
+        <span class="keyword">private</span> JRadioButton getReactantRadio() {
+            <span class="keyword">if</span> (<span class="static">reactantRadio</span> == <span class="keyword">null</span>) {
+                <span class="static">reactantRadio</span> = <span class="keyword">new</span> JRadioButton(<span class="static">"Search in reactants"</span>);
+                <span class="static">reactantRadio</span>.addActionListener(<span class="keyword">new</span> ActionListener() {
+
+                    <span class="annotation">@Override</span>
+                    <span class="keyword">public void</span> actionPerformed(ActionEvent e) {
+                        <span class="keyword">if</span> (<span class="static">reactantRadio</span>.isSelected()) {
+                            <span class="static">checker</span>.setReactionSide(ReactionSide.<span class="static">REACTANT</span>);
+                        }
+                    }
+                });
+            }
+            <span class="keyword">return</span> <span class="static">reactantRadio</span>;
+        }
+
+        <span class="doccomment">/**
+         * Initializes and returns the radio button for product only selection.
+         * 
+         * @return the radio button for product only selection
+         */</span>
+        <span class="keyword">private</span> JRadioButton getProductRadio() {
+            <span class="keyword">if</span> (<span class="static">productRadio</span> == <span class="keyword">null</span>) {
+                <span class="static">productRadio</span> = <span class="keyword">new</span> JRadioButton(<span class="static">"Search in products"</span>);
+                <span class="static">productRadio</span>.addActionListener(<span class="keyword">new</span> ActionListener() {
+
+                    <span class="annotation">@Override</span>
+                    <span class="keyword">public void</span> actionPerformed(ActionEvent e) {
+                        <span class="keyword">if</span> (<span class="static">productRadio</span>.isSelected()) {
+                            <span class="static">checker</span>.setReactionSide(ReactionSide.<span class="static">PRODUCT</span>);
+                        }
+                    }
+                });
+
+            }
+            <span class="keyword">return</span> <span class="static">productRadio</span>;
+        }
+
+        <span class="doccomment">/**
+         * Initializes and returns the radio button for both selection.
+         * 
+         * @return the radio button for both selection
+         */</span>
+        <span class="keyword">private</span> JRadioButton getBothRadio() {
+            <span class="keyword">if</span> (<span class="static">bothRadio</span> == <span class="keyword">null</span>) {
+                <span class="static">bothRadio</span> = <span class="keyword">new</span> JRadioButton(<span class="static">"Search in reactants and products"</span>);
+                <span class="static">bothRadio</span>.addActionListener(<span class="keyword">new</span> ActionListener() {
+
+                    <span class="annotation">@Override</span>
+                    <span class="keyword">public void</span> actionPerformed(ActionEvent e) {
+                        <span class="keyword">if</span> (<span class="static">bothRadio</span>.isSelected()) {
+                            <span class="static">checker</span>.setReactionSide(ReactionSide.<span class="static">BOTH</span>);
+                        }
+                    }
+                });
+
+            }
+            <span class="keyword">return</span> <span class="static">bothRadio</span>;
+        }
+    
+    }
+</pre>
+</p>
+<h3><a id="bind"></a>Bind the editor to the checker</h3>
+<p>The new editor can be attached to the checker by adding a new option to the <code>@CheckerInfo</code> 
+annotation in <code>DuplicateAtomMapChecker</code> class.
+</p>
+<p>
+<pre>
+    <span class="annotation">@CheckerInfo</span>(
+            name = <span class="static">"Duplicate Atom Map Checker"</span>,
+            description = <span class="static">"Checks for mapping duplicates in a reaction."</span>,
+            editorClassName = <span class="static">"custom.checkers.DuplicateAtomMapCheckerEditor"</span>,
+            noErrorMessage = <span class="static">"No duplicate mappings found"</span>,
+            moreErrorMessage = <span class="static">"duplicate mappings found"</span>,
+            actionStringToken = <span class="static">"duplicateatommap"</span>)
+</pre>
+</p>
+<p>
+Create a new JAR file, and export both <code>DuplicateAtomMapChecker</code> and 
+<code>DuplicateAtomMapCheckerEditor</code> classes.
+Replace the previously generated JAR file with this one. Overwrite the <em>duplicateatommapchecker.jar</em> 
+in <em>home/MyCustomCheckers</em> folder.
+</p>
+<h3><a id="ready"></a>Ready to edit</h3>
+<p>The new editor is available and works in all Structure Checker related ChemAxon products.<br />
+<img src="images/editor.png" width="553" height="128" alt="">
+</p>
+
+<table>
+	<tr>
+		
+		<td width="30%"> <font color="blue">&larr;</font> <a href="custom_checker.html">Implementing a new Structure Checker</a></td>
+		<td width="30%"><font color="blue">&uarr;</font> <a href="checker.html">Structure Checker Developer's Guide</a></td>	
+		<td width="30%"><a href="custom_fixer.html">Creating Fixers for the new Checker</a> <font color="blue">&rarr;</font></td>
+	</tr>
+</table>
+
+<div class="lenia">&nbsp;</div>
+
+<h2><a class="anchor" name="links"></a>Links</h2>
+
+<p>
+	<a href="checker.html">Structure Checker Developer's Guide</a><br>
+	<a href="../../structurechecker/checkerlist.html">List of available checkers</a><br>
+	<a href="https://www.chemaxon.com/jchem/doc/user/structurechecker.html">Structure Checker GUI</a><br>
+	<a href="https://www.chemaxon.com/jchem/doc/user/structurecheck_cline.html"><code>structurecheck</code> Command Line Application</a><br>
+	<a href="../../structurechecker/checker.html">Structure Checker in MarvinSketch</a>
+</p>
+
+<div class="lenia">&nbsp;</div>
+
+</body>
+</html>
