@@ -5,7 +5,7 @@ vagrant halt
 vagrant destroy -f
 ```
 
-###CREATE PRJ-Arxspan-assay-module folder and PUT ASP folder inside it
+### PUT ASP folder to root folder project
 
 
 SAPWD="#SAPassword!"
